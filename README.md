@@ -7,7 +7,7 @@ IdeaFlux scrapes and summarizes comments of top subrredits of your choice by sel
 - Then this process repeats recursively until reaching the leaf node.
 
 Also IdeaFlux generates the graphic visualization of the comment network, giving an overall idea of how the conversation of a particular topic is being branched out.
-
+![alt text](https://github.com/C-opt/idea_flux/blob/master/data/r18rjz.png?raw=true)
 Additionally, IdeaFlux gives a conversation engagement score for each topic posted and niftly list it up in an Excel file. 
 ## Dependencies
 - networkx
