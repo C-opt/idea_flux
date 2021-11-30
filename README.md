@@ -6,7 +6,7 @@ IdeaFlux scrapes and summarizes comments of top subrredits of your choice by sel
 - Then this parent comment will select the most prosperous child node, then outputs it in a text file once again;
 - Then this process repeats recursively until reaching the leaf node.
 
-The text file should look something like this
+The text file should look like something like this
 
 ```
 Title:[D] What are your long term career goals ? 10+ years
