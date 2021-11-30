@@ -1,0 +1,51 @@
+Title:[D] Regarding PhD admissions in ML, how much will not having a first-authored publication hold me back?
+URL: https://www.reddit.com/r/MachineLearning/comments/r0428v/d_regarding_phd_admissions_in_ml_how_much_will/
+Title is the question. I'm graduating with a master's in CS and don't have a first-authored publication. My undergraduate wasn't in CS so I pretty much learned how to actually code when I started my master's. I managed to get my name on 3 conference proceedings and 1 preprint, and also helped our lab's team win an award in a large ML competition recently, but alas I don't have a first-authored publication.
+
+I recently attended a conference and talked with some PhD students there and many of them said that it's pretty much a red flag in this day and age if a PhD applicant doesn't have a first-authored paper. I'm wondering how much truth there is to this? Obviously having one would be the best scenario, but how much would not having one hold me back?
+
+Thanks.
+----------TITLE----------
+Topic engagement score: 3.918918918918919
+----------------------------------------
+Comment ID: hlq9upf
+Comment score: 35
+Comment body: A "red flag"? LOL
+
+If they are saying that, I don't think they know what a first-authored publication means or they are just overconfident (which there is a lot of).
+
+Once you get into a PhD program, you are basically going to be doing a masters again and then work on your dissertation. There are people that apply straight from undergrad or with some experience, so you'd be ranked higher than most of them already. You need to focus on your package, though.
+----------------------------------------
+Comment ID: hlqpcq1
+Comment score: 21
+Comment body: > Once you get into a PhD program, you are basically going to be doing a masters again and then work on your dissertation.
+
+I think this only applies to the US. (Altho OP probably is talking about US universities).
+----------------------------------------
+Comment ID: hlqpxbs
+Comment score: 20
+Comment body: yes, in Europe the PhD requires a Master's
+----------------------------------------
+Comment ID: hlr03ut
+Comment score: 17
+Comment body: At least in the UK it's not necessary.
+----------------------------------------
+Comment ID: hlr2tba
+Comment score: 16
+Comment body: You guys are no longer European (Union)
+----------------------------------------
+Comment ID: hlr9v2d
+Comment score: 15
+Comment body: Still Europe, whether you like it or not.
+----------------------------------------
+Comment ID: hlrajdb
+Comment score: 9
+Comment body: Everyone uses Europe == EU like America == US, so no need to be hostile just for the sake of it.
+----------------------------------------
+Comment ID: hlrc8kt
+Comment score: 3
+Comment body: I disagree. UK, Norway and Switzerland are Europe. The fact that some people consider America is USA is just equally wrong. I know it's unpopular, but it doesn't make it less true.
+----------------------------------------
+Comment ID: hlrhp0e
+Comment score: 1
+Comment body: Whether it's factually true or not doesn't matter. People use it that way and understand what is meant.

@@ -1,0 +1,35 @@
+Title:[D] Simple Questions Thread
+URL: https://www.reddit.com/r/MachineLearning/comments/qyxxcs/d_simple_questions_thread/
+Please post your questions here instead of creating a new thread. Encourage others who create new posts for questions to post here instead!
+
+Thread will stay alive until next one so keep posting after the date in the title.
+
+Thanks to everyone for answering questions in the previous thread!
+----------TITLE----------
+Topic engagement score: 1.9444444444444444
+----------------------------------------
+Comment ID: hmmzmn2
+Comment score: 6
+Comment body: Looking for info about an architecture which takes into account data from a sequence of images (ie. A video...) And uses it when doing image segmentation.
+In theory i am thinking of "nerrowing down the search" for the area (and "size"?) where the objects where in the last frame... 
+Looked around but o keep finding ROI tracking approaches and not segmentation
+
+
+Thanks for any pointers :)
+----------------------------------------
+Comment ID: hmn4enp
+Comment score: 5
+Comment body: you can just use 3D convolutions instead of 2D?
+----------------------------------------
+Comment ID: hmn9oap
+Comment score: 4
+Comment body: I thought of that too but i didn't find anyone using 3d for this - so I'm not sure..
+I'll definitely try and update :)
+----------------------------------------
+Comment ID: hmnfqzm
+Comment score: 3
+Comment body: Dude, that's what 3D convolutions are FOR. See here for example: [https://pytorchvideo.readthedocs.io/en/latest/api/models/resnet.html](https://pytorchvideo.readthedocs.io/en/latest/api/models/resnet.html)
+----------------------------------------
+Comment ID: hmng9lo
+Comment score: 1
+Comment body: I also thought i heard something about them being useful for 3D models, confocal imaging and so on..
