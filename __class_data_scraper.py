@@ -226,7 +226,6 @@ class DataScraper():
         self.save_df(self.save_dir+"topics_df.h5", topics_df)
         return 
 
-
 def parser():
     parser = argparse.ArgumentParser(description="Data scraper using praw")
 
