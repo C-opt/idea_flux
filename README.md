@@ -15,7 +15,16 @@ Additionally, IdeaFlux gives a conversation engagement score for each topic post
 - requests
 ## Usage
 - First of all, you need a reddit account
-- Then you are going to need 
+- Then you are going to need to create an app within reddit to get the OAuth2 keys to access the API For more info on that matter, see https://www.storybench.org/how-to-scrape-reddit-with-python/. It is easier than you might think.
+- After that, you need to generate a yaml file (login.yaml) with your credentials for the application. You can easily do that using tools such as https://codebeautify.org/yaml-editor-online. 
+```
+login: 
+    client_id: API client ID
+    client_secret: API client secret
+    user_agent: API name
+    username: your reddit username
+    password: your reddit password
+```
 - For scraping reddit data
 ```
 python3 __class_data_scrapper.py --login_yaml_fp login.yaml --subrredit MachineLearning --save_dir data/ --top_num_posts 10
@@ -29,3 +38,7 @@ python3 __class_graph_analysis.py --h5_dir data/ --res_dir data/ --topics_df_fp 
 ```
 python3 main.py 
 ```
+## Resources
+- https://pythonprogramming.net/parsing-comments-python-reddit-api-wrapper-praw-tutorial/
+- https://towardsdatascience.com/visualizing-networks-in-python-d70f4cbeb259
+- https://www.storybench.org/how-to-scrape-reddit-with-python/
