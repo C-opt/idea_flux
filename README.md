@@ -92,7 +92,7 @@ IdeaFlux gauges how a given topic is generating conversation by calculating "use
 
 The calculation of it is fairly simple: it is the average of the number of descendants of all nodes. 
 
-That should give a number between 0 and n, where n is the number of comments of a given topic.
+That should give a number between 0 and n, where n is the number of comments of a given topic. Why do it like that? Read on the next section.
 ### Motivation & Analysis
 Given a fixed number of comments, how can we measure the conversation engagement of a given topic? That is, given a fixed n, how can we measure the branching factor of different comments graphs?
 
