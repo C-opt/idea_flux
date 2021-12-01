@@ -4,7 +4,7 @@ IdeaFlux is a Reddit comments summarization tool using praw & Networkx. It uses 
 In a nutshell, it summarizes comments of top subrredits of your choice by selecting which comment generated most comments: 
 - The root node is the topic itself and it greedly selects the most "prosperous" comment, then outputs it in a text file;
 - Then this parent comment will select the most prosperous child node, then outputs it in a text file once again;
-- Then this process repeats recursively until reaching the leaf node.
+- Then this process is repeated recursively until it reaches the leaf node.
 
 The text file should look like something like this
 
