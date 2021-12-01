@@ -80,7 +80,13 @@ python3 __class_graph_analysis.py --h5_dir data/ --res_dir data/ --topics_df_fp 
 ```
 python3 main.py 
 ```
+## Topic engagement score
+### Description 
+IdeaFlux gauges how a given topic is generating conversation by calculating "topic engagement score". The higher this number is, the more engaged the comments section. 
 
+The calculation of it is fairly simple: it is the average of the number of descendants of all nodes. 
+
+That should give a number between 0 and n, where n is the number of comments of a given topic.
 ## Resources
 - https://pythonprogramming.net/parsing-comments-python-reddit-api-wrapper-praw-tutorial/
 - https://towardsdatascience.com/visualizing-networks-in-python-d70f4cbeb259
