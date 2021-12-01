@@ -6,7 +6,7 @@ In a nutshell, it summarizes comments of top subrredits of your choice by select
 - Then this parent comment will select the most prosperous child node, then outputs it in a text file once again;
 - Then this process is repeated recursively until it reaches the leaf node.
 
-The text file should look like something like this
+The outputted text file should look like something like this
 
 ```
 Title:[D] What are your long term career goals ? 10+ years
