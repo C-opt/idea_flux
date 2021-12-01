@@ -69,15 +69,19 @@ login:
     username: your reddit username
     password: your reddit password
 ```
-- For scraping reddit data
+- Then you scrap comments from currently 10 "hottest" topics from your favorite subrredit and save it as {topic_id}.h5 file in data/ 
 ```
 python3 __class_data_scrapper.py --login_yaml_fp login.yaml --subrredit MachineLearning --save_dir data/ --top_num_posts 10
 ```
 
-- For analyzing scrapped data
+- And finally, you read the .h5 files and output the results in res_dir
 ```
 python3 __class_graph_analysis.py --h5_dir data/ --res_dir data/ --topics_df_fp data/topics_df.h5
 ```
+The outputs are 
+1. comments summary text files for each h5 file
+2. the graph corresponding to each h5
+3. topics_df.xlsx, which contains the summary of all topics in h5_dir
 - For scraping then analyzing it, then simply
 ```
 python3 main.py 
