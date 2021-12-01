@@ -82,7 +82,7 @@ The outputs are
 1. comments summary text files for each h5 file
 2. the graph corresponding to each h5
 3. topics_df.xlsx, which contains the summary of all topics in h5_dir
-- For scraping then analyzing it, then simply
+- For automatizing data scraping and analyzing it, then simply
 ```
 python3 main.py 
 ```
