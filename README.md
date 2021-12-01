@@ -47,9 +47,11 @@ in a couple decades I'm guessing 99% of ML work will just be calling `fit_non_li
 
 Also IdeaFlux generates the graphic visualization of the comment network, giving an overall idea of how the conversation of a particular topic is being branched out.
 
-<img src="https://github.com/C-opt/idea_flux/blob/master/data/r18rjz.png?raw=true" width=50% height=50%>
+<img src="https://github.com/C-opt/idea_flux/blob/master/data/r18rjz.png?raw=true" width=75% height=75%>
 
-Additionally, IdeaFlux gives a topic engagement score for each topic posted and niftly list it up in an Excel file. How this score is calculated, and its mathematical analysis is further discussed in the section "topic engagement score". 
+Additionally, IdeaFlux gives a user engagement score for each topic posted and niftly list it up in an Excel file. How this score is calculated, and its mathematical analysis is further discussed in the section "user engagement score". 
+
+<img src="https://github.com/C-opt/idea_flux/blob/master/data/topics_df.jpg?raw=true" width=100% height=100%>
 
 ## Dependencies
 - networkx
@@ -80,9 +82,9 @@ python3 __class_graph_analysis.py --h5_dir data/ --res_dir data/ --topics_df_fp 
 ```
 python3 main.py 
 ```
-## Topic engagement score
+## User engagement score
 ### Description 
-IdeaFlux gauges how a given topic is generating conversation by calculating "topic engagement score". The higher this number is, the more engaged the comments section. 
+IdeaFlux gauges how a given topic is generating conversation by calculating "user engagement score". The higher this number is, the more engaged the comments section. 
 
 The calculation of it is fairly simple: it is the average of the number of descendants of all nodes. 
 
