@@ -60,7 +60,7 @@ Additionally, IdeaFlux gives a user engagement score for each topic posted and n
 ## Usage
 - First of all, you need a reddit account
 - Then you are going to need to create an app within reddit to get the OAuth2 keys to access the API. For more info on that matter, see the section "The Reddit API" on https://www.storybench.org/how-to-scrape-reddit-with-python/. Generating the keys is easier than you might think.
-- After that, you need to generate a yaml file (login.yaml) with your credentials for the application. You can easily do that using tools such as https://codebeautify.org/yaml-editor-online. The file should follow the template below:
+- After that, you need to generate a yaml file (login.yaml) with your credentials for the application then place it in project's root directory. You can easily do that using tools such as https://codebeautify.org/yaml-editor-online. The file must follow the template below:
 ```
 login: 
     client_id: API client ID
