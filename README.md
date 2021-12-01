@@ -40,19 +40,9 @@ As ML matures, it'll be just another standard software tool (like linear regress
 I think the video compression analogy is a good one.  Back in the late 1990's many companies (Sony, RealNetworks, C-Cube, etc)  had video compression PhDs tweaking algorithms in the same way we tweak DL models today.  Like ML, video compression involved heavy math and similar tradeoffs of computation-vs-accuracy.    Today, 99.9% of software engineers dealing with video neither know nor care about the math behind H.265.  Sure there a still a couple companies that hire a couple PhDs working on successors to H.266/MPEG-5; and a couple university guys playing with wavelet transforms.
 
 in a couple decades I'm guessing 99% of ML work will just be calling `fit_non_liner_curve(my_data)`, and the libraries themselves will pick a reasonable architecture/model/hyperparameters/etc for the data; in much the same way we call `compress_my_video(frames)` today and it picks reasonable algorithms and default parameters for us.   Sure there'll still be PhDs working with Nvidia on future tweaks to tensor cores; and university PhDs writing papers on slightly differently curved activation functions.   But I think there'll be even fewer of those jobs than there are today.
-----------------------------------------
-Comment ID: hlz5wqj
-Comment score: 3
-Comment body: Video compression has a well defined single goal, keep quality high while reducing data transfer. The idea that you can have a one-size fits all algo for ML stuff is almost laughable. Probably things like object detection will be commoditized, there I agree with you, but we have barely begun to scratch the surface for how to apply these new ML techniques to almost any field.
-----------------------------------------
-Comment ID: hm0kx2i
-Comment score: 1
-Comment body: > have a one-size fits all algo for ML stuff is almost laughable
-
-
-A lot of it can be reduced to "fit these data points to these non-linear curves efficiently".
-
-Sure, there are some optimizations for differently shaped inputs --- pictures are rectangles of small numbers; paragraphs are long lines of bigger integers --- but as good-enough optimizations for each are found and hardware gets faster, even those differences won't matter as much.
+...
+[text file continues]
+...
 ```
 
 
