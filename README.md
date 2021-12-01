@@ -45,11 +45,12 @@ in a couple decades I'm guessing 99% of ML work will just be calling `fit_non_li
 ...
 ```
 
-
-
 Also IdeaFlux generates the graphic visualization of the comment network, giving an overall idea of how the conversation of a particular topic is being branched out.
-![alt text](https://github.com/C-opt/idea_flux/blob/master/data/r18rjz.png?raw=true)
+
+<img src="https://github.com/C-opt/idea_flux/blob/master/data/r18rjz.png?raw=true" width=50% height=50%>
+
 Additionally, IdeaFlux gives a conversation engagement score for each topic posted and niftly list it up in an Excel file. 
+
 ## Dependencies
 - networkx
 - praw
@@ -79,6 +80,7 @@ python3 __class_graph_analysis.py --h5_dir data/ --res_dir data/ --topics_df_fp 
 ```
 python3 main.py 
 ```
+
 ## Resources
 - https://pythonprogramming.net/parsing-comments-python-reddit-api-wrapper-praw-tutorial/
 - https://towardsdatascience.com/visualizing-networks-in-python-d70f4cbeb259
