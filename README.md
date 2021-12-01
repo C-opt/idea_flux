@@ -45,7 +45,7 @@ in a couple decades I'm guessing 99% of ML work will just be calling `fit_non_li
 ...
 ```
 
-Also IdeaFlux generates the graphic visualization of the comment network, giving an overall idea of how the conversation of a particular topic is being branched out.
+Also IdeaFlux generates a graphic visualization of the comment network, giving an overall idea of how the conversation of a particular topic is being branched out.
 
 <img src="https://github.com/C-opt/idea_flux/blob/master/data/r18rjz.png?raw=true" width=75% height=75%>
 
