@@ -87,6 +87,13 @@ IdeaFlux gauges how a given topic is generating conversation by calculating "top
 The calculation of it is fairly simple: it is the average of the number of descendants of all nodes. 
 
 That should give a number between 0 and n, where n is the number of comments of a given topic.
+### Motivation & Analysis
+Given a fixed number of comments, how can we measure the conversation engagement of a given topic? That is, given a fixed n, how can we measure the branching factor of different comments graphs?
+
+Let's illustrate it with two examples with n = 5
+- Sun-like graph
+- Queue graph
+
 ## Resources
 - https://pythonprogramming.net/parsing-comments-python-reddit-api-wrapper-praw-tutorial/
 - https://towardsdatascience.com/visualizing-networks-in-python-d70f4cbeb259
