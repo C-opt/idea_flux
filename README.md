@@ -49,7 +49,7 @@ Also IdeaFlux generates the graphic visualization of the comment network, giving
 
 <img src="https://github.com/C-opt/idea_flux/blob/master/data/r18rjz.png?raw=true" width=50% height=50%>
 
-Additionally, IdeaFlux gives a conversation engagement score for each topic posted and niftly list it up in an Excel file. 
+Additionally, IdeaFlux gives a topic engagement score for each topic posted and niftly list it up in an Excel file. How this score is calculated, and its mathematical analysis is further discussed in the section "topic engagement score". 
 
 ## Dependencies
 - networkx
