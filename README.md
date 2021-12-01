@@ -103,7 +103,6 @@ Let's illustrate it with two examples with n = 5
 ## Common issues
 - Comments scrapping might take some time depending on which subreddit you want to scrap (MachineLearning = fast; askreddit = very slow);
 - Opening the comments graph (the html file) might take some time for >500 of comments.
-- 
 
 ## Resources
 - https://pythonprogramming.net/parsing-comments-python-reddit-api-wrapper-praw-tutorial/
