@@ -1,5 +1,5 @@
 # IdeaFlux
-IdeaFlux is a Reddit comments summarization tool using praw & Networkx. It uses the comments structure of Reddit (comments of comments of comments of [...]) for greedily selecting a single thread that seems to be the most interesting in terms of conversation engagement. 
+IdeaFlux is a Reddit comments summarization tool using praw & Networkx. It uses the comments structure of Reddit (comments of comments of comments of ...) for greedily selecting a single thread that seems to be the most interesting in terms of conversation engagement. 
 ## Description
 In a nutshell, IdeaFlux summarizes comments of top subrredits of your choice by selecting which comment generated most comments: 
 - The root node is the topic itself and it greedly selects the most "prosperous" comment, then outputs it in a text file;
