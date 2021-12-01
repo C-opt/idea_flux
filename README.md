@@ -53,8 +53,9 @@ Additionally, IdeaFlux gives a user engagement score for each topic posted and n
 
 <img src="https://github.com/C-opt/idea_flux/blob/master/data/topics_df.jpg?raw=true" width=100% height=100%>
 
-## Dependencies
-- networkx
+## Main dependencies
+- python 3.7
+- networkx 
 - praw
 - requests
 ## Usage
