@@ -57,7 +57,7 @@ Additionally, IdeaFlux gives a conversation engagement score for each topic post
 - requests
 ## Usage
 - First of all, you need a reddit account
-- Then you are going to need to create an app within reddit to get the OAuth2 keys to access the API For more info on that matter, see https://www.storybench.org/how-to-scrape-reddit-with-python/. It is easier than you might think.
+- Then you are going to need to create an app within reddit to get the OAuth2 keys to access the API. For more info on that matter, see https://www.storybench.org/how-to-scrape-reddit-with-python/. It is easier than you might think.
 - After that, you need to generate a yaml file (login.yaml) with your credentials for the application. You can easily do that using tools such as https://codebeautify.org/yaml-editor-online. 
 ```
 login: 
