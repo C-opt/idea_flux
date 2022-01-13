@@ -47,7 +47,7 @@ in a couple decades I'm guessing 99% of ML work will just be calling `fit_non_li
 
 Also IdeaFlux generates a graphic visualization of the comment network, giving an overall idea of how the conversation of a particular topic is being branched out.
 
-<img src="https://github.com/C-opt/idea_flux/blob/master/data/r18rjz.png?raw=true" width=90% height=75%>
+<img src="https://github.com/C-opt/idea_flux/blob/master/github_data/rzq9dc.png?raw=true" width=90% height=75%>
 
 Additionally, IdeaFlux gives a user engagement score for each topic posted and niftly list it up in an Excel file. How this score is calculated, and its mathematical analysis is further discussed in the section "user engagement score". 
 
