@@ -10,48 +10,36 @@ In a nutshell, IdeaFlux summarizes comments of top posts of subreddits of your c
 The outputted text file should look like something like this
 
 ```
-Title:After 4 interviews, rejected for eating a cornflake.
-URL: https://www.reddit.com/r/recruitinghell/comments/rzq9dc/after_4_interviews_rejected_for_eating_a_cornflake/
-I've had 4 interviews at this place. At the last one, with some of the seniors, I've arrived on time. I've waited in the kitchen, and they just casually chatted while making a toast. 
-
-You can sense they're two goofballs. After a while, I joined them since it was just weird and they offered me to get something to eat. I wasn't really familiar with the kitchen but I saw a cornflakes dispenser and I put some in a disposable cup.
-
-They then said, great let's go to the interview. We do it very casually, we laugh a lot, and say our goodbyes.
-
-I now recieved a phone call that I didn't get in because I took 3-4 cornflakes while we were there. It's a hightech job. I knew all the technical questions and was told by the HR that that's what they said.
-
-What do you think? Was this justified? I get that it would seem like an unusual situation but it was their idea to get it and it felt a lot like a casual get-to-know-you chat.
-
-Thanks ahead!
-
-UPDATE and EDIT:
-
-* the interview was not in the kitchen, I waited in the kitchen while the manager made himself a toast which he ate in the kitchen. This is well after we should’ve met. The interview was in a meeting room. 
-* they sort of insisted I take something from the kitchen and the cornflakes were closest, so I took it.
-* I’m not supposed to know that it’s the cornflakes, I was told that in confidence by the middleman HR company 
-* curious, I just called them to see what they have to say, since everything went so well. She told me “I’ll talk to everyone who interviewed you along the way and get back to you”
-* I ask for less than the market usually pays for this job since I’m not as experienced. I asked them to talk over if it’s a money issue to which she said that shouldn’t be a problem, and if it would be, we could discuss something that works.
+Title:Recruiters of Reddit, why are you always looking for a unicorn candidate?
+URL: https://www.reddit.com/r/recruitinghell/comments/s02lqa/recruiters_of_reddit_why_are_you_always_looking/
+This is going to be the same on the side of a job candidate. You can find a job that you love but there's still going to be some things that you don't like about it nothing is 100% perfect. Perfection is an unrealistic expectation and I don't understand why employers X out pretty much everyone, And not to mention all the stress and pressure They put a job candidate under in the interview. I feel there is the worst candidate, A good candidate, And the best candidate but there is no unicorn candidate that can do everything and have everything that you want. As everyone else is saying employers are offering very low wages for jobs They need to fill. I'm talking about skilled positions. I for in, for instance,stance have specific experience in the construction industry and I've been applying to jobs the postings I've seen list all the credentials that I have but the pay is so low it's Ridiculous. I feel like pay should be dependent on experience and there should be an open negotiation there shouldn't be just a flat rate salary or Hourly wage on the posting.
 ----------TITLE----------
-Topic engagement score: 3.3808695652173912
+Topic engagement score: 7.489690721649485
 ----------------------------------------
-Comment ID: hrwmqch
-Comment score: 146
-Comment body: Yup. Crappy HR trap. I’m not HR but in my last position I used to do some interviews. I was once forced to reject a candidate because when I offered something to drink she asked for a Coke…
-
-Apparently, according to the HR nut job, if you ask for a Coke you don’t care about yourself therefore you won’t care about your job.
-
-Also, I remember a candidate being invited to join us to the company lunch before Christmas. Rejected for overconfidence.
+Comment ID: hrz1v5s
+Comment score: 66
+Comment body: The desire to have “unicorn” candidates comes from the hiring manager, not the recruiter.  Recruiters are simply seeking out the type of candidate a hiring manager has asked for.
 ----------------------------------------
-Comment ID: hrwofkz
-Comment score: 27
-Comment body: OOC, what would be the "correct" answer in that case? Coffee? Water? Nothing thank you? Do-you-have-any-good-loose-leaf-teas?
+Comment ID: hrzv4wu
+Comment score: 35
+Comment body: When a recruiter doesn't temper expectations they are just a Con Artist taking advantage of a mark then.
+
+I can have a dozen people demanding I sell them the Maltese Falcon but if I don't have it, i am a grifter no matter their level of demand.
+----------------------------------------
+Comment ID: hs03h82
+Comment score: 33
+Comment body: Yeah, managing expectations is a huge part of being a recruiter.  Recruiters bring market data to the hiring managers and try and find the candidate that aligns closest to the requirements if they are “unicorn” requirements that can’t truly be filled, but ultimately the hiring manager gets final say. Recruiters act as the liaison between the business and the candidates and as a result they are often the messenger of bad news that is coming from somewhere way above their pay grade.
+----------------------------------------
+Comment ID: hs2h9us
+Comment score: 32
+Comment body: "market data" = things that they noticed after making a couple of calls or just surfing the internet real quick.
 ----------------------------------------
 [text continues]
 ```
 
 Also IdeaFlux generates a graphic visualization of the comment network, giving an overall idea of how the conversation of a particular topic is being branched out. For example, the comment network of the post above is as follows.
 
-<img src="https://github.com/C-opt/idea_flux/blob/master/github_data/rzq9dc.png?raw=true" width=90% height=75%>
+<img src="https://github.com/C-opt/idea_flux/blob/master/github_data/s02lqa.png?raw=true" width=90% height=75%>
 
 Additionally, IdeaFlux gives a user engagement score for each topic posted and lists it up in an XLSX file. How this score is calculated, and its mathematical analysis are discussed in the User Engagement Score section. 
 
