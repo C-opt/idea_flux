@@ -37,7 +37,7 @@ Comment body: "market data" = things that they noticed after making a couple of 
 [text continues]
 ```
 
-Also IdeaFlux generates a graphic visualization of the comment network, giving an overall idea of how the conversation of a particular topic is being branched out. For example, the comment network of the post above is as follows.
+Also IdeaFlux generates a graphic visualization of the comment network, giving an overall idea of how the conversation of a particular topic is being branched out. For example, a visualization of the comment network of the post above is as follows.
 
 <img src="https://github.com/C-opt/idea_flux/blob/master/github_data/s02lqa.png?raw=true" width=90% height=75%>
 
