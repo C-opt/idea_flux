@@ -90,7 +90,7 @@ That should give a number between 0 and n, where n is the number of comments of 
 ### Motivation & Analysis
 Given a fixed number of comments, how can we measure the conversation engagement of a given topic? That is, given a fixed n, how can we measure the branching factor of different comments graphs?
 
-Let's illustrate it with two examples with n = 5
+Let's illustrate the current measurement with two possible comments sections:
 - Sun-like graph
 - Queue graph
 
