@@ -1,0 +1,33 @@
+Title:In the engineering or software field, what expertise is the highest sought after or in-demand?
+URL: https://www.reddit.com/r/AskEngineers/comments/s2cq7f/in_the_engineering_or_software_field_what/
+I see a lot of the same "what area of engineering makes the most money" questions, which seems mainly dependent on location and sometimes doesn't factor in total comp. 
+
+So I was thinking maybe a better way to frame the question is what engineering/technical skill has the highest demand with the lowest "supply"?
+----------TITLE----------
+Topic engagement score: 2.7484662576687118
+----------------------------------------
+Comment ID: hsdz0jj
+Comment score: 38
+Comment body: I've had good success being a non-software engineer who can write software. My main job is a Manufacturing Engineer but my place would rather have a manufacturing engineer write software than try and teach a software engineer manufacturing
+----------------------------------------
+Comment ID: hsetxsq
+Comment score: 11
+Comment body: The funny thing with software is that all software eventually has to do _something_. So at least at the most abstracted level you either have to teach the software developer about the thing they're trying to do, or teach someone who knows how to do the thing to write the software. 
+
+Both types of people are necessary, imho, to write good software.
+----------------------------------------
+Comment ID: hseufxr
+Comment score: 5
+Comment body: Yeah I’m self taught and do a lot of this kind of work (engineer with 400 coding books on his shelf) sometimes having someone that does nothing but deal with a framework helps the project a lot. Frankly having different experience sets is what you want.
+----------------------------------------
+Comment ID: hsf3uty
+Comment score: 4
+Comment body: Any good books you recommend? I’m looking for starter books in any language that’s somewhat popular
+----------------------------------------
+Comment ID: hsfxrxb
+Comment score: 2
+Comment body: Just use python.  It's an easy language that's clear and comes with the kitchen sink unlike other languages.  I've got 16 years under my belt.  It has it's limitations, but C++ for a beginner is like drinking from a fire hose.
+----------------------------------------
+Comment ID: hsgg4mi
+Comment score: 1
+Comment body: Yeah there’s too much how under the kitchen sink works with C++. However I’d say that unless you kind know both a bit (low level high level), you don’t know what you’re even on about in terms of difference. That’s why automating tasks is the best place to start. I started with VBA scripting

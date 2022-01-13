@@ -1,0 +1,80 @@
+Title:Are you a "real" engineer?
+URL: https://www.reddit.com/r/AskEngineers/comments/s1gui1/are_you_a_real_engineer/
+I am a mechanical engineer with 11 years of experience.  My roles over the years have been: a researcher at a lab publishing papers, an energy engineer making Excel spreadsheets of building energy consumption, a sales engineer, and now a facilities engineer (doing some actual design work...but things are very slow). I have my PE license    and a master's degree too.
+
+However... I still don't feel like a "real" engineer -- I'm not designing new products or new building systems like I thought I would be in college. I'm a creative person and I keep searching for a "real" engineering job where I can see my ideas come to life. I don't really have any projects to "hang my hat on" after 11 years of work. I'd love to do work that requires software like SolidWorks, Revit, or Ansys. I'd love to crack an engineering book on a regular basis and apply some math to my job.
+
+I have been turned down for more entry-level jobs lately where I would be doing more "real" engineering. The hiring managers say I have too much experience. I would gladly take a large pay cut to exercise my engineering muscles and to feel the satisfaction of being a "real" engineer. 
+
+Does anybody else yearn to be a "real" engineer? Or is that just an unrealistic job I have made up in my mind?
+
+Edit: I have just received two job offers.  A technical job where I can be a "real" engineer at $80k and a non-technical job at $122k. Which job should I take? I'm torn between the two. I imagine that the "real" engineering job would be a huge opportunity for growth and I could quickly get back to a higher salary in a few years. However,  I'd essentially be paying $42k per year to learn. That's a Harvard tuition!
+
+Both companies have a short commute and a good working environment with relatively high morale.
+----------TITLE----------
+Topic engagement score: 2.0816326530612246
+----------------------------------------
+Comment ID: hs8kw2c
+Comment score: 24
+Comment body: It says engineer on my pay stub.
+----------------------------------------
+Comment ID: hs9p48d
+Comment score: 14
+Comment body: Exactly, seems like a classic imposter syndrome post.
+
+My degree says engineer, my job title says engineer, my paystub says engineer. Who am I to correct these pieces of papers that determine our labels.
+----------------------------------------
+Comment ID: hsac849
+Comment score: 13
+Comment body: You make some valid points for sure.
+----------------------------------------
+Comment ID: hsatwhc
+Comment score: 6
+Comment body: I do a lot of design work. Job is 98% CAD. I'm a designer - but work hand-in-hand with engineers. 
+
+&#x200B;
+
+When I get my degree in Mechanical Engineering, all I want to get is further away from production and into research. Just because I make "designs" doesn't make them anymore rewarding than what you do -trust me- math/simulation/intellectual property only goes into 10% of any product. That's the place to be, in the 10%, and right now that's looking only to exist in Academia.
+----------------------------------------
+Comment ID: hsaw7v6
+Comment score: 5
+Comment body: I feel the same. As a fresh graduate I was very lucky to got a job as a designer in a huge company selling the product I am working on to entire freaking world.
+
+At first I couldn't believe it because the idea that even my smallest contribution to this product will reach to millions of people.
+
+And only after 6 months, I got huge depression. Because I didn't feel like doing engineering. Back at uni, I was solving the most complex and cool problems and was feeling lika scientist.
+
+ But now, I'm just a guy who happens to know how to use a CAD software and being told to design things to meet some requirements. But is this the point of being an engineer? I want to be the one who does calculations and decides what those requirements should be. Because if only value comes from being good at using CAD, then there are amazing CAD users who didn't even go to college. 
+
+Therefore, the feeling of "my contributions could reach to millions" just went puff. Because it doesn't make a difference if me or somebody else works on this project. Everything is already decided. 
+
+I want to be that person who makes those decisions.
+----------------------------------------
+Comment ID: hsaxwpu
+Comment score: 3
+Comment body: Yep. Thats the feeling, the rush of seeing something you made in software in real life only lasts so long. After that its just another non-patented part that had little to no thought/calculated design go into it.
+
+However, I wouldn't want to be the one who determines the requirements - that sounds like a Product Manager as requirements are usually determined based on business/customer needs.
+
+I'd just like someone to tell me we need this fidget that no one has been able to make and/or never existed before, that does x, y, and z.
+
+Right now, it just feels like we make the same thing every design cycle - except we put it in a new box with some minor upgrades to software while cost reducing the piss out of everything else - rinse and repeat since the 1960s.
+
+&#x200B;
+
+Everyone complains how slow government is to react to regulating industry or investing in new technology... And everyone loves to bitch that its the Government's fault for doing nothing about climate change - but have you seen how slow bureaucratic companies take? In my industry, there are about 10+ new ideas that could make our product extremely efficient - think going from a 1960's Muscle Car to a Prius Hybrid (except the same performance). No one wants to do it because its never been done before and those at the top don't get paid for innovation - they get paid based on sales numbers. 
+
+  
+So essentially most businesses I've seen don't consider anything other than cost/demand. Not that I'm an Elon Musk fan, but, I think this is what he meant when too many MBA's run business's. Imagine if SpaceX operated on Cost/Demand - or even Apple (Remember there was next to zero demand for a smart phone before Apple essentially created it). MBA's aren't willing to take risks, and thus business is extremely conservative when trying something new outside of Silicon Valley.
+----------------------------------------
+Comment ID: hsb3vfw
+Comment score: 2
+Comment body: More than not taking risks, MBA people are obsessed with numbers, which is ironic that they are using a very 'not so smart' application of numbers. On the other hand, we put numbers to real work - shoutout to complex Mathematics.
+
+Also, the reason I respect Elon and his team is that they are not short-sighted. They are engineers and for them, selling a product or running a business is just another problem to be solved. No doubtly, they are far ahead of their competitors.
+----------------------------------------
+Comment ID: hsb7wr9
+Comment score: 1
+Comment body: MBAs are short sighted. They literally go to school to learn that. How to optimize profits, this leads to short term goals that create short term revenues. Long term revenues are built on Innovation. That can be seen over and over again throughout history. Ford, Disney, Apple, etc. As when the founders were there, they created incredible technologies that they reaped for a long time - even to this day -first production line, first theme park, home computing/phones. Unfortunately that innovation has stagnated since bureaucracy and product managers have taken the reins in those and similar organizations. 
+
+The only thing I can accredit Elon is his absolute insistence on doing what hasn't been tried before. And the free range he gives to engineers to achieve it. Other than that, i think he's been smoking too much reefer with Joe Rogan and sells a lot of Vaporware in regards to Tesla, The Boring Company, and Neural link. But I do hope for the day that I can eat my words. I wouldn't say he is some kind of miracle man visionary just a millionaire who put his money where his mouth is and flipped a Millie to a couple Billy.
