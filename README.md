@@ -97,6 +97,9 @@ Let's illustrate the current measurement with two possible comments sections:
 ## Common issues
 - Comments scrapping might take some time depending on which subreddit you want to scrap. The data scraper takes more time to process comments of subreddits that are largely popular due to the sheer amount of it. Even more because praw forcifully sleeps the comment retriever every 20 comments or so after the 200 comments mark (not sure about the numbers here; please let me know if any of you have more experience with praw). 
 - Opening the comments graph's  html file might take some time for more than 500 of comments.
+- The graph visualization can be further improved to color-code the meaning of each comment but as of now
+-- I don't have any knowledge about how to design such graphic interface
+-- I need to put tags for each comment using a custom NLP model
 
 ## Resources
 - https://pythonprogramming.net/parsing-comments-python-reddit-api-wrapper-praw-tutorial/
