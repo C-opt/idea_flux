@@ -9,40 +9,42 @@ In a nutshell, IdeaFlux summarizes comments of top subrredits of your choice by 
 The outputted text file should look like something like this
 
 ```
-Title:[D] What are your long term career goals ? 10+ years
-URL: https://www.reddit.com/r/MachineLearning/comments/r18rjz/d_what_are_your_long_term_career_goals_10_years/
-Hello guys, I am trying to figure out long term goals for myself as I feel that I reached some plateau as senior ML engineer. I was wondering what other people in the field long term career goals were ?
+Title:After 4 interviews, rejected for eating a cornflake.
+URL: https://www.reddit.com/r/recruitinghell/comments/rzq9dc/after_4_interviews_rejected_for_eating_a_cornflake/
+I've had 4 interviews at this place. At the last one, with some of the seniors, I've arrived on time. I've waited in the kitchen, and they just casually chatted while making a toast. 
+
+You can sense they're two goofballs. After a while, I joined them since it was just weird and they offered me to get something to eat. I wasn't really familiar with the kitchen but I saw a cornflakes dispenser and I put some in a disposable cup.
+
+They then said, great let's go to the interview. We do it very casually, we laugh a lot, and say our goodbyes.
+
+I now recieved a phone call that I didn't get in because I took 3-4 cornflakes while we were there. It's a hightech job. I knew all the technical questions and was told by the HR that that's what they said.
+
+What do you think? Was this justified? I get that it would seem like an unusual situation but it was their idea to get it and it felt a lot like a casual get-to-know-you chat.
+
+Thanks ahead!
+
+UPDATE and EDIT:
+
+* the interview was not in the kitchen, I waited in the kitchen while the manager made himself a toast which he ate in the kitchen. This is well after we should’ve met. The interview was in a meeting room. 
+* they sort of insisted I take something from the kitchen and the cornflakes were closest, so I took it.
+* I’m not supposed to know that it’s the cornflakes, I was told that in confidence by the middleman HR company 
+* curious, I just called them to see what they have to say, since everything went so well. She told me “I’ll talk to everyone who interviewed you along the way and get back to you”
+* I ask for less than the market usually pays for this job since I’m not as experienced. I asked them to talk over if it’s a money issue to which she said that shouldn’t be a problem, and if it would be, we could discuss something that works.
 ----------TITLE----------
-Topic engagement score: 2.8553459119496853
+Topic engagement score: 3.3808695652173912
 ----------------------------------------
-Comment ID: hlxhm2b
-Comment score: 28
-Comment body: I came to the US with a future plan of working in cutting-edge ML, but I recently learned how good the money is in simple SWE jobs... I'm honestly torn.
-----------------------------------------
-Comment ID: hlxjg64
-Comment score: 25
-Comment body: What defines a "Simple" SWE job to you?
-----------------------------------------
-Comment ID: hlxxzmh
-Comment score: 24
-Comment body: And surely ML jobs pays better than SWE jobs, no?
-----------------------------------------
-Comment ID: hly6kfo
-Comment score: 14
-Comment body: ML hasn’t exploded yet, it’s still in infancy. 5 years ago the jobs of data engineer, ml engineer, and data scientists were under the data scientist title. Some companies still do this, but it’s slowly changing. More and more companies will need ML engineers the same way more and more companies started needing developer.
-----------------------------------------
-Comment ID: hlyael9
-Comment score: 10
-Comment body: I expect the opposite.
+Comment ID: hrwmqch
+Comment score: 146
+Comment body: Yup. Crappy HR trap. I’m not HR but in my last position I used to do some interviews. I was once forced to reject a candidate because when I offered something to drink she asked for a Coke…
 
-As ML matures, it'll be just another standard software tool (like linear regression, or sorting algorithms, or video compression libraries) that every SWE will be expected to be able to use.
+Apparently, according to the HR nut job, if you ask for a Coke you don’t care about yourself therefore you won’t care about your job.
 
-I think the video compression analogy is a good one.  Back in the late 1990's many companies (Sony, RealNetworks, C-Cube, etc)  had video compression PhDs tweaking algorithms in the same way we tweak DL models today.  Like ML, video compression involved heavy math and similar tradeoffs of computation-vs-accuracy.    Today, 99.9% of software engineers dealing with video neither know nor care about the math behind H.265.  Sure there a still a couple companies that hire a couple PhDs working on successors to H.266/MPEG-5; and a couple university guys playing with wavelet transforms.
-
-in a couple decades I'm guessing 99% of ML work will just be calling `fit_non_liner_curve(my_data)`, and the libraries themselves will pick a reasonable architecture/model/hyperparameters/etc for the data; in much the same way we call `compress_my_video(frames)` today and it picks reasonable algorithms and default parameters for us.   Sure there'll still be PhDs working with Nvidia on future tweaks to tensor cores; and university PhDs writing papers on slightly differently curved activation functions.   But I think there'll be even fewer of those jobs than there are today.
-...
-[text file continues]
-...
+Also, I remember a candidate being invited to join us to the company lunch before Christmas. Rejected for overconfidence.
+----------------------------------------
+Comment ID: hrwofkz
+Comment score: 27
+Comment body: OOC, what would be the "correct" answer in that case? Coffee? Water? Nothing thank you? Do-you-have-any-good-loose-leaf-teas?
+----------------------------------------
 ```
 
 Also IdeaFlux generates a graphic visualization of the comment network, giving an overall idea of how the conversation of a particular topic is being branched out.
