@@ -49,11 +49,11 @@ Comment body: OOC, what would be the "correct" answer in that case? Coffee? Wate
 [text continues]
 ```
 
-Also IdeaFlux generates a graphic visualization of the comment network, giving an overall idea of how the conversation of a particular topic is being branched out.
+Also IdeaFlux generates a graphic visualization of the comment network, giving an overall idea of how the conversation of a particular topic is being branched out. For example, the comment network of the post above is as follows.
 
 <img src="https://github.com/C-opt/idea_flux/blob/master/github_data/rzq9dc.png?raw=true" width=90% height=75%>
 
-Additionally, IdeaFlux gives a user engagement score for each topic posted and niftly list it up in an Excel file. How this score is calculated, and its mathematical analysis is further discussed in the section "user engagement score". 
+Additionally, IdeaFlux gives a user engagement score for each topic posted and lists it up in an XLSX file. How this score is calculated, and its mathematical analysis are discussed in the User Engagement Score section. 
 
 <img src="https://github.com/C-opt/idea_flux/blob/master/data/topics_df.jpg?raw=true" width=100% height=100%>
 
