@@ -1,0 +1,140 @@
+Title:The Q4 {{%Y}} AskEngineers Salary Survey
+URL: https://www.reddit.com/r/AskEngineers/comments/pz4t7d/the_q4_y_askengineers_salary_survey/
+Edit: I screwed up the macro for this post, the title should be Q4 2021. It has been fixed for next year!
+
+# Intro
+
+Welcome to the AskEngineers quarterly salary survey! This post is intended to provide an ongoing resource for job hunters to get an idea of the salary they should ask for based on location and job title. Survey responses are NOT vetted or verified, and should not be considered data of sufficient quality for statistical or other data analysis.
+
+So what's the point of this survey? We hope that by collecting responses every quarter, job hunters can use it as a supplement to other salary data sites like the Bureau of Labor Statistics (BLS), Glassdoor and PayScale to negotiate better compensation packages when they switch jobs.
+
+> [Archive of past surveys](https://www.reddit.com/r/AskEngineers/search/?q=flair%3A%22salary+survey%22&include_over_18=on&restrict_sr=on&t=all&sort=new)
+
+## Useful websites
+
+For Americans, BLS is the gold standard when it comes to labor data. A guide for how to use BLS can be found in our wiki:
+
+* [*How do I figure out how much salary to ask for? (U.S. only)*](https://www.reddit.com/r/AskEngineers/wiki/faq#wiki_how_do_i_figure_out_how_much_salary_to_ask_for.3F_.28u.s._only.29)
+
+We're working on similar guides for other countries. For example, the Canadian counterpart to BLS is [StatCan](https://www.statcan.gc.ca/eng/start), and [DE Statis](https://www.destatis.de/EN/Themes/Labour/Labour-Market/Employment/_node.html) for Germany.
+
+* [Glassdoor](https://www.glassdoor.com/member/home/index.htm)
+
+* [PayScale](https://www.payscale.com/)
+
+# How to participate / Survey instructions
+
+A template is provided at the bottom of this post to standardize reporting total compensation from your job. I encourage you to fill out all of the fields to keep the quality of responses high. Feel free to make a throwaway account for anonymity.
+
+1. Copy the template in the gray codebox below.
+
+1. **Look in the comments for the engineering discipline that your job/industry falls under, and reply to the top-level AutoModerator comment.**
+
+1. **Turn ON Markdown Mode.** Paste the template in your reply and type away! Some definitions:
+
+  * **Industry:** The specific industry you work in.
+  * **Specialization:** Your career focus or subject-matter expertise.
+  * **Total Experience:** Number of years of experience across your entire career so far.
+  * **Cost of Living:** The comparative cost of goods, housing and services for the area of the world you work in.
+
+## How to look up Cost of Living (COL) / Regional Price Parity (RPP)
+
+### In the United States:
+
+Follow the instructions below and list the name of your Metropolitan Statistical Area and its corresponding RPP.
+
+  1. Go here: **https://apps.bea.gov/itable/iTable.cfm?ReqID=70&step=1**
+
+  1. Click on **"REAL PERSONAL INCOME AND REGIONAL PRICE PARITIES BY STATE AND METROPOLITAN AREA"** to expand the dropdown
+
+  1. Click on **"Regional Price Parities (RPP)"**
+
+  1. Click the **"MARPP - Regional Price Parities by MSA"** radio button, then click "Next Step"
+
+  1. Select the Metropolitan Statistical Area (MSA) you live in, then click "Next Step" until you reach the end
+
+  1. Copy/paste the name of the MSA and the number called **"RPPs: All items"** to your comment
+
+### NOT in the United States:
+
+Name the nearest large metropolitan area to you. **Examples:** London, Berlin, Tokyo, Beijing, etc.
+
+---
+
+# Survey Response Template
+
+## !!! NOTE: use Markdown Mode for this to format correctly!
+
+    **Job Title:** Design Engineer
+
+    **Industry:** Medical devices
+
+    **Specialization:** (optional)
+
+    **Remote Work %:** (go into office every day) 0 / 25 / 50 / 75 / 100% (fully remote)
+
+    **Approx. Company Size (optional):** e.g. 51-200 employees, < 1,000 employees
+
+    **Total Experience:** 5 years
+
+    **Highest Degree:** BS MechE
+
+    **Gender:** (optional)
+
+    **Country:** USA
+
+    **Cost of Living:** Los Angeles-Long Beach-Anaheim, CA (Metropolitan Statistical Area), 117.1
+
+    **Annual Gross (Brutto) Salary:** $50,000
+
+    **Bonus Pay:** $5,000 per year
+
+    **One-Time Bonus (Signing/Relocation/Stock Options/etc.):** 10,000 RSUs, Vested over 6 years
+
+    **401(k) / Retirement Plan Match:** 100% match for first 3% contributed, 50% for next 3%
+----------TITLE----------
+Topic engagement score: 2.8
+----------------------------------------
+Comment ID: heyhw7z
+Comment score: 60
+Comment body: #Mechanical and Mechatronics Engineering
+
+*I am a bot, and this action was performed automatically. Please [contact the moderators of this subreddit](/message/compose/?to=/r/AskEngineers) if you have any questions or concerns.*
+----------------------------------------
+Comment ID: hezbx40
+Comment score: 5
+Comment body: **Job Title:** Mechanical Engineer, Rotational Program
+
+**Industry:** Automotive
+
+**Specialization:** (optional)
+
+**Remote Work %:** depends on role, but available for most
+
+**Approx. Company Size (optional):** >10,000
+
+**Total Experience:** 0 years
+
+**Highest Degree:** BS MechE
+
+**Gender:** (optional)
+
+**Country:** USA
+
+**Cost of Living:** 90.0
+
+**Annual Gross (Brutto) Salary:** $84,000
+
+**Bonus Pay:** $9,000 per year
+
+**One-Time Bonus (Signing/Relocation/Stock Options/etc.):** Full relocation 
+
+**401(k) / Retirement Plan Match:** 100% match for first 4% contributed, additional 4% provided by company for 8% total
+----------------------------------------
+Comment ID: hezribk
+Comment score: 4
+Comment body: That's a GM job if I've ever seen one! Congrats on a solid first gig, I miss working in automotive
+----------------------------------------
+Comment ID: hf0m3vz
+Comment score: 1
+Comment body: Lmao, I was going to say the same thing! The 401k match knocked the last bit of doubt out of my head

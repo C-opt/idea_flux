@@ -232,8 +232,7 @@ def parser():
     parser.add_argument("--login_yaml_fp", type=str, default="login.yaml",
                         help="login yaml path")
 
-    parser.add_argument("--subreddit", type=str, default="MachineLearning",
-                        help="subrredit to be scrapped")
+    parser.add_argument("--subreddits", nargs="+", default=["MachineLearning"], type=str, help="subrredits to be scrapped")
     
     parser.add_argument("--save_dir", type=str, default="data/",
                         help="folder where h5 files are going to be saved")
@@ -246,7 +245,7 @@ def parser():
 def main():
     args = parser()
     login_yaml_fp = args.login_yaml_fp
-    subreddit = args.subreddit
+    subreddits = args.subreddits
     save_dir = args.save_dir
     top_num_posts = args.top_num_posts
 
@@ -257,10 +256,10 @@ def main():
     # # generate reddit handler
     reddit = gen_reddit(login)
 
-    subreddits_list = list()
-    subreddits_list.append(subreddit)
+    # subreddits_list = list()
+    # subreddits_list.append(subreddit)
 
-    data_scraper = DataScraper(save_dir=save_dir, reddit_handle=reddit, subreddits_list=subreddits_list)
+    data_scraper = DataScraper(save_dir=save_dir, reddit_handle=reddit, subreddits_list=subreddits)
     data_scraper.dl_df_routine(top_num=top_num_posts)
     return
 

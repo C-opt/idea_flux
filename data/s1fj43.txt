@@ -1,0 +1,67 @@
+Title:Do remote jobs really exist?
+URL: https://www.reddit.com/r/AskEngineers/comments/s1fj43/do_remote_jobs_really_exist/
+I'm a mechanical engineer with around 18 years of heavy equipment experience. I'm also a single dad with primary custody and I recently found out I have an autoimmune condition. It is becoming more and more difficult for me to work in an office due to my condition and I'm really starting to hate my current job due to incompetent management (taking more and more resources away and expecting more and more productivity). 
+
+So here is my question... Are there really remote engineering jobs out there that pay well and have decent benefits? Personally I don't mind working from home and I find that I'm much more productive for both work and my personal life. I've even found that I don't mind working a few extra hours every day because I don't have the stress of a daily commute or late night meetings.
+----------TITLE----------
+Topic engagement score: 2.4671532846715327
+----------------------------------------
+Comment ID: hs7tg5e
+Comment score: 20
+Comment body: I have remote work. Most of my team is remote.
+----------------------------------------
+Comment ID: hs8bv4q
+Comment score: 14
+Comment body: Roles?
+----------------------------------------
+Comment ID: hs8ef86
+Comment score: 13
+Comment body: Systems, thermal, mechanical/structures, electrical, propulsion, PM. Analysis contractors are remote, as well.
+
+The techs and assembly guys are local.
+----------------------------------------
+Comment ID: hs8gfnv
+Comment score: 12
+Comment body: You got any advice for someone in process development in med device? The only positions I can think of is quality
+----------------------------------------
+Comment ID: hs8jvwn
+Comment score: 9
+Comment body: I would argue that if you don't need to handle hardware, then WFH is fine. It's the days that you need to come in to deal with stuff like assembly problems or fitment that make working 2000 miles away difficult.
+----------------------------------------
+Comment ID: hs8k8lk
+Comment score: 8
+Comment body: Thanks, for sure I’ve done this before. But being the new guy and seeing so many people still in the office without going to the clean room or development lab it makes me wonder what’s the point and got that peer pressure going on
+----------------------------------------
+Comment ID: hs8lmn9
+Comment score: 7
+Comment body: It's ~~all~~ some peer pressure. They want to be able to see headcount. Other people have better productivity at the office.
+
+Honestly, as a space systems guy, I could have been working from home since the day I graduated uni. When the rocket is in Alabama, the payload in Colorado, my office in a different part of Colorado, the launch pad in Vandenberg or Florida, and the entire team is equally as spread out, you want my butt in a seat from 9-3... Why?
+
+For any other discipline, the math is the same, even at a smaller scale.
+----------------------------------------
+Comment ID: hs8uyhp
+Comment score: 5
+Comment body: Disagree that it is all peer pressure. Don’t get me wrong, if the rest of your team is at some other location then it doesn’t really matter where you are, but I’ve yet to experience a virtual meeting that was as productive as the same meeting in person. 
+
+And frankly, my “real” office is much more conducive to work than my home office.
+----------------------------------------
+Comment ID: hs9t6om
+Comment score: 3
+Comment body: Ability to share screens and interact with people from anywhere has made remote meetings way, way more productive for me. 
+
+Get right into the point, no going off on personal tangents for 20 minutes. Sharing your screen on one big screen or trying to look at your tiny laptop screen makes everything incredibly slow as compared to viewing on my multiple monitor set up. 
+
+I can call up someone easily versus having to book a room where someone inevitably shows up 15 minutes late because they were on the opposite end of the building.
+
+I’m sure you have your reasons, I just can’t imagine in person being more productive for me.
+----------------------------------------
+Comment ID: hsaxxq4
+Comment score: 2
+Comment body: Whereas I'd take it as a minor miracle if we could simply get everyone with a non-lagged out link at the same time.  I've never seen that happen with more than 3-4 people.  The more you add, the higher the likelihood that someone is missing 75% of the content as the server kicks 'em out and they have to rejoin and shit like that.  
+
+I'll grant that virtual is better than constant travel and such, but in a world with a teleporter I bitch slap anyone who even suggests virtual.
+----------------------------------------
+Comment ID: hsba7kj
+Comment score: 1
+Comment body: Sounds like an issue specific to your IT network. I’ve never had a problem with attendees being kicked even in meetings of 30+ people.
