@@ -45,6 +45,7 @@ Comment ID: hrwofkz
 Comment score: 27
 Comment body: OOC, what would be the "correct" answer in that case? Coffee? Water? Nothing thank you? Do-you-have-any-good-loose-leaf-teas?
 ----------------------------------------
+[text continues]
 ```
 
 Also IdeaFlux generates a graphic visualization of the comment network, giving an overall idea of how the conversation of a particular topic is being branched out.
