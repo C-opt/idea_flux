@@ -80,7 +80,7 @@ The outputs are
 ```
 python3 main.py --h5_dir data/ --res_dir data/ --topics_df_fp data/topics_df.h5 --login_yaml_fp login.yaml --subrredits MachineLearning cscareerquestions --save_dir data/ --top_num_posts 10
 ```
-## User engagement score
+## User Engagement Score
 ### Description 
 IdeaFlux gauges how a given topic is generating conversation by calculating "user engagement score". The higher this number is, the more engaged the comments section is. 
 
