@@ -96,6 +96,7 @@ Let's highlight the lower and upper bounds of this measurement with two possible
 
 - Queue graph
 <img src="https://github.com/C-opt/idea_flux/blob/master/github_data/queue_comms.jpg?raw=true" width=90% height=75%>
+Since the comments substructure is either of the queue or sun type, we can generalize that for n = 5, the user engagement score range lies within the range of [5/6, 5/2].
 
 ## Common issues
 - Comments scrapping might take some time depending on which subreddit you want to scrap. The data scraper takes more time to process comments of subreddits that are largely popular due to the sheer amount of it. Even more because praw forcifully sleeps the comment retriever every 20 comments or so after the 200 comments mark (not sure about the numbers here; please let me know if any of you have more experience with praw). 
