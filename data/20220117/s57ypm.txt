@@ -1,0 +1,35 @@
+Title:Why are take home assignments getting longer and longer
+URL: https://www.reddit.com/r/cscareerquestions/comments/s57ypm/why_are_take_home_assignments_getting_longer_and/
+Just wanted to switch my job but every where I apply throws a fucking 5 hour long hackerrank or week long take home assignment .I have already spent 4 years in college and 5 years in the industry why the fuck I still have to create dummy apis and reverse linkedlists to prove that I can code, is this shit ever gonna end switching a damn job shouldn't be this complicated
+----------TITLE----------
+Topic engagement score: 3.3252032520325203
+----------------------------------------
+Comment ID: hsvv8eb
+Comment score: 56
+Comment body: simple, I don't do them and ask whether it's possible to do a 1h technical phone screen (aka DS&A/leetcode style interview) instead
+  
+oh you're going to reject me based on that? no problem I got literally 20+ other interviews to schedule who are all going to ask me DS&A, I don't mind withdrawing from yours
+----------------------------------------
+Comment ID: hswqcee
+Comment score: 25
+Comment body: On top of that, those companies should be named and shamed here. 
+
+I'll start
+
+Society6 - after a long take home, they still wanted to waste my time with 4 more follow up interviews over zoom. They kept saying they wanted to move fast, yet they didn't stop to think that maybe a single follow up call with everyone on the call would waste less time. 
+
+I ended that train wreck of a peocess and took a different offer.
+----------------------------------------
+Comment ID: hswux7v
+Comment score: 13
+Comment body: JetFuel. They gave me a take home assignment in which I completed all the requirements, and then outsourced the reviewing process to a 3rd party that rated my work “great” instead of “excellent.” Their comment was I named a variable “p” in a foreach instead of “person”. Don’t get me wrong I understand the importance of good naming convention but we had 3 hours to complete this assignment and a foreach is very easy to read.
+
+So then I get an automated reply saying sorry we only accept “excellent candidates.”
+----------------------------------------
+Comment ID: hswyei6
+Comment score: 2
+Comment body: Adding to the list: 4C Insights.Gave a take home assessment that couldn't even be done because the rest api they wanted the project to consume was discontinued.
+----------------------------------------
+Comment ID: hsx253y
+Comment score: 1
+Comment body: hahaha this is really sad. I remember I blocked a recruiter because they wanted me to fetch data from twitter API and I told them I never used twitter API so applying to get access will take some time..they didnt believe it. I told them check yourselves. Then they change the question to fetch from fb or instagram and I told them no longer interested. What kind of companies that never update their question? if they didnt care about it, they never reallt care about hiring process

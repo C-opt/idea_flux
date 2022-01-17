@@ -1,0 +1,123 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000px;
+            height: 1000px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+        #config {
+            float: left;
+            width: 400px;
+            height: 600px;
+        }
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<div id = "config"></div>
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": "s5kwjk", "label": "s5kwjk", "shape": "dot", "size": 10}, {"id": "hsytipb", "label": "hsytipb", "shape": "dot", "size": 10}, {"id": "hsyh71s", "label": "hsyh71s", "shape": "dot", "size": 10}, {"id": "hsyah4f", "label": "hsyah4f", "shape": "dot", "size": 10}, {"id": "hsywmhf", "label": "hsywmhf", "shape": "dot", "size": 10}, {"id": "hsytlff", "label": "hsytlff", "shape": "dot", "size": 10}, {"id": "hsycg0c", "label": "hsycg0c", "shape": "dot", "size": 10}, {"id": "hsyt5kq", "label": "hsyt5kq", "shape": "dot", "size": 10}, {"id": "hsy5blq", "label": "hsy5blq", "shape": "dot", "size": 10}, {"id": "hsya2vi", "label": "hsya2vi", "shape": "dot", "size": 10}, {"id": "hsyqiz5", "label": "hsyqiz5", "shape": "dot", "size": 10}, {"id": "hsyxb8s", "label": "hsyxb8s", "shape": "dot", "size": 10}, {"id": "hszbl24", "label": "hszbl24", "shape": "dot", "size": 10}, {"id": "hszt9o3", "label": "hszt9o3", "shape": "dot", "size": 10}, {"id": "ht0ir0j", "label": "ht0ir0j", "shape": "dot", "size": 10}, {"id": "hszae8i", "label": "hszae8i", "shape": "dot", "size": 10}, {"id": "hsz0u0m", "label": "hsz0u0m", "shape": "dot", "size": 10}, {"id": "hszcxx9", "label": "hszcxx9", "shape": "dot", "size": 10}, {"id": "hszdtnr", "label": "hszdtnr", "shape": "dot", "size": 10}, {"id": "ht0z5ic", "label": "ht0z5ic", "shape": "dot", "size": 10}, {"id": "hsy2m5u", "label": "hsy2m5u", "shape": "dot", "size": 10}, {"id": "hsy2vqj", "label": "hsy2vqj", "shape": "dot", "size": 10}, {"id": "hsyanwt", "label": "hsyanwt", "shape": "dot", "size": 10}, {"id": "hsyv4q3", "label": "hsyv4q3", "shape": "dot", "size": 10}, {"id": "hsywfnd", "label": "hsywfnd", "shape": "dot", "size": 10}, {"id": "hsz9tg4", "label": "hsz9tg4", "shape": "dot", "size": 10}, {"id": "hszrruq", "label": "hszrruq", "shape": "dot", "size": 10}, {"id": "hszsp01", "label": "hszsp01", "shape": "dot", "size": 10}, {"id": "hszvvcg", "label": "hszvvcg", "shape": "dot", "size": 10}, {"id": "ht0becv", "label": "ht0becv", "shape": "dot", "size": 10}, {"id": "ht0cy07", "label": "ht0cy07", "shape": "dot", "size": 10}, {"id": "ht0ejda", "label": "ht0ejda", "shape": "dot", "size": 10}, {"id": "ht0em8d", "label": "ht0em8d", "shape": "dot", "size": 10}, {"id": "ht0f4ms", "label": "ht0f4ms", "shape": "dot", "size": 10}, {"id": "ht0o723", "label": "ht0o723", "shape": "dot", "size": 10}, {"id": "ht0s356", "label": "ht0s356", "shape": "dot", "size": 10}, {"id": "ht0ui19", "label": "ht0ui19", "shape": "dot", "size": 10}, {"id": "ht0uqzu", "label": "ht0uqzu", "shape": "dot", "size": 10}, {"id": "ht0w3w9", "label": "ht0w3w9", "shape": "dot", "size": 10}, {"id": "ht0wp93", "label": "ht0wp93", "shape": "dot", "size": 10}, {"id": "ht12hd8", "label": "ht12hd8", "shape": "dot", "size": 10}, {"id": "hszpl8x", "label": "hszpl8x", "shape": "dot", "size": 10}, {"id": "ht0348q", "label": "ht0348q", "shape": "dot", "size": 10}, {"id": "ht0hgax", "label": "ht0hgax", "shape": "dot", "size": 10}, {"id": "ht01fro", "label": "ht01fro", "shape": "dot", "size": 10}, {"id": "ht11g38", "label": "ht11g38", "shape": "dot", "size": 10}, {"id": "hszt0hp", "label": "hszt0hp", "shape": "dot", "size": 10}, {"id": "ht01w91", "label": "ht01w91", "shape": "dot", "size": 10}, {"id": "ht00s5r", "label": "ht00s5r", "shape": "dot", "size": 10}, {"id": "hsz0vq5", "label": "hsz0vq5", "shape": "dot", "size": 10}, {"id": "hsz0dkl", "label": "hsz0dkl", "shape": "dot", "size": 10}, {"id": "ht0m8tj", "label": "ht0m8tj", "shape": "dot", "size": 10}, {"id": "hszercr", "label": "hszercr", "shape": "dot", "size": 10}, {"id": "hsz3sat", "label": "hsz3sat", "shape": "dot", "size": 10}, {"id": "hsyuw1t", "label": "hsyuw1t", "shape": "dot", "size": 10}, {"id": "ht0w6tq", "label": "ht0w6tq", "shape": "dot", "size": 10}, {"id": "hsyauwi", "label": "hsyauwi", "shape": "dot", "size": 10}, {"id": "ht0f1qc", "label": "ht0f1qc", "shape": "dot", "size": 10}, {"id": "ht07e2j", "label": "ht07e2j", "shape": "dot", "size": 10}, {"id": "ht0b3wm", "label": "ht0b3wm", "shape": "dot", "size": 10}, {"id": "ht0150p", "label": "ht0150p", "shape": "dot", "size": 10}, {"id": "hsz4lwt", "label": "hsz4lwt", "shape": "dot", "size": 10}, {"id": "ht0d5p9", "label": "ht0d5p9", "shape": "dot", "size": 10}, {"id": "hszlyv0", "label": "hszlyv0", "shape": "dot", "size": 10}, {"id": "ht12mvj", "label": "ht12mvj", "shape": "dot", "size": 10}, {"id": "hszlqdc", "label": "hszlqdc", "shape": "dot", "size": 10}, {"id": "ht0vz1x", "label": "ht0vz1x", "shape": "dot", "size": 10}, {"id": "ht0u0ew", "label": "ht0u0ew", "shape": "dot", "size": 10}, {"id": "ht0comj", "label": "ht0comj", "shape": "dot", "size": 10}, {"id": "ht0tywr", "label": "ht0tywr", "shape": "dot", "size": 10}, {"id": "ht0vu2v", "label": "ht0vu2v", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"from": "s5kwjk", "to": "hsytipb", "weight": 1}, {"from": "s5kwjk", "to": "hsyh71s", "weight": 1}, {"from": "s5kwjk", "to": "hsyah4f", "weight": 1}, {"from": "s5kwjk", "to": "hsywmhf", "weight": 1}, {"from": "s5kwjk", "to": "hsytlff", "weight": 1}, {"from": "s5kwjk", "to": "hsycg0c", "weight": 1}, {"from": "s5kwjk", "to": "hsyt5kq", "weight": 1}, {"from": "s5kwjk", "to": "hsy5blq", "weight": 1}, {"from": "s5kwjk", "to": "hsya2vi", "weight": 1}, {"from": "s5kwjk", "to": "hsyqiz5", "weight": 1}, {"from": "s5kwjk", "to": "hsyxb8s", "weight": 1}, {"from": "s5kwjk", "to": "hszbl24", "weight": 1}, {"from": "s5kwjk", "to": "hszt9o3", "weight": 1}, {"from": "s5kwjk", "to": "ht0ir0j", "weight": 1}, {"from": "s5kwjk", "to": "hszae8i", "weight": 1}, {"from": "s5kwjk", "to": "hsz0u0m", "weight": 1}, {"from": "s5kwjk", "to": "hszcxx9", "weight": 1}, {"from": "s5kwjk", "to": "hszdtnr", "weight": 1}, {"from": "s5kwjk", "to": "ht0z5ic", "weight": 1}, {"from": "s5kwjk", "to": "hsy2m5u", "weight": 1}, {"from": "s5kwjk", "to": "hsy2vqj", "weight": 1}, {"from": "s5kwjk", "to": "hsyanwt", "weight": 1}, {"from": "s5kwjk", "to": "hsyv4q3", "weight": 1}, {"from": "s5kwjk", "to": "hsywfnd", "weight": 1}, {"from": "s5kwjk", "to": "hsz9tg4", "weight": 1}, {"from": "s5kwjk", "to": "hszrruq", "weight": 1}, {"from": "s5kwjk", "to": "hszsp01", "weight": 1}, {"from": "s5kwjk", "to": "hszvvcg", "weight": 1}, {"from": "s5kwjk", "to": "ht0becv", "weight": 1}, {"from": "s5kwjk", "to": "ht0cy07", "weight": 1}, {"from": "s5kwjk", "to": "ht0ejda", "weight": 1}, {"from": "s5kwjk", "to": "ht0em8d", "weight": 1}, {"from": "s5kwjk", "to": "ht0f4ms", "weight": 1}, {"from": "s5kwjk", "to": "ht0o723", "weight": 1}, {"from": "s5kwjk", "to": "ht0s356", "weight": 1}, {"from": "s5kwjk", "to": "ht0ui19", "weight": 1}, {"from": "s5kwjk", "to": "ht0uqzu", "weight": 1}, {"from": "s5kwjk", "to": "ht0w3w9", "weight": 1}, {"from": "s5kwjk", "to": "ht0wp93", "weight": 1}, {"from": "s5kwjk", "to": "ht12hd8", "weight": 1}, {"from": "s5kwjk", "to": "hszpl8x", "weight": 1}, {"from": "s5kwjk", "to": "ht0348q", "weight": 1}, {"from": "hsytipb", "to": "ht0hgax", "weight": 1}, {"from": "hsytipb", "to": "ht01fro", "weight": 1}, {"from": "hsyh71s", "to": "ht11g38", "weight": 1}, {"from": "hsyah4f", "to": "hszt0hp", "weight": 1}, {"from": "hsyah4f", "to": "ht01w91", "weight": 1}, {"from": "hsyah4f", "to": "ht00s5r", "weight": 1}, {"from": "hsywmhf", "to": "hsz0vq5", "weight": 1}, {"from": "hsytlff", "to": "hsz0dkl", "weight": 1}, {"from": "hsytlff", "to": "ht0m8tj", "weight": 1}, {"from": "hsya2vi", "to": "hszercr", "weight": 1}, {"from": "hsya2vi", "to": "hsz3sat", "weight": 1}, {"from": "hsyqiz5", "to": "hsyuw1t", "weight": 1}, {"from": "hszcxx9", "to": "ht0w6tq", "weight": 1}, {"from": "hsyanwt", "to": "hsyauwi", "weight": 1}, {"from": "hszpl8x", "to": "ht0f1qc", "weight": 1}, {"from": "ht01fro", "to": "ht07e2j", "weight": 1}, {"from": "ht01fro", "to": "ht0b3wm", "weight": 1}, {"from": "hszt0hp", "to": "ht0150p", "weight": 1}, {"from": "hsz0vq5", "to": "hsz4lwt", "weight": 1}, {"from": "hsz0vq5", "to": "ht0d5p9", "weight": 1}, {"from": "hszercr", "to": "hszlyv0", "weight": 1}, {"from": "hszercr", "to": "ht12mvj", "weight": 1}, {"from": "hsz3sat", "to": "hszlqdc", "weight": 1}, {"from": "hsyuw1t", "to": "ht0vz1x", "weight": 1}, {"from": "ht0b3wm", "to": "ht0u0ew", "weight": 1}, {"from": "ht0150p", "to": "ht0comj", "weight": 1}, {"from": "ht0150p", "to": "ht0tywr", "weight": 1}, {"from": "hszlyv0", "to": "ht0vu2v", "weight": 1}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+        // if this network requires displaying the configure window,
+        // put it in its div
+        options.configure["container"] = document.getElementById("config");
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

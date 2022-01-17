@@ -1,0 +1,35 @@
+Title:Companies are starting to ask LC hards for entry level.. is it due to saturation? What will the future look like in your opinion?
+URL: https://www.reddit.com/r/cscareerquestions/comments/s5eaxm/companies_are_starting_to_ask_lc_hards_for_entry/
+I remember when most companies would ask leetcode easy, and it was enough to filter people out and find candidates.
+
+Now it seems like more and more companies have moved on, even from asking mediums, to asking straight up LC hards in a 45 minute interview.. hell, sometimes even in an initial phone screen.
+
+I guess it kind of makes sense. The enrolment in CS programs has skyrocketed, people are applying to companies in massive amounts.. we also have bootcamp grads, self taught developers, etc. And I think corona has really shined a light on this field as one of the few industries that actually thrived during the pandemic.
+
+Where do you guys see the future of interviews heading? Will leetcode not be enough soon? Will they need to resort to other tactics?
+----------TITLE----------
+Topic engagement score: 3.5345211581291758
+----------------------------------------
+Comment ID: hsx9vj2
+Comment score: 63
+Comment body: Does experience level even matter here?  I'm not sure Senior devs are necessarily better at LC, its just a practiced skill you gotta learn before interviewing.
+----------------------------------------
+Comment ID: hsxo9ia
+Comment score: 24
+Comment body: (Speaking primarily on Amazon) There's more of an expectation for seniors to finish the original question quickly and have time to answer follow up questions. 
+
+Also the more senior you get the more focus is placed on system design. Entry level candidates don't even get system design questions (designing an API at most) whereas medium and senior positions get *at least* one system design round. 
+
+So overall a senior engineer may get as many or even *fewer* LC questions as an entry level, but they're expected to perform pretty well on them and get optimal answers.
+----------------------------------------
+Comment ID: hsy7a79
+Comment score: 6
+Comment body: So has AMZN shifted from asking medium level graph traversal problems to full on Lc hards for SDE2/3?
+----------------------------------------
+Comment ID: hsy8sa7
+Comment score: 4
+Comment body: The interviewers pick the question (no question bank enforced). It's just luck of the draw.
+----------------------------------------
+Comment ID: hsya7u8
+Comment score: 3
+Comment body: fuck me lol.  I knew this was the case at google, wasn't sure about other places.  So I could get luck out and get "number of islands" or on the other end some bullshit hard 2d dynamic programming question... ugh.

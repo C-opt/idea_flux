@@ -1,0 +1,85 @@
+Title:Company Said I would get a Promotion in 6 Months but Now Says No
+URL: https://www.reddit.com/r/AskEngineers/comments/s4n68b/company_said_i_would_get_a_promotion_in_6_months/
+I joined on at a company that was starting a project I am very familiar with, so they hired me on at a good rate. They said the team would be expanding a lot and getting new members, which it has, and I would get a promotion to "lead" a group of 3-4 as we get larger and larger.
+
+Fast forward to 6 months to when this was supposed to happen and my boss says doesn't look like he can do it because HR and "I don't fit the list of requirements", mostly meaning I haven't been in the position for 3 years.
+
+Now, what nobody else knows, is that I recorded my interview where they told me I would get promoted at the 6 month mark. Now, I'm pretty sure that is illegal, but I literally have proof they told me (which they now deny, btw). Obviously, I don't want to show them because you can't legally record people w/o consent. How should I go about this?
+----------TITLE----------
+Topic engagement score: 2.206896551724138
+----------------------------------------
+Comment ID: hss101o
+Comment score: 16
+Comment body: What state? In most states you can legally record conversations. Only 12 states are "two party consent" states, and even some of those have exceptions.
+
+[https://en.wikipedia.org/wiki/Telephone\_call\_recording\_laws#Two-party\_consent\_states](https://en.wikipedia.org/wiki/Telephone_call_recording_laws#Two-party_consent_states)
+----------------------------------------
+Comment ID: hss1res
+Comment score: 15
+Comment body: Wow, my state is in the One-party consent states. Thanks I did not realize that.
+
+However, this was not a "phone call" but a Microsoft Teams interview.. I am not 100% sure that falls into the same realm? I hope so
+----------------------------------------
+Comment ID: hss3928
+Comment score: 14
+Comment body: I'm not a lawyer, but it should. Both parties need to be one party consent states though.
+
+The thing is, they can fire you / demote you for any reason. So they promised a promotion, well they can give it to you and demote you the same day. I'm not sure how much recourse you really have. Also, listen closely to the conversation, if it's worded as "eligible" or "could" then they didn't really promise you anything. There's a pretty good chance your boss just doesn't want you in the position anymore and he's blaming HR just to redirect blame.
+----------------------------------------
+Comment ID: hssuk1i
+Comment score: 11
+Comment body: Not true, unless you intend to use the recording in a lawsuit filed within the jurisdiction of a two party consent state, in which case the recording would be inadmissible.
+----------------------------------------
+Comment ID: hssvpm9
+Comment score: 8
+Comment body: If the other party is in a two party consent state, couldn't they charge you with a crime in that state?
+
+Edit: yes they can. The person I'm replying to is clearly wrong. I literally found a court decision proving my point.
+----------------------------------------
+Comment ID: hst18eq
+Comment score: 7
+Comment body: Fine question.
+
+No, because they don't have any jurisdiction to charge the recorder located in a one party state. State sovereignty is paramount in our Republic.
+
+That would be like Alabama bringing criminal charges against a Nevada resident for possessing Cannabis in NV because he smoked it while on a video chat with an AL resident. Sure it's illegal in Alabama but no crime was committed in AL so AL has no jurisdiction to prosecute.
+
+Now if OP or my fictional NV weed smoker walked over to AL with their illegal drug or illegal recording, then there's ground for prosecution.
+
+Edit: changed from CA to a different state
+----------------------------------------
+Comment ID: hst1y9w
+Comment score: 6
+Comment body: That didn't sound right, so I looked it up:
+https://www.mofo.com/resources/insights/california-two-party-consent-law-applies-to-recording-of-calls-made-from-other-states.html
+
+You're wrong, based on a CA supreme court ruling.
+----------------------------------------
+Comment ID: hst43x1
+Comment score: 5
+Comment body: A CA state precedent does not apply to anybody but those in CA. It says that a conflict brought to the court where differences in eavesdropping laws conflict, the CA court must test the claim against a set of rules. At no time does the CA supreme court hold that any individual or business in GA committed any violation of law, not does it intend to impose CA law on a GA entity.
+
+The ruling explicitly lays out additional circumstances where the laws would be re-evaluated during any future litigation.
+
+"The Kearney case underscores, but does not exhaust, the complexity of eavesdropping and wiretapping laws.  Besides their one-party and two-party consent provisions, those laws may include other exemptions — such as rights to monitor for quality-control purposes or to protect the monitoring entity’s rights or property — that trump even the consent requirements.  Careful review of the relevant state laws, therefore, might disclose protections as well as prohibitions for companies that wish to monitor calls for legitimate business reasons"
+
+In conclusion, one state does not get to explicitly dictate laws to other states. In CA since they are the most populace state may induce other states to follow it's regulations or risk losing commerce with CA (such as CA emission laws for vehicles and data protection rules for tech)
+----------------------------------------
+Comment ID: hst57sy
+Comment score: 4
+Comment body: A simple "my bad, I was wrong" would have sufficed. Instead you're doubling down? 
+I think it's a pretty safe bet to say "both states need to be one party consent states" to avoid potential legal troubles.
+----------------------------------------
+Comment ID: hst5x85
+Comment score: 3
+Comment body: Fine I'll change my top comment from CA to NV. My assertion still holds
+----------------------------------------
+Comment ID: hst7p73
+Comment score: 2
+Comment body: No it doesn't. There is no reason to believe a similar precedent wouldn't be set in the other 12 states. That was just the first example I found. It clearly isn't cut and dry like you claim since it did have to go to a supreme court. There is damage being done to the person unknowingly recorded, per that person's state laws. The weed analogy is irrelevant.
+
+Hopefully your second year of law school goes better than your first.
+----------------------------------------
+Comment ID: hst9gnt
+Comment score: 1
+Comment body: It went to the CA supreme court. Not federal

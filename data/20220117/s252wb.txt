@@ -1,0 +1,72 @@
+Title:[R] ConvNets vs Transformers
+URL: https://www.reddit.com/r/MachineLearning/comments/s252wb/r_convnets_vs_transformers/
+ [A ConvNet for the 2020s](https://arxiv.org/pdf/2201.03545.pdf) \- nice read to start 2022. The authors explore modernizations of Resnets and adopt some tricks from transformers training design to make ConvNets great again.
+
+There is a lot to reflect and thing about.
+
+ Code is [here](https://github.com/facebookresearch/ConvNeXt?fbclid=IwAR3l75JSoSW_MKKXgshjB7BHgHfwS-2rfFeQjpAH3yk-KOqnKTjv-hjHnuU). 
+
+https://preview.redd.it/kqnqe86729b81.png?width=2696&format=png&auto=webp&s=ac0a4f045c61c34756cfcce3073792ace8f64301
+----------TITLE----------
+Topic engagement score: 3.2837837837837838
+----------------------------------------
+Comment ID: hscktdd
+Comment score: 21
+Comment body: Is this architecture useful for edge as well? They compare to EffNet but the score seems lower at the same FLOPS, yet higher for the same throughput.
+----------------------------------------
+Comment ID: hsd0vrx
+Comment score: 19
+Comment body: [Edit: Thanks for the gold -- much appreciated! :) ]
+
+EfficientNet should never really have been published in the form that it was in. Unfortunately it's become a benchmark that people use for "cheap shots" to prove that they improved performance, because EffNet is not...efficient. Sure, it's got parameter efficiency, so it's "efficient". But absolutely not in the real world use-case.
+
+What's great is that because of the name and notoriety/popularity from everyone using it as an easy-to-beat-big-name-benchmark, as well as its source producing company, that lots and lots of people will rather consistently fall into the same question that you have here, and perhaps not-unreasonably.
+
+The above paper referenced/linked to by the OP is one rare case where depthwise/etc seems to actually work in practice, like actually work, compared to the baseline. And they had enough _academic integrity_ to note its functional throughput as well, something you'll see glaringly missing from the EfficientNet paper (at least when I was looking at the drafts there). Because the authors there, they know about the FLOPs/second problem, it's super common in that part of the field. It's just not convenient for promoting NAS-type techniques, especially when using TPUs that excel on those types of architectures, whereas for the same architectures, GPUs, the commodity hardware, do terribly.
+
+So back to the academic integrity bit -- the authors of this paper actually did acknowledge the problem and noted it in light of the original benchmark -- ViT, that their raw, realworld throughout numbers were better. Cool and good, and it's sad that that's the baseline level of integrity we expect these days in conference papers and such, but I think the authors of the above paper went beyond that in terms of logging their changes to the original resnets/etc and what seemed to work/not work when putting it down. That makes it a paper a lot easier for practitioners to approach, and that's something I appreciate about this paper. Because it's clearly meant to improve the field in general, instead of do more existence-proving and areas-of-poor-performance hiding like so many other papers do. Like, reading this above paper, it's easy to forget how casually they are in creating the state of the art for a lot of areas that they're working in. I appreciate that subtlety, they just let the results speak for themselves.
+
+Sorry, that was a rant maybe not expected. But the short is that EfficientNet is a flaming pile of hot garbage, don't waste your time architecturally, and if you do have to use dw convs, this paper would be a fantastic starting point. Unless you're doing pure CPU or TPU you're going to be extremely hard-pressed to get dw to actually work on GPUs really, many people have tried this for a while, and maybe it's not impossible, but that nut has yet to be cracked.
+----------------------------------------
+Comment ID: hsdasjy
+Comment score: 9
+Comment body: I love your comment. EffNet is very popular, and is probably the most popular model on Kaggle. It’s good to see a counter argument, else I would have believed that Effnet should be the good-to-go one.
+----------------------------------------
+Comment ID: hsdlq6c
+Comment score: 7
+Comment body: Much appreciated, thanks so much! I would have too, and see a lot of my coworkers get hung up on it and all of the shininess when first looking around.
+
+My specialty -- my absolute specialty, above all, and probably in a sub single percent skill level, is neural network speed and accuracy-per-flop-per-second. In a rather obsessive kind of way. I've toned down a bit over the years, but I have a number of years and quite a...well, probably a little overly for the amount I need currently..expansive toolkit for it (especially convnets, but that ports to other network types pretty well). Most of the toolkit that I've built is becoming common knowledge as other groups are publishing similar tools, and I'm constantly learning new things in turn through papers more and somewhat less nowadays through personal experience. But I guess that's a good thing for the field in general (but sad for me personally in privately being able to beat XYZ network in ABC measure by GHI%s, respectively).
+
+If I were to recommend something, it would be to > your training speed basically at (almost) all reasonable costs. I highly recommend https://myrtle.ai/learn/how-to-train-your-resnet/
+and
+https://github.com/davidcpage/cifar10-fast/tree/d31ad8d393dd75147b65f261dbf78670a97e48a8 for the source code.
+
+Start with that and I think you should be several thousands of dollars in the cost lead, already, based on what you would have spent otherwise. Your prototype loop is so important, and if the techniques you have do not transfer from a ~1 min CIFAR training-type example to a slower training technique, even if proportionally (even if it's a very lossy proportion), then it's likely not at all worth it as a technique.
+
+Human hours are the most valuable by far. If there's any sharable advice that I could give, this in the above is the most valuable I could, and what I would share if I was doing consultancy work with a client. Trying really hard to eke out an extra few % of accuracy I think are for the phase after you've locked yourself in the cave you want to explore. But don't start by picking a random cave and going as far down as you can. Try everything out rapidly and let your software evolve at the speed of your ideas.
+
+Hope that helps, and if it does, please pass that on to someone else (or two, or three!) that could use it! :D
+----------------------------------------
+Comment ID: hsegcdk
+Comment score: 3
+Comment body: I'm reading your article, and I'm on the *mini-batches* chapter. I don't entirely follow your point: *" \*In the context of convex optimisation (or just gradient descent on a quadratic), one achieves maximum training speed by setting learning rates at the point where second order effects start to balance first order ones and any benefits from increased first order steps are offset by curvature effects\*".* 
+
+Please could explain what you mean here? I'm loving the article and I think this genuine insight is a brilliant way to advertise your company! Thank you.
+----------------------------------------
+Comment ID: hsevttl
+Comment score: 1
+Comment body: lets take a 1d quadratic f(x)=1/2 x^2 taylor expansion at point x_0 gives 
+
+(x-x_0)*x_0 +1/2 (x-x_0)^2 + x_0^2
+
+
+lets take a look at the step dx = x-x_0 and then the taylor expansion reads:
+
+dx * x_0 +1/2 dx^2 + x_0^2
+
+your first order gain of a step is dx * x_0 and your second order gain is 1/2 dx^2. you notice that in this case for dx<0 the gain is negative (great, you improve) while the gain of the second term is positive (bad, you become worse).
+
+if you take a step along the negative gradient direction you have at point x_0, dx= -a*x_0, which fulfills that the gain of the linear term is negative. The problem is that as you increase a, your linear gain is improving linearly but your quadratic gain is getting worse...quadratically. So at some point, they will balance out. 
+
+The optimal step length is actually not as easy to calculate as the cited text puts it. it is depending on the balance between largest and smallest eigenvalue of the hessian (which in our 1D-case are the same). but the rough idea that the optimum is close to where both terms are similar in contribution does actually hold. They just don't quite balance, because then you would not improve.

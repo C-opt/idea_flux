@@ -1,0 +1,63 @@
+Title:Markets never been better for senior engineers, but has it ever been worse for New grads?
+URL: https://www.reddit.com/r/cscareerquestions/comments/s5nd2q/markets_never_been_better_for_senior_engineers/
+We’ve never had so many CS grads each year, that are all fighting for a comparatively low number of junior friendly positions. 
+
+After how many years do you get out of that fresh new grad category? 3 yoe?
+----------TITLE----------
+Topic engagement score: 4.171171171171171
+----------------------------------------
+Comment ID: hsyuv20
+Comment score: 28
+Comment body: Things aren’t bad for new grads. I think people saying they’re bad are just naive about how hard it is to break into *any* professional field. 
+
+https://www.reddit.com/r/cscareerquestions/comments/rynxuw/my_experience_with_the_codesmith_bootcamp
+
+Bootcamp grads with non-CS backgrounds are getting decent paying jobs and decent companies every day. That simply wouldn’t be the case if the job market was saturated for entry level. The truth is, a lot of CS grads are leaving school without the skills necessary to get a job.
+----------------------------------------
+Comment ID: hsyx2rq
+Comment score: 25
+Comment body: Yeah but isn’t this the hardest it’s been to get an SWE job since the 08 recession?
+----------------------------------------
+Comment ID: hsz82f8
+Comment score: 13
+Comment body: I just broke into the industry as a new grad over the summer. I thought it was fairly straight forward and not nearly as bad as I thought it would be given how neurotic this sub is.
+
+In fact I had to start rejecting interviews because I was getting overwhelmed. ymmv.
+----------------------------------------
+Comment ID: hszi39e
+Comment score: 12
+Comment body: did you do any personal projects, leetcode, or open source dev work? internships?
+
+if so, how much?
+
+curious how much effort beyond decent grades is enough to get multiple job offers
+----------------------------------------
+Comment ID: ht05y21
+Comment score: 7
+Comment body: Threw up some unique school projects and an internship, plus had some unique work experience unrelated to CS that helped build an interesting character profile. Okay GPA. Nothing special tbh. 
+
+I think a decent GPA, >3.0, an internship, and a minor side project is plenty to get interviews if you write your resume well. The rest is all interview performance.
+----------------------------------------
+Comment ID: ht08cf2
+Comment score: 6
+Comment body: curious what unique work experience you had?
+
+I was a tow truck driver and a food manufacturer for a little while, and other random jobs, you think jobs like that could help me stand out?
+----------------------------------------
+Comment ID: ht0a29h
+Comment score: 4
+Comment body: Hi, I don't know if they will help you stand out but if you can get good with CS fundamentals and start grinding on leetcode I think you will be able to get some good job as a fresher. If you are able to do some good projects then the chances of landing a good job increases a lot. Good luck.
+----------------------------------------
+Comment ID: ht0apx9
+Comment score: 3
+Comment body: hm okay I'll probably leave them off then, I do already have 2 tech related jobs on my resume
+
+so maybe I should just leave off all the crappy jobs I worked except for a couple I spent the most time at? Like I've probably had 10 or so random jobs since highschool
+----------------------------------------
+Comment ID: ht0ba94
+Comment score: 2
+Comment body: Yep, I am a new graduate and from my experience the quality is preferred over quantity, what I mean by this is instead of adding work or experience in the resume that is not related to the job you are applying they don't really add much weight. Make sure your resume is simple and to the point (1 page). Add your tech internships with some description of the work you did below it (2-3 lines of brief description is enough), add your tech stack and skills, add you projects (with some brief description below the project). It is better if you mention timelines of the project and the internships you worked on. Recruiters don't really expect freshers to be a master of a skill but they just want to see your problem solving skills, how well you can adapt to a new technology and how fast can you learn new skills. I hope this helps.
+----------------------------------------
+Comment ID: ht0bgy4
+Comment score: 1
+Comment body: absolutely, thank you!

@@ -1,0 +1,123 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000px;
+            height: 1000px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+        #config {
+            float: left;
+            width: 400px;
+            height: 600px;
+        }
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<div id = "config"></div>
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": "s5j0o7", "label": "s5j0o7", "shape": "dot", "size": 10}, {"id": "hsxt7rr", "label": "hsxt7rr", "shape": "dot", "size": 10}, {"id": "hsxzn0k", "label": "hsxzn0k", "shape": "dot", "size": 10}, {"id": "hsy4zq3", "label": "hsy4zq3", "shape": "dot", "size": 10}, {"id": "hsy8h0o", "label": "hsy8h0o", "shape": "dot", "size": 10}, {"id": "hsyb3b3", "label": "hsyb3b3", "shape": "dot", "size": 10}, {"id": "hsxxw4u", "label": "hsxxw4u", "shape": "dot", "size": 10}, {"id": "hsxuaj0", "label": "hsxuaj0", "shape": "dot", "size": 10}, {"id": "hsy124v", "label": "hsy124v", "shape": "dot", "size": 10}, {"id": "hsy6v43", "label": "hsy6v43", "shape": "dot", "size": 10}, {"id": "hsy8rkb", "label": "hsy8rkb", "shape": "dot", "size": 10}, {"id": "hsybcrz", "label": "hsybcrz", "shape": "dot", "size": 10}, {"id": "hsxz9y9", "label": "hsxz9y9", "shape": "dot", "size": 10}, {"id": "hsxutug", "label": "hsxutug", "shape": "dot", "size": 10}, {"id": "hsy1z6z", "label": "hsy1z6z", "shape": "dot", "size": 10}, {"id": "hsy72t4", "label": "hsy72t4", "shape": "dot", "size": 10}, {"id": "hsycfph", "label": "hsycfph", "shape": "dot", "size": 10}, {"id": "hsy16q1", "label": "hsy16q1", "shape": "dot", "size": 10}, {"id": "hsxv4gf", "label": "hsxv4gf", "shape": "dot", "size": 10}, {"id": "hsy2bej", "label": "hsy2bej", "shape": "dot", "size": 10}, {"id": "hsy7etu", "label": "hsy7etu", "shape": "dot", "size": 10}, {"id": "hsyd62t", "label": "hsyd62t", "shape": "dot", "size": 10}, {"id": "hsygdco", "label": "hsygdco", "shape": "dot", "size": 10}, {"id": "hsy2g3u", "label": "hsy2g3u", "shape": "dot", "size": 10}, {"id": "hsxx01k", "label": "hsxx01k", "shape": "dot", "size": 10}, {"id": "hsy7pxs", "label": "hsy7pxs", "shape": "dot", "size": 10}, {"id": "hsyrz1e", "label": "hsyrz1e", "shape": "dot", "size": 10}, {"id": "hsy4fkx", "label": "hsy4fkx", "shape": "dot", "size": 10}, {"id": "hsxxms6", "label": "hsxxms6", "shape": "dot", "size": 10}, {"id": "hsy7vvt", "label": "hsy7vvt", "shape": "dot", "size": 10}, {"id": "hsysguw", "label": "hsysguw", "shape": "dot", "size": 10}, {"id": "hsxy7f2", "label": "hsxy7f2", "shape": "dot", "size": 10}, {"id": "hsy81ag", "label": "hsy81ag", "shape": "dot", "size": 10}, {"id": "ht0c4l7", "label": "ht0c4l7", "shape": "dot", "size": 10}, {"id": "hsxykqm", "label": "hsxykqm", "shape": "dot", "size": 10}, {"id": "hsxyuli", "label": "hsxyuli", "shape": "dot", "size": 10}, {"id": "hsxzejq", "label": "hsxzejq", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"from": "s5j0o7", "to": "hsxt7rr", "weight": 1}, {"from": "s5j0o7", "to": "hsxzn0k", "weight": 1}, {"from": "s5j0o7", "to": "hsy4zq3", "weight": 1}, {"from": "s5j0o7", "to": "hsy8h0o", "weight": 1}, {"from": "s5j0o7", "to": "hsyb3b3", "weight": 1}, {"from": "s5j0o7", "to": "hsxxw4u", "weight": 1}, {"from": "hsxt7rr", "to": "hsxuaj0", "weight": 1}, {"from": "hsxzn0k", "to": "hsy124v", "weight": 1}, {"from": "hsy4zq3", "to": "hsy6v43", "weight": 1}, {"from": "hsy8h0o", "to": "hsy8rkb", "weight": 1}, {"from": "hsyb3b3", "to": "hsybcrz", "weight": 1}, {"from": "hsxxw4u", "to": "hsxz9y9", "weight": 1}, {"from": "hsxuaj0", "to": "hsxutug", "weight": 1}, {"from": "hsy124v", "to": "hsy1z6z", "weight": 1}, {"from": "hsy6v43", "to": "hsy72t4", "weight": 1}, {"from": "hsy8rkb", "to": "hsycfph", "weight": 1}, {"from": "hsxz9y9", "to": "hsy16q1", "weight": 1}, {"from": "hsxutug", "to": "hsxv4gf", "weight": 1}, {"from": "hsy1z6z", "to": "hsy2bej", "weight": 1}, {"from": "hsy72t4", "to": "hsy7etu", "weight": 1}, {"from": "hsycfph", "to": "hsyd62t", "weight": 1}, {"from": "hsy16q1", "to": "hsygdco", "weight": 1}, {"from": "hsy16q1", "to": "hsy2g3u", "weight": 1}, {"from": "hsxv4gf", "to": "hsxx01k", "weight": 1}, {"from": "hsy7etu", "to": "hsy7pxs", "weight": 1}, {"from": "hsygdco", "to": "hsyrz1e", "weight": 1}, {"from": "hsy2g3u", "to": "hsy4fkx", "weight": 1}, {"from": "hsxx01k", "to": "hsxxms6", "weight": 1}, {"from": "hsy7pxs", "to": "hsy7vvt", "weight": 1}, {"from": "hsyrz1e", "to": "hsysguw", "weight": 1}, {"from": "hsxxms6", "to": "hsxy7f2", "weight": 1}, {"from": "hsy7vvt", "to": "hsy81ag", "weight": 1}, {"from": "hsysguw", "to": "ht0c4l7", "weight": 1}, {"from": "hsxy7f2", "to": "hsxykqm", "weight": 1}, {"from": "hsxykqm", "to": "hsxyuli", "weight": 1}, {"from": "hsxyuli", "to": "hsxzejq", "weight": 1}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+        // if this network requires displaying the configure window,
+        // put it in its div
+        options.configure["container"] = document.getElementById("config");
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
