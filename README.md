@@ -93,6 +93,7 @@ Given a fixed number of comments, how can we measure the conversation engagement
 Let's highlight the lower and upper bounds of this measurement with two possible comments structures, respectively, for n = 5:
 - Sun-like graph
 <img src="https://github.com/C-opt/idea_flux/blob/master/github_data/sun_comms.jpg?raw=true" width=90% height=75%>
+
 - Queue graph
 <img src="https://github.com/C-opt/idea_flux/blob/master/github_data/queue_comms.jpg?raw=true" width=90% height=75%>
 
