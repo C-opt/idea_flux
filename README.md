@@ -80,7 +80,7 @@ The outputs are
 ```
 python3 main.py --h5_dir data/ --res_dir data/ --topics_df_fp data/topics_df.h5 --login_yaml_fp login.yaml --subrredits MachineLearning cscareerquestions --save_dir data/ --top_num_posts 10
 ```
-## User engagement score
+## User Engagement Score
 ### Description 
 IdeaFlux gauges how a given topic is generating conversation by calculating "user engagement score". The higher this number is, the more engaged the comments section is. 
 
@@ -90,13 +90,22 @@ That should give a number between 0 and n, where n is the number of comments of 
 ### Motivation & Analysis
 Given a fixed number of comments, how can we measure the conversation engagement of a given topic? That is, given a fixed n, how can we measure the branching factor of different comments graphs?
 
-Let's illustrate it with two examples with n = 5
+Let's highlight the lower and upper bounds of this measurement with two possible comments structures, respectively, for n = 5:
 - Sun-like graph
+<img src="https://github.com/C-opt/idea_flux/blob/master/github_data/sun_comms.jpg?raw=true" width=90% height=75%>
+
 - Queue graph
+<img src="https://github.com/C-opt/idea_flux/blob/master/github_data/queue_comms.jpg?raw=true" width=90% height=75%>
+Since the comments substructure is either of the queue or sun type, we can generalize that for n = 5, the user engagement score range lies within [5/6, 5/2]. For any n, we can calculate this range to be [(n-1)/n, (n-1)/2].
+
+That is, the user engagement score measures how "deep" the graph is, i.e., how engaging a given topic is.
 
 ## Common issues
-- Comments scrapping might take some time depending on which subreddit you want to scrap (MachineLearning = fast; askreddit = very slow);
-- Opening the comments graph (the html file) might take some time for >500 of comments.
+- Comments scrapping might take some time depending on which subreddit you want to scrap. The data scraper takes more time to process comments of subreddits that are largely popular due to the sheer amount of it. Even more because praw forcifully sleeps the comment retriever every 20 comments or so after the 200 comments mark (not sure about the numbers here; please let me know if any of you have more experience with praw). 
+- Opening the comments graph's  html file might take some time for more than 500 of comments.
+- The graph visualization can be further improved to color-code the meaning of each comment but as of now
+    - I don't have any knowledge about how to design such graphic interface
+    - I need to put tags for each comment using a custom NLP model
 
 ## Resources
 - https://pythonprogramming.net/parsing-comments-python-reddit-api-wrapper-praw-tutorial/
