@@ -96,7 +96,7 @@ Let's highlight the lower and upper bounds of this measurement with two possible
 
 - Queue graph
 <img src="https://github.com/C-opt/idea_flux/blob/master/github_data/queue_comms.jpg?raw=true" width=90% height=75%>
-Since the comments substructure is either of the queue or sun type, we can generalize that for n = 5, the user engagement score range lies within [5/6, 5/2].For any n, we can calculate this range to be [(n-1)/n, (n-1)/2].
+Since the comments substructure is either of the queue or sun type, we can generalize that for n = 5, the user engagement score range lies within [5/6, 5/2]. For any n, we can calculate this range to be [(n-1)/n, (n-1)/2].
 
 That is, the user engagement score measures how "deep" the graph is, i.e., how engaging a given topic is.
 
