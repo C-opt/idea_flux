@@ -18,7 +18,7 @@ def parser():
     parser.add_argument("--login_yaml_fp", type=str, default="login.yaml",
                         help="login yaml path")
 
-    parser.add_argument("--subreddits", nargs="+", default=["MachineLearning"], type=str, help="List of subrredits to be scrapped")
+    parser.add_argument("--subreddits", nargs="+", default=["japanlife", "japan"], type=str, help="List of subrredits to be scrapped")
     
     parser.add_argument("--save_dir", type=str, default="data/20220810/",
                         help="folder where h5 files are going to be saved")
