@@ -71,7 +71,7 @@ class DataScraper():
 
         return topics_dict
 
-    def topics_dict2df(self, subreddit, limit=100):
+    def topics_dict2df(self, subreddit, limit=5):
         
         topics_dict = self.topics_dict_init()
         for submission in subreddit.hot(limit=limit):
@@ -94,7 +94,7 @@ class DataScraper():
         return topics_data
 
 
-    def data_scraper(self, subreddit_name="itookapicture", limit=100):
+    def data_scraper(self, subreddit_name="itookapicture", limit=5):
         
         subreddit = self.reddit_handle.subreddit(subreddit_name)
         topics_data = self.topics_dict2df(subreddit, limit=limit)
@@ -148,7 +148,7 @@ class DataScraper():
     def parse_comms(self, subid, max_comm=200):
         #comment.parent() = praw.models.reddit.comment.Comment
         submission = self.reddit_handle.submission(subid)
-        # if submission.stickied: return None
+        if submission.stickied: return None
 
         self.logger.info("comments.replace_more()  ...")
         t0 = time.time()
@@ -160,7 +160,7 @@ class DataScraper():
                 self.logger.error("handing comments.replace_more(limit=max_comm): {e}".format(e=e))
                 time.sleep(1.0)
         t1 = time.time()
-        self.logger.info("comments.replace_more() in {comms_replace_time:4.2f} seconds".format(comms_replace_time=t1-t0))
+        self.logger.info("comments.replace_more() took {comms_replace_time:4.2f} seconds".format(comms_replace_time=t1-t0))
         
         
         comm_dict = dict()
@@ -208,7 +208,7 @@ class DataScraper():
             self.logger.info("parsing top {top_num}-th in {subrredit_name}".format(top_num=top_num, subrredit_name=subrredit_name))
             
             # dashboard of a single subreddit (subreddit_name)
-            df = self.data_scraper(subreddit_name=subrredit_name, limit=100)
+            df = self.data_scraper(subreddit_name=subrredit_name, limit=5)
             _timestamp = df.get("created").apply(self.get_date)
             df = df.assign(timestamp = _timestamp)
             df = df.sort_values(by="comms_num", ascending=False)
@@ -232,13 +232,13 @@ def parser():
     parser.add_argument("--login_yaml_fp", type=str, default="login.yaml",
                         help="login yaml path")
 
-    parser.add_argument("--subreddits", nargs="+", default=["MachineLearning"], type=str, help="subrredits to be scrapped")
+    parser.add_argument("--subreddits", nargs="+", default=["MachineLearning"], type=str, help="List of subrredits to be scrapped")
     
     parser.add_argument("--save_dir", type=str, default="data/",
-                        help="folder where h5 files are going to be saved")
+                        help="Folder where h5 files are going to be saved")
 
     parser.add_argument("--top_num_posts", type=int, default=5,
-                        help="number of posts selected")
+                        help="Number of selected posts")
     
     return parser.parse_args()
 
@@ -254,12 +254,12 @@ def main():
     login = yaml_file.get("login")
     
     # # generate reddit handler
-    reddit = gen_reddit(login)
+    reddit_handle = gen_reddit(login)
 
     # subreddits_list = list()
     # subreddits_list.append(subreddit)
 
-    data_scraper = DataScraper(save_dir=save_dir, reddit_handle=reddit, subreddits_list=subreddits)
+    data_scraper = DataScraper(save_dir=save_dir, reddit_handle=reddit_handle, subreddits_list=subreddits)
     data_scraper.dl_df_routine(top_num=top_num_posts)
     return
 

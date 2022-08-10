@@ -9,18 +9,18 @@ from __class_graph_analysis import GraphsAnalysis
 def parser():
     parser = argparse.ArgumentParser("IdeaFlux main function.")
 
-    parser.add_argument("--h5_dir", type=str, default="data/20220117/", help="h5 dir")
+    parser.add_argument("--h5_dir", type=str, default="data/20220810/", help="h5 dir")
 
-    parser.add_argument("--res_dir", type=str, default="data/20220117/", help="results dir")
+    parser.add_argument("--res_dir", type=str, default="data/20220810/", help="results dir")
     
-    parser.add_argument("--topics_df_fp", type=str, default="data/20220117/topics_df.h5", help="filepath to master h5 (dataframe when accessed)")
+    parser.add_argument("--topics_df_fp", type=str, default="data/20220810/topics_df.h5", help="filepath to master h5 (dataframe when accessed)")
 
     parser.add_argument("--login_yaml_fp", type=str, default="login.yaml",
                         help="login yaml path")
 
-    parser.add_argument("--subreddits", nargs="+", default=["MachineLearning", "cscareerquestions", "careerguidance", "askengineers", "jobs", "recruitinghell"], type=str, help="subrredits to be scrapped")
+    parser.add_argument("--subreddits", nargs="+", default=["MachineLearning"], type=str, help="List of subrredits to be scrapped")
     
-    parser.add_argument("--save_dir", type=str, default="data/20220117/",
+    parser.add_argument("--save_dir", type=str, default="data/20220810/",
                         help="folder where h5 files are going to be saved")
 
     parser.add_argument("--top_num_posts", type=int, default=5,

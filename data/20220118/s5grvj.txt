@@ -1,0 +1,30 @@
+Title:[R] Instant Neural Graphics Primitives with a Multiresolution Hash Encoding (Training a NeRF takes 5 seconds!)
+URL: https://v.redd.it/ipbuarmt43c81
+
+----------TITLE----------
+Topic engagement score: 1.7105263157894737
+----------------------------------------
+Comment ID: hsy46v0
+Comment score: 6
+Comment body: (*From what I understood*) For a very quick explanation of their method look at figure 3 from the paper with the below explanation. https://nvlabs.github.io/instant-ngp/assets/mueller2022instant.pdf
+
+They first split the input space in 16 grids, the first grid if very course (simply 2x2 in (figure 3), and 16x16 in the actual implementation), while the second grid is a bit finer (3x3 in (figure 3) 32x32 in the actual implementation or depending on the hyperparameter *b*)
+
+Then, after creating these 16 varying levels of grids, for every corner in every grid, they apply a hash function (equation 3) to assign that corner a number/index (NOTE: this means that many corners of the same grid will be assigned the same index which is fine and in fact a necessary component). The index is used to query a trainable table (Fig.3 (2)), such that for every input coordinate x they find where that x lies in the 16 grids, linearly interpolate the table indices (Fig.3 (3)) then concatenate the resulting interpolation and pass that to a Neural Network.
+
+They backprop will traverse back from the NN and update the weights of that table. The importance of the table instead of simply assigning a separate weight to each corner of the grid is that the grid has way too many points and large percentage of those points are located in locations where the input image does not have much data to encode which would lead to a very wasteful implementation. This is also mentioned by the authors when they talk about past works illustrated in (Fig.2 (C)) there they state that
+
+> However, the dense grid is wasteful in two ways. First, it allocates as many features to areas of empty space as it does to those areas near the surface. The number of parameters grows as O(N^(3)), while the visible surface of interest has surface area that grows only as O(N^(2)). In this example, the grid has resolution 128^3, but only 53 807 (2.57%) of its cells touch the visible surface.
+----------------------------------------
+Comment ID: ht0o0c5
+Comment score: 3
+Comment body: The logical extension seems to be to allow the network to learn the hashing function. Although maybe that just gets us back to the original NeRF haha
+----------------------------------------
+Comment ID: ht2x0pq
+Comment score: 1
+Comment body: They consider this in the discussion and future work section: 
+
+>While we currently optimize the entries of our hash tables, it is conceivable to also optimize the hash
+function itself in the future. Two possible avenues are (i) developing
+a continuous formulation of hashing that is amenable to analytic differentiation or (ii) applying an evolutionary optimization algorithm
+that can efficiently explore the discrete function space.

@@ -1,0 +1,123 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000px;
+            height: 1000px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+        #config {
+            float: left;
+            width: 400px;
+            height: 600px;
+        }
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<div id = "config"></div>
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": "m9jgv4", "label": "m9jgv4", "shape": "dot", "size": 10}, {"id": "gtsog9c", "label": "gtsog9c", "shape": "dot", "size": 10}, {"id": "hctlmh8", "label": "hctlmh8", "shape": "dot", "size": 10}, {"id": "gsr6t5g", "label": "gsr6t5g", "shape": "dot", "size": 10}, {"id": "gtcljgr", "label": "gtcljgr", "shape": "dot", "size": 10}, {"id": "hhgss7l", "label": "hhgss7l", "shape": "dot", "size": 10}, {"id": "hi8qyeh", "label": "hi8qyeh", "shape": "dot", "size": 10}, {"id": "hkdi3ad", "label": "hkdi3ad", "shape": "dot", "size": 10}, {"id": "gtsr4n1", "label": "gtsr4n1", "shape": "dot", "size": 10}, {"id": "gsr73y8", "label": "gsr73y8", "shape": "dot", "size": 10}, {"id": "hi8yahd", "label": "hi8yahd", "shape": "dot", "size": 10}, {"id": "gtuk3yq", "label": "gtuk3yq", "shape": "dot", "size": 10}, {"id": "gsr8nzj", "label": "gsr8nzj", "shape": "dot", "size": 10}, {"id": "gsraz77", "label": "gsraz77", "shape": "dot", "size": 10}, {"id": "gsrcfc7", "label": "gsrcfc7", "shape": "dot", "size": 10}, {"id": "gu7ola2", "label": "gu7ola2", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"from": "m9jgv4", "to": "gtsog9c", "weight": 1}, {"from": "m9jgv4", "to": "hctlmh8", "weight": 1}, {"from": "m9jgv4", "to": "gsr6t5g", "weight": 1}, {"from": "m9jgv4", "to": "gtcljgr", "weight": 1}, {"from": "m9jgv4", "to": "hhgss7l", "weight": 1}, {"from": "m9jgv4", "to": "hi8qyeh", "weight": 1}, {"from": "m9jgv4", "to": "hkdi3ad", "weight": 1}, {"from": "gtsog9c", "to": "gtsr4n1", "weight": 1}, {"from": "gsr6t5g", "to": "gsr73y8", "weight": 1}, {"from": "hi8qyeh", "to": "hi8yahd", "weight": 1}, {"from": "gtsr4n1", "to": "gtuk3yq", "weight": 1}, {"from": "gsr73y8", "to": "gsr8nzj", "weight": 1}, {"from": "gsr8nzj", "to": "gsraz77", "weight": 1}, {"from": "gsraz77", "to": "gsrcfc7", "weight": 1}, {"from": "gsrcfc7", "to": "gu7ola2", "weight": 1}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+        // if this network requires displaying the configure window,
+        // put it in its div
+        options.configure["container"] = document.getElementById("config");
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+Title:[D] Is AI research reaching saturation?
+URL: https://www.reddit.com/r/MachineLearning/comments/s2g1rb/d_is_ai_research_reaching_saturation/
+It feels like every topic is heavily researched. There are 100 new papers everyday mentioning small improvements to previous architectures/models with some tweaking. Every task has a near 100% accuracy. Is AI research reaching saturation? What do you guys work on, and how competitive is it in your area? How do you keep up with the several papers cpming in everyday?
+----------TITLE----------
+Topic engagement score: 2.3703703703703702
+----------------------------------------
+Comment ID: hseeeu4
+Comment score: 26
+Comment body: Yes, there are a ridiculous number of papers on classifying image-net categories, segmenting road lines, and generating pictures of faces etc.
+
+However, virtually no progress has been made on "real" AI. The ability to reason about and respond to meaningfully novel stimuli remains uniquely human, the ability to one-shot learn solutions to complex tasks remains uniquely human. Research towards these goals is still entirely unsaturated imo.
+----------------------------------------
+Comment ID: hsekkiv
+Comment score: 24
+Comment body: "Real AI" is always a moving target. It always has been and it will likely always be. A lot of it is because it is a marketing term.
+
+My favorite quote:
+
+From 2002: [https://www.wired.com/2002/03/everywhere/](https://www.wired.com/2002/03/everywhere/)
+
+"Every time we figure out a piece of it, it stops being magical; we say, 'Oh, that's just a computation,'" laments Rodney Brooks, the director of MIT's Artificial Intelligence Laboratory. "We used to joke that AI means 'almost implemented.'"
+----------------------------------------
+Comment ID: hseyjbw
+Comment score: 11
+Comment body: I don‘t think it’s ever been that much of a moving target. We just can’t define it well, so we define it by proxy.
+
+There’s some definition we mostly have in mind, like “C3-PO style AI” for example. But we don’t have an actual solid definition of this shared idea, so we say here are some attributes of C3-PO. If an algorithm has those attributes, it must be a C3-PO style AI! So we finally build an algorithm with those attributes, and it’s not a C3-PO style AI, so we say those attributes weren’t really C3-PO style AI.
+
+Some people say that means C3-PO style AI is a moving target. I’d say that means the same old target was misunderstood.
+----------------------------------------
+Comment ID: hsfm14m
+Comment score: 6
+Comment body: C-3PO is a robot that can chat with you, with the drawback being low intelligence (compared to a normal human or R2-D2) and, sometimes, it being annoying. GPT-3 is in the right ballpark?
+----------------------------------------
+Comment ID: hsfqync
+Comment score: 3
+Comment body: C-3PO was a protocol droid and could speak 3 million languages.
+----------------------------------------
+Comment ID: hsgehsc
+Comment score: 1
+Comment body: Okay, well there aren't 3 million languages, there aren't even 3 million programming languages. What's the real world equivalent of C-3PO?
