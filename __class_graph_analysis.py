@@ -51,7 +51,7 @@ class GraphsAnalysis():
         self.update_topics_df()
         return
 
-    def save_df(self, filepath, df):
+    def save_df(self, filepath: str, df):
         self.logger.info("saving dataframe to ... {filepath}".format(filepath=filepath))
         return df.to_hdf(filepath, key="df")
     

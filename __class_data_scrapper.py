@@ -9,9 +9,7 @@ import numpy as np
 from PIL import Image
 import logging
 import time
-import os
-import yaml
-import argparse
+import os, re, yaml, argparse
 
 from utils import create_directory
 from utils import gen_reddit
@@ -104,7 +102,7 @@ class DataScraper():
         return dt.datetime.fromtimestamp(created)
 
     def receive_image(self, url, filepath):
-        self.logger.info("downloading {fp} from {url}".format(fp=filepath, url=url))
+        self.logger.info("Downloading {fp} from {url}".format(fp=filepath, url=url))
         try:
             response = requests.get(url, timeout=10.0)
         except Exception as err:
@@ -159,6 +157,7 @@ class DataScraper():
             except PossibleExceptions as e:
                 self.logger.error("handing comments.replace_more(limit=max_comm): {e}".format(e=e))
                 time.sleep(1.0)
+            self.logger.info("#comms processed: {a} of {b}".format(a=len(submission.comments.list()), b=2))
         t1 = time.time()
         self.logger.info("comments.replace_more() took {comms_replace_time:4.2f} seconds".format(comms_replace_time=t1-t0))
         
@@ -176,6 +175,8 @@ class DataScraper():
         t1 = time.time()
         self.logger.info("comments.list() in {comms_list_time:4.2f} seconds".format(comms_list_time=t1-t0))
 
+        # take  
+        TEXT_CLEANING_RE = "@\S+|https?:\S+|http?:\S|[^A-Za-z0-9]+" 
         self.logger.info("parsing comments of " + subid)
         for comment in comms_list[:max_comm]:
     #         print(20*"#")
@@ -185,7 +186,8 @@ class DataScraper():
             
             comm_dict.get("parent_id").append(comment.parent().id)
             comm_dict.get("comm_id").append(comment.id)
-            comm_dict.get("body").append(comment.body)
+            text = re.sub(TEXT_CLEANING_RE, ' ', str(comment.body).lower()).strip() 
+            comm_dict.get("body").append(text)
             comm_dict.get("type").append("Undirected")
             comm_dict.get("weight").append(1)
 
@@ -196,31 +198,35 @@ class DataScraper():
         self.logger.info("saving dataframe to ... {filepath}".format(filepath=filepath))
         return df.to_hdf(filepath, key="df")
 
-    def dl_df_routine(self, top_num=5):
+    def dl_df_routine(self, top_num=100):
         topics_df = pd.DataFrame()
         # save_dir = "data/"
         create_directory(self.save_dir)
         self.logger.info("-"*50)
-        self.logger.info("initating dl_df_routine")
+        self.logger.info("initating routine")
 
         for subrredit_name in self.subreddits_list:
+            if subrredit_name == "": break
             self.logger.info("-"*50)
             self.logger.info("parsing top {top_num}-th in {subrredit_name}".format(top_num=top_num, subrredit_name=subrredit_name))
             
             # dashboard of a single subreddit (subreddit_name)
-            df = self.data_scraper(subreddit_name=subrredit_name, limit=5)
+            df = self.data_scraper(subreddit_name=subrredit_name, limit=100)
             _timestamp = df.get("created").apply(self.get_date)
             df = df.assign(timestamp = _timestamp)
             df = df.sort_values(by="comms_num", ascending=False)
             topics_df = topics_df.append(df[:top_num])
             
             most_comm_posts = list(df["id"])[:top_num]
-            for post_id in most_comm_posts:
+            num_comments = list(df["comms_num"])[:top_num]
+            for post_id, num_comm in zip(most_comm_posts, num_comments):
                 self.logger.info("parsing top {top_num}-th in {subrredit_name}: {post_id}".format(top_num=top_num,subrredit_name=subrredit_name, post_id=post_id))
                 # parse comments given a post_id (probably filtered thru the above df)
+                self.logger.info("#comms in {post_id}: {n_comms}".format(post_id=post_id, n_comms=num_comm))
                 comm_df = self.parse_comms(post_id, max_comm=20000)
-                save_filepath = self.save_dir+post_id+".h5"
-                self.save_df(save_filepath, comm_df)
+                if comm_df is not None:
+                    save_filepath = self.save_dir+post_id+".h5"
+                    self.save_df(save_filepath, comm_df)
 
         topics_df = topics_df.reset_index(drop=True)
         self.save_df(self.save_dir+"topics_df.h5", topics_df)

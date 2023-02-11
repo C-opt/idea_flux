@@ -1,0 +1,219 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000px;
+            height: 1000px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+        #loadingBar {
+            position:absolute;
+            top:0px;
+            left:0px;
+            width: 1000px;
+            height: 1000px;
+            background-color:rgba(200,200,200,0.8);
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -ms-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+            opacity:1;
+        }
+
+        #bar {
+            position:absolute;
+            top:0px;
+            left:0px;
+            width:20px;
+            height:20px;
+            margin:auto auto auto auto;
+            border-radius:11px;
+            border:2px solid rgba(30,30,30,0.05);
+            background: rgb(0, 173, 246); /* Old browsers */
+            box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+        }
+
+        #border {
+            position:absolute;
+            top:10px;
+            left:10px;
+            width:500px;
+            height:23px;
+            margin:auto auto auto auto;
+            box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+            border-radius:10px;
+        }
+
+        #text {
+            position:absolute;
+            top:8px;
+            left:530px;
+            width:30px;
+            height:50px;
+            margin:auto auto auto auto;
+            font-size:22px;
+            color: #000000;
+        }
+
+        div.outerBorder {
+            position:relative;
+            top:400px;
+            width:600px;
+            height:44px;
+            margin:auto auto auto auto;
+            border:8px solid rgba(0,0,0,0.1);
+            background: rgb(252,252,252); /* Old browsers */
+            background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+            border-radius:72px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+        
+
+        
+        #config {
+            float: left;
+            width: 400px;
+            height: 600px;
+        }
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+<div id="loadingBar">
+    <div class="outerBorder">
+        <div id="text">0%</div>
+        <div id="border">
+            <div id="bar"></div>
+        </div>
+    </div>
+</div>
+
+
+<div id = "config"></div>
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": "wkiq1b", "label": "wkiq1b", "shape": "dot", "size": 10}, {"id": "ijnwfoz", "label": "ijnwfoz", "shape": "dot", "size": 10}, {"id": "ijo1z53", "label": "ijo1z53", "shape": "dot", "size": 10}, {"id": "ijnv8li", "label": "ijnv8li", "shape": "dot", "size": 10}, {"id": "ijou8f7", "label": "ijou8f7", "shape": "dot", "size": 10}, {"id": "ijo2vgf", "label": "ijo2vgf", "shape": "dot", "size": 10}, {"id": "ijo0ia2", "label": "ijo0ia2", "shape": "dot", "size": 10}, {"id": "ijo6aa7", "label": "ijo6aa7", "shape": "dot", "size": 10}, {"id": "ijo5voc", "label": "ijo5voc", "shape": "dot", "size": 10}, {"id": "ijnlsm9", "label": "ijnlsm9", "shape": "dot", "size": 10}, {"id": "ijo8s9q", "label": "ijo8s9q", "shape": "dot", "size": 10}, {"id": "ijo78b5", "label": "ijo78b5", "shape": "dot", "size": 10}, {"id": "ijob23m", "label": "ijob23m", "shape": "dot", "size": 10}, {"id": "ijo5kvi", "label": "ijo5kvi", "shape": "dot", "size": 10}, {"id": "ijooqmt", "label": "ijooqmt", "shape": "dot", "size": 10}, {"id": "ijof0po", "label": "ijof0po", "shape": "dot", "size": 10}, {"id": "ijofnr4", "label": "ijofnr4", "shape": "dot", "size": 10}, {"id": "ijo5n7p", "label": "ijo5n7p", "shape": "dot", "size": 10}, {"id": "ijnpf7o", "label": "ijnpf7o", "shape": "dot", "size": 10}, {"id": "ijnsiua", "label": "ijnsiua", "shape": "dot", "size": 10}, {"id": "ijnv0zs", "label": "ijnv0zs", "shape": "dot", "size": 10}, {"id": "ijnqs3g", "label": "ijnqs3g", "shape": "dot", "size": 10}, {"id": "ijnr6se", "label": "ijnr6se", "shape": "dot", "size": 10}, {"id": "ijp9sg8", "label": "ijp9sg8", "shape": "dot", "size": 10}, {"id": "ijo67my", "label": "ijo67my", "shape": "dot", "size": 10}, {"id": "ijnwb9j", "label": "ijnwb9j", "shape": "dot", "size": 10}, {"id": "ijohun7", "label": "ijohun7", "shape": "dot", "size": 10}, {"id": "ijp1vub", "label": "ijp1vub", "shape": "dot", "size": 10}, {"id": "ijp5yzj", "label": "ijp5yzj", "shape": "dot", "size": 10}, {"id": "ijp5z7k", "label": "ijp5z7k", "shape": "dot", "size": 10}, {"id": "ijpklng", "label": "ijpklng", "shape": "dot", "size": 10}, {"id": "ijoizdd", "label": "ijoizdd", "shape": "dot", "size": 10}, {"id": "ijobqd9", "label": "ijobqd9", "shape": "dot", "size": 10}, {"id": "ijp330u", "label": "ijp330u", "shape": "dot", "size": 10}, {"id": "ijobmtc", "label": "ijobmtc", "shape": "dot", "size": 10}, {"id": "ijo6zuk", "label": "ijo6zuk", "shape": "dot", "size": 10}, {"id": "ijp0hcf", "label": "ijp0hcf", "shape": "dot", "size": 10}, {"id": "ijp91n9", "label": "ijp91n9", "shape": "dot", "size": 10}, {"id": "ijpii4a", "label": "ijpii4a", "shape": "dot", "size": 10}, {"id": "ijofq3c", "label": "ijofq3c", "shape": "dot", "size": 10}, {"id": "ijp6fiv", "label": "ijp6fiv", "shape": "dot", "size": 10}, {"id": "ijo4s03", "label": "ijo4s03", "shape": "dot", "size": 10}, {"id": "ijp26yl", "label": "ijp26yl", "shape": "dot", "size": 10}, {"id": "ijp6jff", "label": "ijp6jff", "shape": "dot", "size": 10}, {"id": "ijp7f82", "label": "ijp7f82", "shape": "dot", "size": 10}, {"id": "ijo8glv", "label": "ijo8glv", "shape": "dot", "size": 10}, {"id": "ijomosa", "label": "ijomosa", "shape": "dot", "size": 10}, {"id": "ijosk7p", "label": "ijosk7p", "shape": "dot", "size": 10}, {"id": "ijo3z9l", "label": "ijo3z9l", "shape": "dot", "size": 10}, {"id": "ijoas1j", "label": "ijoas1j", "shape": "dot", "size": 10}, {"id": "ijnofgm", "label": "ijnofgm", "shape": "dot", "size": 10}, {"id": "ijntayp", "label": "ijntayp", "shape": "dot", "size": 10}, {"id": "ijo0o4p", "label": "ijo0o4p", "shape": "dot", "size": 10}, {"id": "ijny4rr", "label": "ijny4rr", "shape": "dot", "size": 10}, {"id": "ijod1s7", "label": "ijod1s7", "shape": "dot", "size": 10}, {"id": "ijo3a61", "label": "ijo3a61", "shape": "dot", "size": 10}, {"id": "ijnunn1", "label": "ijnunn1", "shape": "dot", "size": 10}, {"id": "ijohrpt", "label": "ijohrpt", "shape": "dot", "size": 10}, {"id": "ijo72ia", "label": "ijo72ia", "shape": "dot", "size": 10}, {"id": "ijos0j6", "label": "ijos0j6", "shape": "dot", "size": 10}, {"id": "ijooms1", "label": "ijooms1", "shape": "dot", "size": 10}, {"id": "ijp19uw", "label": "ijp19uw", "shape": "dot", "size": 10}, {"id": "ijpftex", "label": "ijpftex", "shape": "dot", "size": 10}, {"id": "ijodbsc", "label": "ijodbsc", "shape": "dot", "size": 10}, {"id": "ijp3kuw", "label": "ijp3kuw", "shape": "dot", "size": 10}, {"id": "ijofjv9", "label": "ijofjv9", "shape": "dot", "size": 10}, {"id": "ijokepo", "label": "ijokepo", "shape": "dot", "size": 10}, {"id": "ijo11l0", "label": "ijo11l0", "shape": "dot", "size": 10}, {"id": "ijo0lve", "label": "ijo0lve", "shape": "dot", "size": 10}, {"id": "ijo7tam", "label": "ijo7tam", "shape": "dot", "size": 10}, {"id": "ijp5n6y", "label": "ijp5n6y", "shape": "dot", "size": 10}, {"id": "ijnr8x8", "label": "ijnr8x8", "shape": "dot", "size": 10}, {"id": "ijnt5xq", "label": "ijnt5xq", "shape": "dot", "size": 10}, {"id": "ijo0eh3", "label": "ijo0eh3", "shape": "dot", "size": 10}, {"id": "ijot107", "label": "ijot107", "shape": "dot", "size": 10}, {"id": "ijo2dez", "label": "ijo2dez", "shape": "dot", "size": 10}, {"id": "ijo009p", "label": "ijo009p", "shape": "dot", "size": 10}, {"id": "ijo0hfe", "label": "ijo0hfe", "shape": "dot", "size": 10}, {"id": "ijoc1sx", "label": "ijoc1sx", "shape": "dot", "size": 10}, {"id": "ijojhmp", "label": "ijojhmp", "shape": "dot", "size": 10}, {"id": "ijp65so", "label": "ijp65so", "shape": "dot", "size": 10}, {"id": "ijobypw", "label": "ijobypw", "shape": "dot", "size": 10}, {"id": "ijp3ql3", "label": "ijp3ql3", "shape": "dot", "size": 10}, {"id": "ijod3e6", "label": "ijod3e6", "shape": "dot", "size": 10}, {"id": "ijpbmbh", "label": "ijpbmbh", "shape": "dot", "size": 10}, {"id": "ijp88h2", "label": "ijp88h2", "shape": "dot", "size": 10}, {"id": "ijoapce", "label": "ijoapce", "shape": "dot", "size": 10}, {"id": "ijo5qye", "label": "ijo5qye", "shape": "dot", "size": 10}, {"id": "ijp9nej", "label": "ijp9nej", "shape": "dot", "size": 10}, {"id": "ijoxl9n", "label": "ijoxl9n", "shape": "dot", "size": 10}, {"id": "ijp1mkn", "label": "ijp1mkn", "shape": "dot", "size": 10}, {"id": "ijo8cdc", "label": "ijo8cdc", "shape": "dot", "size": 10}, {"id": "ijoi1mv", "label": "ijoi1mv", "shape": "dot", "size": 10}, {"id": "ijolryg", "label": "ijolryg", "shape": "dot", "size": 10}, {"id": "ijp3aj1", "label": "ijp3aj1", "shape": "dot", "size": 10}, {"id": "ijoppfh", "label": "ijoppfh", "shape": "dot", "size": 10}, {"id": "ijnzvxf", "label": "ijnzvxf", "shape": "dot", "size": 10}, {"id": "ijofxwu", "label": "ijofxwu", "shape": "dot", "size": 10}, {"id": "ijoz2el", "label": "ijoz2el", "shape": "dot", "size": 10}, {"id": "ijp9pai", "label": "ijp9pai", "shape": "dot", "size": 10}, {"id": "ijod7bm", "label": "ijod7bm", "shape": "dot", "size": 10}, {"id": "ijos2j6", "label": "ijos2j6", "shape": "dot", "size": 10}, {"id": "ijnpl2z", "label": "ijnpl2z", "shape": "dot", "size": 10}, {"id": "ijnyyiw", "label": "ijnyyiw", "shape": "dot", "size": 10}, {"id": "ijnz1pi", "label": "ijnz1pi", "shape": "dot", "size": 10}, {"id": "ijnu5of", "label": "ijnu5of", "shape": "dot", "size": 10}, {"id": "ijp52m0", "label": "ijp52m0", "shape": "dot", "size": 10}, {"id": "ijo7125", "label": "ijo7125", "shape": "dot", "size": 10}, {"id": "ijovxvl", "label": "ijovxvl", "shape": "dot", "size": 10}, {"id": "ijp2o50", "label": "ijp2o50", "shape": "dot", "size": 10}, {"id": "ijod9ei", "label": "ijod9ei", "shape": "dot", "size": 10}, {"id": "ijp4vnw", "label": "ijp4vnw", "shape": "dot", "size": 10}, {"id": "ijo9zbo", "label": "ijo9zbo", "shape": "dot", "size": 10}, {"id": "ijood72", "label": "ijood72", "shape": "dot", "size": 10}, {"id": "ijob99k", "label": "ijob99k", "shape": "dot", "size": 10}, {"id": "ijpa4uu", "label": "ijpa4uu", "shape": "dot", "size": 10}, {"id": "ijo75c6", "label": "ijo75c6", "shape": "dot", "size": 10}, {"id": "ijpa8c6", "label": "ijpa8c6", "shape": "dot", "size": 10}, {"id": "ijokuf8", "label": "ijokuf8", "shape": "dot", "size": 10}, {"id": "ijo58kz", "label": "ijo58kz", "shape": "dot", "size": 10}, {"id": "ijo21th", "label": "ijo21th", "shape": "dot", "size": 10}, {"id": "ijotqxs", "label": "ijotqxs", "shape": "dot", "size": 10}, {"id": "ijod6ev", "label": "ijod6ev", "shape": "dot", "size": 10}, {"id": "ijntwmg", "label": "ijntwmg", "shape": "dot", "size": 10}, {"id": "ijnv8sv", "label": "ijnv8sv", "shape": "dot", "size": 10}, {"id": "ijom4yn", "label": "ijom4yn", "shape": "dot", "size": 10}, {"id": "ijoelmy", "label": "ijoelmy", "shape": "dot", "size": 10}, {"id": "ijokvuz", "label": "ijokvuz", "shape": "dot", "size": 10}, {"id": "ijohzxo", "label": "ijohzxo", "shape": "dot", "size": 10}, {"id": "ijojwhj", "label": "ijojwhj", "shape": "dot", "size": 10}, {"id": "ijod8gt", "label": "ijod8gt", "shape": "dot", "size": 10}, {"id": "ijpb2ke", "label": "ijpb2ke", "shape": "dot", "size": 10}, {"id": "ijoxme0", "label": "ijoxme0", "shape": "dot", "size": 10}, {"id": "ijo6dd0", "label": "ijo6dd0", "shape": "dot", "size": 10}, {"id": "ijodoxo", "label": "ijodoxo", "shape": "dot", "size": 10}, {"id": "ijnptgf", "label": "ijnptgf", "shape": "dot", "size": 10}, {"id": "ijonnux", "label": "ijonnux", "shape": "dot", "size": 10}, {"id": "ijo4j70", "label": "ijo4j70", "shape": "dot", "size": 10}, {"id": "ijp2tlr", "label": "ijp2tlr", "shape": "dot", "size": 10}, {"id": "ijp6t1r", "label": "ijp6t1r", "shape": "dot", "size": 10}, {"id": "ijo7zlt", "label": "ijo7zlt", "shape": "dot", "size": 10}, {"id": "ijp4kk8", "label": "ijp4kk8", "shape": "dot", "size": 10}, {"id": "ijp2tqj", "label": "ijp2tqj", "shape": "dot", "size": 10}, {"id": "ijons8g", "label": "ijons8g", "shape": "dot", "size": 10}, {"id": "ijo5r8c", "label": "ijo5r8c", "shape": "dot", "size": 10}, {"id": "ijo2qzr", "label": "ijo2qzr", "shape": "dot", "size": 10}, {"id": "ijp3tin", "label": "ijp3tin", "shape": "dot", "size": 10}, {"id": "ijp3amo", "label": "ijp3amo", "shape": "dot", "size": 10}, {"id": "ijowe1e", "label": "ijowe1e", "shape": "dot", "size": 10}, {"id": "ijovse8", "label": "ijovse8", "shape": "dot", "size": 10}, {"id": "ijp1l83", "label": "ijp1l83", "shape": "dot", "size": 10}, {"id": "ijoygxw", "label": "ijoygxw", "shape": "dot", "size": 10}, {"id": "ijos4na", "label": "ijos4na", "shape": "dot", "size": 10}, {"id": "ijp9iv2", "label": "ijp9iv2", "shape": "dot", "size": 10}, {"id": "ijopqxq", "label": "ijopqxq", "shape": "dot", "size": 10}, {"id": "ijosong", "label": "ijosong", "shape": "dot", "size": 10}, {"id": "ijpi6f5", "label": "ijpi6f5", "shape": "dot", "size": 10}, {"id": "ijpbp9i", "label": "ijpbp9i", "shape": "dot", "size": 10}, {"id": "ijognwc", "label": "ijognwc", "shape": "dot", "size": 10}, {"id": "ijog862", "label": "ijog862", "shape": "dot", "size": 10}, {"id": "ijnzc6n", "label": "ijnzc6n", "shape": "dot", "size": 10}, {"id": "ijnt9he", "label": "ijnt9he", "shape": "dot", "size": 10}, {"id": "ijp0mnn", "label": "ijp0mnn", "shape": "dot", "size": 10}, {"id": "ijp2ct8", "label": "ijp2ct8", "shape": "dot", "size": 10}, {"id": "ijoh4nu", "label": "ijoh4nu", "shape": "dot", "size": 10}, {"id": "ijp8ukc", "label": "ijp8ukc", "shape": "dot", "size": 10}, {"id": "ijo8pbz", "label": "ijo8pbz", "shape": "dot", "size": 10}, {"id": "ijp470j", "label": "ijp470j", "shape": "dot", "size": 10}, {"id": "ijpf233", "label": "ijpf233", "shape": "dot", "size": 10}, {"id": "ijo6ou7", "label": "ijo6ou7", "shape": "dot", "size": 10}, {"id": "ijpcoyy", "label": "ijpcoyy", "shape": "dot", "size": 10}, {"id": "ijpdzai", "label": "ijpdzai", "shape": "dot", "size": 10}, {"id": "ijpid8a", "label": "ijpid8a", "shape": "dot", "size": 10}, {"id": "ijpb9jj", "label": "ijpb9jj", "shape": "dot", "size": 10}, {"id": "ijp3c31", "label": "ijp3c31", "shape": "dot", "size": 10}, {"id": "ijpcvws", "label": "ijpcvws", "shape": "dot", "size": 10}, {"id": "ijp476u", "label": "ijp476u", "shape": "dot", "size": 10}, {"id": "ijp0zap", "label": "ijp0zap", "shape": "dot", "size": 10}, {"id": "ijp4dm0", "label": "ijp4dm0", "shape": "dot", "size": 10}, {"id": "ijp1y4d", "label": "ijp1y4d", "shape": "dot", "size": 10}, {"id": "ijoxakt", "label": "ijoxakt", "shape": "dot", "size": 10}, {"id": "ijogyk6", "label": "ijogyk6", "shape": "dot", "size": 10}, {"id": "ijognyf", "label": "ijognyf", "shape": "dot", "size": 10}, {"id": "ijo03c4", "label": "ijo03c4", "shape": "dot", "size": 10}, {"id": "ijnw0f2", "label": "ijnw0f2", "shape": "dot", "size": 10}, {"id": "ijpf4rg", "label": "ijpf4rg", "shape": "dot", "size": 10}, {"id": "ijo9sz0", "label": "ijo9sz0", "shape": "dot", "size": 10}, {"id": "ijocalk", "label": "ijocalk", "shape": "dot", "size": 10}, {"id": "ijo7ene", "label": "ijo7ene", "shape": "dot", "size": 10}, {"id": "ijp8ibs", "label": "ijp8ibs", "shape": "dot", "size": 10}, {"id": "ijp2kgq", "label": "ijp2kgq", "shape": "dot", "size": 10}, {"id": "ijpjp2k", "label": "ijpjp2k", "shape": "dot", "size": 10}, {"id": "ijp5jcz", "label": "ijp5jcz", "shape": "dot", "size": 10}, {"id": "ijp6mbx", "label": "ijp6mbx", "shape": "dot", "size": 10}, {"id": "ijoxooj", "label": "ijoxooj", "shape": "dot", "size": 10}, {"id": "ijo3saf", "label": "ijo3saf", "shape": "dot", "size": 10}, {"id": "ijnyjsx", "label": "ijnyjsx", "shape": "dot", "size": 10}, {"id": "ijphfzi", "label": "ijphfzi", "shape": "dot", "size": 10}, {"id": "ijp1xk3", "label": "ijp1xk3", "shape": "dot", "size": 10}, {"id": "ijo873s", "label": "ijo873s", "shape": "dot", "size": 10}, {"id": "ijpdafv", "label": "ijpdafv", "shape": "dot", "size": 10}, {"id": "ijozabs", "label": "ijozabs", "shape": "dot", "size": 10}, {"id": "ijozr5g", "label": "ijozr5g", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"from": "wkiq1b", "to": "ijnwfoz", "weight": 1}, {"from": "wkiq1b", "to": "ijo1z53", "weight": 1}, {"from": "wkiq1b", "to": "ijnv8li", "weight": 1}, {"from": "wkiq1b", "to": "ijou8f7", "weight": 1}, {"from": "wkiq1b", "to": "ijo2vgf", "weight": 1}, {"from": "wkiq1b", "to": "ijo0ia2", "weight": 1}, {"from": "wkiq1b", "to": "ijo6aa7", "weight": 1}, {"from": "wkiq1b", "to": "ijo5voc", "weight": 1}, {"from": "wkiq1b", "to": "ijnlsm9", "weight": 1}, {"from": "wkiq1b", "to": "ijo8s9q", "weight": 1}, {"from": "wkiq1b", "to": "ijo78b5", "weight": 1}, {"from": "wkiq1b", "to": "ijob23m", "weight": 1}, {"from": "wkiq1b", "to": "ijo5kvi", "weight": 1}, {"from": "wkiq1b", "to": "ijooqmt", "weight": 1}, {"from": "wkiq1b", "to": "ijof0po", "weight": 1}, {"from": "wkiq1b", "to": "ijofnr4", "weight": 1}, {"from": "wkiq1b", "to": "ijo5n7p", "weight": 1}, {"from": "wkiq1b", "to": "ijnpf7o", "weight": 1}, {"from": "wkiq1b", "to": "ijnsiua", "weight": 1}, {"from": "wkiq1b", "to": "ijnv0zs", "weight": 1}, {"from": "wkiq1b", "to": "ijnqs3g", "weight": 1}, {"from": "wkiq1b", "to": "ijnr6se", "weight": 1}, {"from": "wkiq1b", "to": "ijp9sg8", "weight": 1}, {"from": "wkiq1b", "to": "ijo67my", "weight": 1}, {"from": "wkiq1b", "to": "ijnwb9j", "weight": 1}, {"from": "wkiq1b", "to": "ijohun7", "weight": 1}, {"from": "wkiq1b", "to": "ijp1vub", "weight": 1}, {"from": "wkiq1b", "to": "ijp5yzj", "weight": 1}, {"from": "wkiq1b", "to": "ijp5z7k", "weight": 1}, {"from": "wkiq1b", "to": "ijpklng", "weight": 1}, {"from": "wkiq1b", "to": "ijoizdd", "weight": 1}, {"from": "wkiq1b", "to": "ijobqd9", "weight": 1}, {"from": "wkiq1b", "to": "ijp330u", "weight": 1}, {"from": "ijnwfoz", "to": "ijobmtc", "weight": 1}, {"from": "ijo1z53", "to": "ijo6zuk", "weight": 1}, {"from": "ijo1z53", "to": "ijp0hcf", "weight": 1}, {"from": "ijo1z53", "to": "ijp91n9", "weight": 1}, {"from": "ijo1z53", "to": "ijpii4a", "weight": 1}, {"from": "ijnv8li", "to": "ijofq3c", "weight": 1}, {"from": "ijou8f7", "to": "ijp6fiv", "weight": 1}, {"from": "ijo2vgf", "to": "ijo4s03", "weight": 1}, {"from": "ijo2vgf", "to": "ijp26yl", "weight": 1}, {"from": "ijo2vgf", "to": "ijp6jff", "weight": 1}, {"from": "ijo2vgf", "to": "ijp7f82", "weight": 1}, {"from": "ijo0ia2", "to": "ijo8glv", "weight": 1}, {"from": "ijo5voc", "to": "ijomosa", "weight": 1}, {"from": "ijo5voc", "to": "ijosk7p", "weight": 1}, {"from": "ijnlsm9", "to": "ijo3z9l", "weight": 1}, {"from": "ijnlsm9", "to": "ijoas1j", "weight": 1}, {"from": "ijnlsm9", "to": "ijnofgm", "weight": 1}, {"from": "ijnlsm9", "to": "ijntayp", "weight": 1}, {"from": "ijnlsm9", "to": "ijo0o4p", "weight": 1}, {"from": "ijnlsm9", "to": "ijny4rr", "weight": 1}, {"from": "ijnlsm9", "to": "ijod1s7", "weight": 1}, {"from": "ijnlsm9", "to": "ijo3a61", "weight": 1}, {"from": "ijnlsm9", "to": "ijnunn1", "weight": 1}, {"from": "ijnlsm9", "to": "ijohrpt", "weight": 1}, {"from": "ijnlsm9", "to": "ijo72ia", "weight": 1}, {"from": "ijnlsm9", "to": "ijos0j6", "weight": 1}, {"from": "ijo78b5", "to": "ijooms1", "weight": 1}, {"from": "ijo78b5", "to": "ijp19uw", "weight": 1}, {"from": "ijo78b5", "to": "ijpftex", "weight": 1}, {"from": "ijob23m", "to": "ijodbsc", "weight": 1}, {"from": "ijob23m", "to": "ijp3kuw", "weight": 1}, {"from": "ijof0po", "to": "ijofjv9", "weight": 1}, {"from": "ijofnr4", "to": "ijokepo", "weight": 1}, {"from": "ijnpf7o", "to": "ijo11l0", "weight": 1}, {"from": "ijnsiua", "to": "ijo0lve", "weight": 1}, {"from": "ijnsiua", "to": "ijo7tam", "weight": 1}, {"from": "ijnsiua", "to": "ijp5n6y", "weight": 1}, {"from": "ijnqs3g", "to": "ijnr8x8", "weight": 1}, {"from": "ijnqs3g", "to": "ijnt5xq", "weight": 1}, {"from": "ijnr6se", "to": "ijo0eh3", "weight": 1}, {"from": "ijo67my", "to": "ijot107", "weight": 1}, {"from": "ijnwb9j", "to": "ijo2dez", "weight": 1}, {"from": "ijnwb9j", "to": "ijo009p", "weight": 1}, {"from": "ijnwb9j", "to": "ijo0hfe", "weight": 1}, {"from": "ijobmtc", "to": "ijoc1sx", "weight": 1}, {"from": "ijobmtc", "to": "ijojhmp", "weight": 1}, {"from": "ijobmtc", "to": "ijp65so", "weight": 1}, {"from": "ijobmtc", "to": "ijobypw", "weight": 1}, {"from": "ijobmtc", "to": "ijp3ql3", "weight": 1}, {"from": "ijo6zuk", "to": "ijod3e6", "weight": 1}, {"from": "ijo6zuk", "to": "ijpbmbh", "weight": 1}, {"from": "ijp6fiv", "to": "ijp88h2", "weight": 1}, {"from": "ijo4s03", "to": "ijoapce", "weight": 1}, {"from": "ijo4s03", "to": "ijo5qye", "weight": 1}, {"from": "ijo4s03", "to": "ijp9nej", "weight": 1}, {"from": "ijomosa", "to": "ijoxl9n", "weight": 1}, {"from": "ijomosa", "to": "ijp1mkn", "weight": 1}, {"from": "ijo3z9l", "to": "ijo8cdc", "weight": 1}, {"from": "ijo3z9l", "to": "ijoi1mv", "weight": 1}, {"from": "ijoas1j", "to": "ijolryg", "weight": 1}, {"from": "ijoas1j", "to": "ijp3aj1", "weight": 1}, {"from": "ijnofgm", "to": "ijoppfh", "weight": 1}, {"from": "ijnofgm", "to": "ijnzvxf", "weight": 1}, {"from": "ijnofgm", "to": "ijofxwu", "weight": 1}, {"from": "ijnofgm", "to": "ijoz2el", "weight": 1}, {"from": "ijnofgm", "to": "ijp9pai", "weight": 1}, {"from": "ijnofgm", "to": "ijod7bm", "weight": 1}, {"from": "ijnofgm", "to": "ijos2j6", "weight": 1}, {"from": "ijnofgm", "to": "ijnpl2z", "weight": 1}, {"from": "ijntayp", "to": "ijnyyiw", "weight": 1}, {"from": "ijntayp", "to": "ijnz1pi", "weight": 1}, {"from": "ijntayp", "to": "ijnu5of", "weight": 1}, {"from": "ijntayp", "to": "ijp52m0", "weight": 1}, {"from": "ijo0o4p", "to": "ijo7125", "weight": 1}, {"from": "ijo0o4p", "to": "ijovxvl", "weight": 1}, {"from": "ijo0o4p", "to": "ijp2o50", "weight": 1}, {"from": "ijny4rr", "to": "ijod9ei", "weight": 1}, {"from": "ijny4rr", "to": "ijp4vnw", "weight": 1}, {"from": "ijny4rr", "to": "ijo9zbo", "weight": 1}, {"from": "ijny4rr", "to": "ijood72", "weight": 1}, {"from": "ijo3a61", "to": "ijob99k", "weight": 1}, {"from": "ijohrpt", "to": "ijpa4uu", "weight": 1}, {"from": "ijo72ia", "to": "ijo75c6", "weight": 1}, {"from": "ijos0j6", "to": "ijpa8c6", "weight": 1}, {"from": "ijokepo", "to": "ijokuf8", "weight": 1}, {"from": "ijo0lve", "to": "ijo58kz", "weight": 1}, {"from": "ijo0lve", "to": "ijo21th", "weight": 1}, {"from": "ijo7tam", "to": "ijotqxs", "weight": 1}, {"from": "ijnr8x8", "to": "ijod6ev", "weight": 1}, {"from": "ijnr8x8", "to": "ijntwmg", "weight": 1}, {"from": "ijnr8x8", "to": "ijnv8sv", "weight": 1}, {"from": "ijo2dez", "to": "ijom4yn", "weight": 1}, {"from": "ijoc1sx", "to": "ijoelmy", "weight": 1}, {"from": "ijojhmp", "to": "ijokvuz", "weight": 1}, {"from": "ijobypw", "to": "ijohzxo", "weight": 1}, {"from": "ijobypw", "to": "ijojwhj", "weight": 1}, {"from": "ijod3e6", "to": "ijod8gt", "weight": 1}, {"from": "ijp88h2", "to": "ijpb2ke", "weight": 1}, {"from": "ijolryg", "to": "ijoxme0", "weight": 1}, {"from": "ijnzvxf", "to": "ijo6dd0", "weight": 1}, {"from": "ijod7bm", "to": "ijodoxo", "weight": 1}, {"from": "ijnpl2z", "to": "ijnptgf", "weight": 1}, {"from": "ijnpl2z", "to": "ijonnux", "weight": 1}, {"from": "ijnyyiw", "to": "ijo4j70", "weight": 1}, {"from": "ijnyyiw", "to": "ijp2tlr", "weight": 1}, {"from": "ijp52m0", "to": "ijp6t1r", "weight": 1}, {"from": "ijo7125", "to": "ijo7zlt", "weight": 1}, {"from": "ijo7125", "to": "ijp4kk8", "weight": 1}, {"from": "ijp2o50", "to": "ijp2tqj", "weight": 1}, {"from": "ijokuf8", "to": "ijons8g", "weight": 1}, {"from": "ijo58kz", "to": "ijo5r8c", "weight": 1}, {"from": "ijo21th", "to": "ijo2qzr", "weight": 1}, {"from": "ijoelmy", "to": "ijp3tin", "weight": 1}, {"from": "ijoelmy", "to": "ijp3amo", "weight": 1}, {"from": "ijokvuz", "to": "ijowe1e", "weight": 1}, {"from": "ijokvuz", "to": "ijovse8", "weight": 1}, {"from": "ijokvuz", "to": "ijp1l83", "weight": 1}, {"from": "ijokvuz", "to": "ijoygxw", "weight": 1}, {"from": "ijokvuz", "to": "ijos4na", "weight": 1}, {"from": "ijokvuz", "to": "ijp9iv2", "weight": 1}, {"from": "ijohzxo", "to": "ijopqxq", "weight": 1}, {"from": "ijojwhj", "to": "ijosong", "weight": 1}, {"from": "ijod8gt", "to": "ijpi6f5", "weight": 1}, {"from": "ijpb2ke", "to": "ijpbp9i", "weight": 1}, {"from": "ijo6dd0", "to": "ijognwc", "weight": 1}, {"from": "ijodoxo", "to": "ijog862", "weight": 1}, {"from": "ijnptgf", "to": "ijnzc6n", "weight": 1}, {"from": "ijnptgf", "to": "ijnt9he", "weight": 1}, {"from": "ijonnux", "to": "ijp0mnn", "weight": 1}, {"from": "ijonnux", "to": "ijp2ct8", "weight": 1}, {"from": "ijo4j70", "to": "ijoh4nu", "weight": 1}, {"from": "ijp6t1r", "to": "ijp8ukc", "weight": 1}, {"from": "ijo7zlt", "to": "ijo8pbz", "weight": 1}, {"from": "ijp2tqj", "to": "ijp470j", "weight": 1}, {"from": "ijons8g", "to": "ijpf233", "weight": 1}, {"from": "ijo5r8c", "to": "ijo6ou7", "weight": 1}, {"from": "ijp3amo", "to": "ijpcoyy", "weight": 1}, {"from": "ijp3amo", "to": "ijpdzai", "weight": 1}, {"from": "ijp3amo", "to": "ijpid8a", "weight": 1}, {"from": "ijowe1e", "to": "ijpb9jj", "weight": 1}, {"from": "ijowe1e", "to": "ijp3c31", "weight": 1}, {"from": "ijowe1e", "to": "ijpcvws", "weight": 1}, {"from": "ijp1l83", "to": "ijp476u", "weight": 1}, {"from": "ijoygxw", "to": "ijp0zap", "weight": 1}, {"from": "ijoygxw", "to": "ijp4dm0", "weight": 1}, {"from": "ijos4na", "to": "ijp1y4d", "weight": 1}, {"from": "ijopqxq", "to": "ijoxakt", "weight": 1}, {"from": "ijog862", "to": "ijogyk6", "weight": 1}, {"from": "ijog862", "to": "ijognyf", "weight": 1}, {"from": "ijnzc6n", "to": "ijo03c4", "weight": 1}, {"from": "ijnt9he", "to": "ijnw0f2", "weight": 1}, {"from": "ijp8ukc", "to": "ijpf4rg", "weight": 1}, {"from": "ijo8pbz", "to": "ijo9sz0", "weight": 1}, {"from": "ijo8pbz", "to": "ijocalk", "weight": 1}, {"from": "ijo6ou7", "to": "ijo7ene", "weight": 1}, {"from": "ijp476u", "to": "ijp8ibs", "weight": 1}, {"from": "ijp0zap", "to": "ijp2kgq", "weight": 1}, {"from": "ijp0zap", "to": "ijpjp2k", "weight": 1}, {"from": "ijp4dm0", "to": "ijp5jcz", "weight": 1}, {"from": "ijp1y4d", "to": "ijp6mbx", "weight": 1}, {"from": "ijoxakt", "to": "ijoxooj", "weight": 1}, {"from": "ijo03c4", "to": "ijo3saf", "weight": 1}, {"from": "ijnw0f2", "to": "ijnyjsx", "weight": 1}, {"from": "ijpf4rg", "to": "ijphfzi", "weight": 1}, {"from": "ijocalk", "to": "ijp1xk3", "weight": 1}, {"from": "ijo7ene", "to": "ijo873s", "weight": 1}, {"from": "ijp5jcz", "to": "ijpdafv", "weight": 1}, {"from": "ijoxooj", "to": "ijozabs", "weight": 1}, {"from": "ijo3saf", "to": "ijozr5g", "weight": 1}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+        // if this network requires displaying the configure window,
+        // put it in its div
+        options.configure["container"] = document.getElementById("config");
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+        network.on("stabilizationProgress", function(params) {
+      		document.getElementById('loadingBar').removeAttribute("style");
+	        var maxWidth = 496;
+	        var minWidth = 20;
+	        var widthFactor = params.iterations/params.total;
+	        var width = Math.max(minWidth,maxWidth * widthFactor);
+
+	        document.getElementById('bar').style.width = width + 'px';
+	        document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+	    });
+	    network.once("stabilizationIterationsDone", function() {
+	        document.getElementById('text').innerHTML = '100%';
+	        document.getElementById('bar').style.width = '496px';
+	        document.getElementById('loadingBar').style.opacity = 0;
+	        // really clean the dom element
+	        setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+	    });
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 1000px;
+            height: 1000px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+        #loadingBar {
+            position:absolute;
+            top:0px;
+            left:0px;
+            width: 1000px;
+            height: 1000px;
+            background-color:rgba(200,200,200,0.8);
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -ms-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+            opacity:1;
+        }
+
+        #bar {
+            position:absolute;
+            top:0px;
+            left:0px;
+            width:20px;
+            height:20px;
+            margin:auto auto auto auto;
+            border-radius:11px;
+            border:2px solid rgba(30,30,30,0.05);
+            background: rgb(0, 173, 246); /* Old browsers */
+            box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+        }
+
+        #border {
+            position:absolute;
+            top:10px;
+            left:10px;
+            width:500px;
+            height:23px;
+            margin:auto auto auto auto;
+            box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+            border-radius:10px;
+        }
+
+        #text {
+            position:absolute;
+            top:8px;
+            left:530px;
+            width:30px;
+            height:50px;
+            margin:auto auto auto auto;
+            font-size:22px;
+            color: #000000;
+        }
+
+        div.outerBorder {
+            position:relative;
+            top:400px;
+            width:600px;
+            height:44px;
+            margin:auto auto auto auto;
+            border:8px solid rgba(0,0,0,0.1);
+            background: rgb(252,252,252); /* Old browsers */
+            background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+            border-radius:72px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+        
+
+        
+        #config {
+            float: left;
+            width: 400px;
+            height: 600px;
+        }
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+<div id="loadingBar">
+    <div class="outerBorder">
+        <div id="text">0%</div>
+        <div id="border">
+            <div id="bar"></div>
+        </div>
+    </div>
+</div>
+
+
+<div id = "config"></div>
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"id": "wbosh4", "label": "wbosh4", "shape": "dot", "size": 10}, {"id": "ii84g7x", "label": "ii84g7x", "shape": "dot", "size": 10}, {"id": "ii96tqb", "label": "ii96tqb", "shape": "dot", "size": 10}, {"id": "ii9fnbi", "label": "ii9fnbi", "shape": "dot", "size": 10}, {"id": "iiabcmk", "label": "iiabcmk", "shape": "dot", "size": 10}, {"id": "ii88qee", "label": "ii88qee", "shape": "dot", "size": 10}, {"id": "ii8q2qh", "label": "ii8q2qh", "shape": "dot", "size": 10}, {"id": "ii80ifb", "label": "ii80ifb", "shape": "dot", "size": 10}, {"id": "ii970jl", "label": "ii970jl", "shape": "dot", "size": 10}, {"id": "ii8zgna", "label": "ii8zgna", "shape": "dot", "size": 10}, {"id": "iiab8zh", "label": "iiab8zh", "shape": "dot", "size": 10}, {"id": "ii8200p", "label": "ii8200p", "shape": "dot", "size": 10}, {"id": "ii97tdf", "label": "ii97tdf", "shape": "dot", "size": 10}, {"id": "ii8mhz2", "label": "ii8mhz2", "shape": "dot", "size": 10}, {"id": "ii8ytdu", "label": "ii8ytdu", "shape": "dot", "size": 10}, {"id": "ii85j1e", "label": "ii85j1e", "shape": "dot", "size": 10}, {"id": "ii80hdc", "label": "ii80hdc", "shape": "dot", "size": 10}, {"id": "iias7ut", "label": "iias7ut", "shape": "dot", "size": 10}, {"id": "ii8p05k", "label": "ii8p05k", "shape": "dot", "size": 10}, {"id": "ii9f0zy", "label": "ii9f0zy", "shape": "dot", "size": 10}, {"id": "ii99rn7", "label": "ii99rn7", "shape": "dot", "size": 10}, {"id": "iic3znw", "label": "iic3znw", "shape": "dot", "size": 10}, {"id": "ii8pgz2", "label": "ii8pgz2", "shape": "dot", "size": 10}, {"id": "ii8puuu", "label": "ii8puuu", "shape": "dot", "size": 10}, {"id": "ii8j8co", "label": "ii8j8co", "shape": "dot", "size": 10}, {"id": "iiquhra", "label": "iiquhra", "shape": "dot", "size": 10}, {"id": "ij6c30b", "label": "ij6c30b", "shape": "dot", "size": 10}, {"id": "iiayvm7", "label": "iiayvm7", "shape": "dot", "size": 10}, {"id": "ii86eyw", "label": "ii86eyw", "shape": "dot", "size": 10}, {"id": "ii85n8j", "label": "ii85n8j", "shape": "dot", "size": 10}, {"id": "ii88ixi", "label": "ii88ixi", "shape": "dot", "size": 10}, {"id": "iiaz91n", "label": "iiaz91n", "shape": "dot", "size": 10}, {"id": "iiaz6dq", "label": "iiaz6dq", "shape": "dot", "size": 10}, {"id": "ii87p9m", "label": "ii87p9m", "shape": "dot", "size": 10}, {"id": "ii8nou6", "label": "ii8nou6", "shape": "dot", "size": 10}, {"id": "ii85ccq", "label": "ii85ccq", "shape": "dot", "size": 10}, {"id": "ii8mq4q", "label": "ii8mq4q", "shape": "dot", "size": 10}, {"id": "iib0d8x", "label": "iib0d8x", "shape": "dot", "size": 10}, {"id": "iib70is", "label": "iib70is", "shape": "dot", "size": 10}, {"id": "iiahwxf", "label": "iiahwxf", "shape": "dot", "size": 10}, {"id": "iic8d3g", "label": "iic8d3g", "shape": "dot", "size": 10}, {"id": "ii89s3i", "label": "ii89s3i", "shape": "dot", "size": 10}, {"id": "ii8bk5v", "label": "ii8bk5v", "shape": "dot", "size": 10}, {"id": "ii8llnz", "label": "ii8llnz", "shape": "dot", "size": 10}, {"id": "ii9t2pu", "label": "ii9t2pu", "shape": "dot", "size": 10}, {"id": "ii8fcel", "label": "ii8fcel", "shape": "dot", "size": 10}, {"id": "iib4vr2", "label": "iib4vr2", "shape": "dot", "size": 10}, {"id": "ii94amr", "label": "ii94amr", "shape": "dot", "size": 10}, {"id": "iicyk5g", "label": "iicyk5g", "shape": "dot", "size": 10}, {"id": "iiw8mjm", "label": "iiw8mjm", "shape": "dot", "size": 10}, {"id": "ii8mqsi", "label": "ii8mqsi", "shape": "dot", "size": 10}, {"id": "iid21oy", "label": "iid21oy", "shape": "dot", "size": 10}, {"id": "ii8fbrz", "label": "ii8fbrz", "shape": "dot", "size": 10}, {"id": "ii88esu", "label": "ii88esu", "shape": "dot", "size": 10}, {"id": "ii8lwly", "label": "ii8lwly", "shape": "dot", "size": 10}, {"id": "iigh0w2", "label": "iigh0w2", "shape": "dot", "size": 10}, {"id": "ii8gs8t", "label": "ii8gs8t", "shape": "dot", "size": 10}, {"id": "iibuvtc", "label": "iibuvtc", "shape": "dot", "size": 10}, {"id": "ii97d5r", "label": "ii97d5r", "shape": "dot", "size": 10}, {"id": "ii9g74q", "label": "ii9g74q", "shape": "dot", "size": 10}, {"id": "iid3usc", "label": "iid3usc", "shape": "dot", "size": 10}, {"id": "iilzf8i", "label": "iilzf8i", "shape": "dot", "size": 10}, {"id": "iiavbmx", "label": "iiavbmx", "shape": "dot", "size": 10}, {"id": "ii86bbn", "label": "ii86bbn", "shape": "dot", "size": 10}, {"id": "ii89nzq", "label": "ii89nzq", "shape": "dot", "size": 10}, {"id": "ii9gr5g", "label": "ii9gr5g", "shape": "dot", "size": 10}, {"id": "ii9fro1", "label": "ii9fro1", "shape": "dot", "size": 10}, {"id": "iicil3b", "label": "iicil3b", "shape": "dot", "size": 10}, {"id": "ii9ij2w", "label": "ii9ij2w", "shape": "dot", "size": 10}, {"id": "ii8tt6o", "label": "ii8tt6o", "shape": "dot", "size": 10}, {"id": "ii9ha2n", "label": "ii9ha2n", "shape": "dot", "size": 10}, {"id": "ii99p8s", "label": "ii99p8s", "shape": "dot", "size": 10}, {"id": "ii8mj85", "label": "ii8mj85", "shape": "dot", "size": 10}, {"id": "ii8go25", "label": "ii8go25", "shape": "dot", "size": 10}, {"id": "ii90n3p", "label": "ii90n3p", "shape": "dot", "size": 10}, {"id": "ii8fcwi", "label": "ii8fcwi", "shape": "dot", "size": 10}, {"id": "ii85v3u", "label": "ii85v3u", "shape": "dot", "size": 10}, {"id": "ii8x13q", "label": "ii8x13q", "shape": "dot", "size": 10}, {"id": "ii8n7d3", "label": "ii8n7d3", "shape": "dot", "size": 10}, {"id": "ii88ql5", "label": "ii88ql5", "shape": "dot", "size": 10}, {"id": "ii8fx58", "label": "ii8fx58", "shape": "dot", "size": 10}, {"id": "iic6riu", "label": "iic6riu", "shape": "dot", "size": 10}, {"id": "ii8hvbp", "label": "ii8hvbp", "shape": "dot", "size": 10}, {"id": "ii93h7c", "label": "ii93h7c", "shape": "dot", "size": 10}, {"id": "iic79nh", "label": "iic79nh", "shape": "dot", "size": 10}, {"id": "iigk92a", "label": "iigk92a", "shape": "dot", "size": 10}, {"id": "ii8hab4", "label": "ii8hab4", "shape": "dot", "size": 10}, {"id": "ii8b8v6", "label": "ii8b8v6", "shape": "dot", "size": 10}, {"id": "ii8hqsc", "label": "ii8hqsc", "shape": "dot", "size": 10}, {"id": "iia0htl", "label": "iia0htl", "shape": "dot", "size": 10}, {"id": "ii8o5tb", "label": "ii8o5tb", "shape": "dot", "size": 10}, {"id": "iib125d", "label": "iib125d", "shape": "dot", "size": 10}, {"id": "iiai1cy", "label": "iiai1cy", "shape": "dot", "size": 10}, {"id": "ii8o6h2", "label": "ii8o6h2", "shape": "dot", "size": 10}, {"id": "ii8ooo9", "label": "ii8ooo9", "shape": "dot", "size": 10}, {"id": "iiajww4", "label": "iiajww4", "shape": "dot", "size": 10}, {"id": "ii8a3bz", "label": "ii8a3bz", "shape": "dot", "size": 10}, {"id": "ii8fe84", "label": "ii8fe84", "shape": "dot", "size": 10}, {"id": "ii9w72j", "label": "ii9w72j", "shape": "dot", "size": 10}, {"id": "ii8tcyq", "label": "ii8tcyq", "shape": "dot", "size": 10}, {"id": "iibzpp2", "label": "iibzpp2", "shape": "dot", "size": 10}, {"id": "ii88l7r", "label": "ii88l7r", "shape": "dot", "size": 10}, {"id": "ii88ygz", "label": "ii88ygz", "shape": "dot", "size": 10}, {"id": "ii874mf", "label": "ii874mf", "shape": "dot", "size": 10}, {"id": "ii8f9lt", "label": "ii8f9lt", "shape": "dot", "size": 10}, {"id": "ii8h94j", "label": "ii8h94j", "shape": "dot", "size": 10}, {"id": "ii8nehi", "label": "ii8nehi", "shape": "dot", "size": 10}, {"id": "ii9uycc", "label": "ii9uycc", "shape": "dot", "size": 10}, {"id": "ii8j00p", "label": "ii8j00p", "shape": "dot", "size": 10}, {"id": "ii8ub5e", "label": "ii8ub5e", "shape": "dot", "size": 10}, {"id": "ii92zcw", "label": "ii92zcw", "shape": "dot", "size": 10}, {"id": "ii8fs1o", "label": "ii8fs1o", "shape": "dot", "size": 10}, {"id": "ii88v3r", "label": "ii88v3r", "shape": "dot", "size": 10}, {"id": "ii9b3j1", "label": "ii9b3j1", "shape": "dot", "size": 10}, {"id": "ii8jb9x", "label": "ii8jb9x", "shape": "dot", "size": 10}, {"id": "ii9dk56", "label": "ii9dk56", "shape": "dot", "size": 10}, {"id": "iia0gdg", "label": "iia0gdg", "shape": "dot", "size": 10}, {"id": "ii9zbf4", "label": "ii9zbf4", "shape": "dot", "size": 10}, {"id": "ii8kwrk", "label": "ii8kwrk", "shape": "dot", "size": 10}, {"id": "ii8pppf", "label": "ii8pppf", "shape": "dot", "size": 10}, {"id": "iib1igv", "label": "iib1igv", "shape": "dot", "size": 10}, {"id": "iiahovr", "label": "iiahovr", "shape": "dot", "size": 10}, {"id": "iiiqgoc", "label": "iiiqgoc", "shape": "dot", "size": 10}, {"id": "ii8k86b", "label": "ii8k86b", "shape": "dot", "size": 10}, {"id": "iiafy4r", "label": "iiafy4r", "shape": "dot", "size": 10}, {"id": "iic5ah5", "label": "iic5ah5", "shape": "dot", "size": 10}, {"id": "ii8yatc", "label": "ii8yatc", "shape": "dot", "size": 10}, {"id": "ii8bcud", "label": "ii8bcud", "shape": "dot", "size": 10}, {"id": "ii8f3px", "label": "ii8f3px", "shape": "dot", "size": 10}, {"id": "iia2o9x", "label": "iia2o9x", "shape": "dot", "size": 10}, {"id": "ii947m7", "label": "ii947m7", "shape": "dot", "size": 10}, {"id": "ii8w3b5", "label": "ii8w3b5", "shape": "dot", "size": 10}, {"id": "ii8t5nq", "label": "ii8t5nq", "shape": "dot", "size": 10}, {"id": "ii9ltbb", "label": "ii9ltbb", "shape": "dot", "size": 10}, {"id": "ii8n5o9", "label": "ii8n5o9", "shape": "dot", "size": 10}, {"id": "ii9zb5k", "label": "ii9zb5k", "shape": "dot", "size": 10}, {"id": "ii9e13t", "label": "ii9e13t", "shape": "dot", "size": 10}, {"id": "iiah1ye", "label": "iiah1ye", "shape": "dot", "size": 10}, {"id": "iipzrpn", "label": "iipzrpn", "shape": "dot", "size": 10}, {"id": "iiaf549", "label": "iiaf549", "shape": "dot", "size": 10}, {"id": "ii8m5dg", "label": "ii8m5dg", "shape": "dot", "size": 10}, {"id": "ii8qwrn", "label": "ii8qwrn", "shape": "dot", "size": 10}, {"id": "ii91akz", "label": "ii91akz", "shape": "dot", "size": 10}, {"id": "ii8o8um", "label": "ii8o8um", "shape": "dot", "size": 10}, {"id": "ii8s13v", "label": "ii8s13v", "shape": "dot", "size": 10}, {"id": "iibbtav", "label": "iibbtav", "shape": "dot", "size": 10}, {"id": "iiahw7t", "label": "iiahw7t", "shape": "dot", "size": 10}, {"id": "ii8z3r2", "label": "ii8z3r2", "shape": "dot", "size": 10}, {"id": "iibji32", "label": "iibji32", "shape": "dot", "size": 10}, {"id": "iib56yz", "label": "iib56yz", "shape": "dot", "size": 10}, {"id": "ii8zh1q", "label": "ii8zh1q", "shape": "dot", "size": 10}, {"id": "ii8fjlk", "label": "ii8fjlk", "shape": "dot", "size": 10}, {"id": "iib064n", "label": "iib064n", "shape": "dot", "size": 10}, {"id": "iiaepn5", "label": "iiaepn5", "shape": "dot", "size": 10}, {"id": "iibbcri", "label": "iibbcri", "shape": "dot", "size": 10}, {"id": "ii94pgg", "label": "ii94pgg", "shape": "dot", "size": 10}, {"id": "iil6vcx", "label": "iil6vcx", "shape": "dot", "size": 10}, {"id": "ii8u754", "label": "ii8u754", "shape": "dot", "size": 10}, {"id": "ii9nywx", "label": "ii9nywx", "shape": "dot", "size": 10}, {"id": "ii8ousb", "label": "ii8ousb", "shape": "dot", "size": 10}, {"id": "iic630s", "label": "iic630s", "shape": "dot", "size": 10}, {"id": "ii8s58k", "label": "ii8s58k", "shape": "dot", "size": 10}, {"id": "iiaq645", "label": "iiaq645", "shape": "dot", "size": 10}, {"id": "ii8rtyx", "label": "ii8rtyx", "shape": "dot", "size": 10}, {"id": "iiccz3v", "label": "iiccz3v", "shape": "dot", "size": 10}, {"id": "ii996wy", "label": "ii996wy", "shape": "dot", "size": 10}, {"id": "ii8rjj4", "label": "ii8rjj4", "shape": "dot", "size": 10}, {"id": "ii8sbdo", "label": "ii8sbdo", "shape": "dot", "size": 10}, {"id": "iiaj6l8", "label": "iiaj6l8", "shape": "dot", "size": 10}, {"id": "ii9za7q", "label": "ii9za7q", "shape": "dot", "size": 10}, {"id": "iibo6cu", "label": "iibo6cu", "shape": "dot", "size": 10}, {"id": "iib8uuw", "label": "iib8uuw", "shape": "dot", "size": 10}, {"id": "ii90b2d", "label": "ii90b2d", "shape": "dot", "size": 10}, {"id": "iibciyp", "label": "iibciyp", "shape": "dot", "size": 10}, {"id": "iiazrdn", "label": "iiazrdn", "shape": "dot", "size": 10}, {"id": "iiaikhn", "label": "iiaikhn", "shape": "dot", "size": 10}, {"id": "iicde1t", "label": "iicde1t", "shape": "dot", "size": 10}, {"id": "ii973dz", "label": "ii973dz", "shape": "dot", "size": 10}, {"id": "ii8wfxy", "label": "ii8wfxy", "shape": "dot", "size": 10}, {"id": "ii8zlrb", "label": "ii8zlrb", "shape": "dot", "size": 10}, {"id": "iicbbjk", "label": "iicbbjk", "shape": "dot", "size": 10}, {"id": "iicd0w1", "label": "iicd0w1", "shape": "dot", "size": 10}, {"id": "ii8z8ll", "label": "ii8z8ll", "shape": "dot", "size": 10}, {"id": "iicdj8f", "label": "iicdj8f", "shape": "dot", "size": 10}, {"id": "iiakcu4", "label": "iiakcu4", "shape": "dot", "size": 10}, {"id": "iic742v", "label": "iic742v", "shape": "dot", "size": 10}, {"id": "iiai6r8", "label": "iiai6r8", "shape": "dot", "size": 10}, {"id": "iic6jb6", "label": "iic6jb6", "shape": "dot", "size": 10}, {"id": "iicnfhd", "label": "iicnfhd", "shape": "dot", "size": 10}, {"id": "ii93u1q", "label": "ii93u1q", "shape": "dot", "size": 10}, {"id": "iice095", "label": "iice095", "shape": "dot", "size": 10}, {"id": "ii8zf6q", "label": "ii8zf6q", "shape": "dot", "size": 10}, {"id": "iiahiyk", "label": "iiahiyk", "shape": "dot", "size": 10}, {"id": "iicdkl5", "label": "iicdkl5", "shape": "dot", "size": 10}, {"id": "iiakw3a", "label": "iiakw3a", "shape": "dot", "size": 10}, {"id": "iicxwlb", "label": "iicxwlb", "shape": "dot", "size": 10}, {"id": "ii9946z", "label": "ii9946z", "shape": "dot", "size": 10}, {"id": "ij573ty", "label": "ij573ty", "shape": "dot", "size": 10}, {"id": "ii8zlyf", "label": "ii8zlyf", "shape": "dot", "size": 10}, {"id": "iiavblo", "label": "iiavblo", "shape": "dot", "size": 10}, {"id": "iiala27", "label": "iiala27", "shape": "dot", "size": 10}, {"id": "iiasnwt", "label": "iiasnwt", "shape": "dot", "size": 10}, {"id": "iid3pi1", "label": "iid3pi1", "shape": "dot", "size": 10}, {"id": "iiauoyi", "label": "iiauoyi", "shape": "dot", "size": 10}, {"id": "ii92d2p", "label": "ii92d2p", "shape": "dot", "size": 10}, {"id": "iiavqo3", "label": "iiavqo3", "shape": "dot", "size": 10}, {"id": "iid5cdu", "label": "iid5cdu", "shape": "dot", "size": 10}, {"id": "iibto99", "label": "iibto99", "shape": "dot", "size": 10}, {"id": "iiauvoz", "label": "iiauvoz", "shape": "dot", "size": 10}, {"id": "iicebyl", "label": "iicebyl", "shape": "dot", "size": 10}, {"id": "iib39u3", "label": "iib39u3", "shape": "dot", "size": 10}, {"id": "iicfr2m", "label": "iicfr2m", "shape": "dot", "size": 10}, {"id": "iiclwvq", "label": "iiclwvq", "shape": "dot", "size": 10}, {"id": "iibdumr", "label": "iibdumr", "shape": "dot", "size": 10}, {"id": "iicrdp5", "label": "iicrdp5", "shape": "dot", "size": 10}, {"id": "iicmahx", "label": "iicmahx", "shape": "dot", "size": 10}, {"id": "iicel7n", "label": "iicel7n", "shape": "dot", "size": 10}, {"id": "iid5doy", "label": "iid5doy", "shape": "dot", "size": 10}, {"id": "iifalnx", "label": "iifalnx", "shape": "dot", "size": 10}, {"id": "iicluqw", "label": "iicluqw", "shape": "dot", "size": 10}, {"id": "iidi8y2", "label": "iidi8y2", "shape": "dot", "size": 10}, {"id": "iifgaxe", "label": "iifgaxe", "shape": "dot", "size": 10}, {"id": "iicnu4j", "label": "iicnu4j", "shape": "dot", "size": 10}, {"id": "iifbwjv", "label": "iifbwjv", "shape": "dot", "size": 10}, {"id": "iig4l39", "label": "iig4l39", "shape": "dot", "size": 10}, {"id": "iii90w0", "label": "iii90w0", "shape": "dot", "size": 10}, {"id": "iigblqj", "label": "iigblqj", "shape": "dot", "size": 10}, {"id": "iihjthh", "label": "iihjthh", "shape": "dot", "size": 10}, {"id": "iik021n", "label": "iik021n", "shape": "dot", "size": 10}, {"id": "iighimc", "label": "iighimc", "shape": "dot", "size": 10}, {"id": "iihkv8b", "label": "iihkv8b", "shape": "dot", "size": 10}, {"id": "iiklbm2", "label": "iiklbm2", "shape": "dot", "size": 10}, {"id": "iigi8xt", "label": "iigi8xt", "shape": "dot", "size": 10}, {"id": "iihkwhv", "label": "iihkwhv", "shape": "dot", "size": 10}, {"id": "iikyrgk", "label": "iikyrgk", "shape": "dot", "size": 10}, {"id": "iihk1j7", "label": "iihk1j7", "shape": "dot", "size": 10}, {"id": "iilvqff", "label": "iilvqff", "shape": "dot", "size": 10}, {"id": "iim1a3m", "label": "iim1a3m", "shape": "dot", "size": 10}]);
+        edges = new vis.DataSet([{"from": "wbosh4", "to": "ii84g7x", "weight": 1}, {"from": "wbosh4", "to": "ii96tqb", "weight": 1}, {"from": "wbosh4", "to": "ii9fnbi", "weight": 1}, {"from": "wbosh4", "to": "iiabcmk", "weight": 1}, {"from": "wbosh4", "to": "ii88qee", "weight": 1}, {"from": "wbosh4", "to": "ii8q2qh", "weight": 1}, {"from": "wbosh4", "to": "ii80ifb", "weight": 1}, {"from": "wbosh4", "to": "ii970jl", "weight": 1}, {"from": "wbosh4", "to": "ii8zgna", "weight": 1}, {"from": "wbosh4", "to": "iiab8zh", "weight": 1}, {"from": "wbosh4", "to": "ii8200p", "weight": 1}, {"from": "wbosh4", "to": "ii97tdf", "weight": 1}, {"from": "wbosh4", "to": "ii8mhz2", "weight": 1}, {"from": "wbosh4", "to": "ii8ytdu", "weight": 1}, {"from": "wbosh4", "to": "ii85j1e", "weight": 1}, {"from": "wbosh4", "to": "ii80hdc", "weight": 1}, {"from": "wbosh4", "to": "iias7ut", "weight": 1}, {"from": "wbosh4", "to": "ii8p05k", "weight": 1}, {"from": "wbosh4", "to": "ii9f0zy", "weight": 1}, {"from": "wbosh4", "to": "ii99rn7", "weight": 1}, {"from": "wbosh4", "to": "iic3znw", "weight": 1}, {"from": "wbosh4", "to": "ii8pgz2", "weight": 1}, {"from": "wbosh4", "to": "ii8puuu", "weight": 1}, {"from": "wbosh4", "to": "ii8j8co", "weight": 1}, {"from": "wbosh4", "to": "iiquhra", "weight": 1}, {"from": "wbosh4", "to": "ij6c30b", "weight": 1}, {"from": "wbosh4", "to": "iiayvm7", "weight": 1}, {"from": "ii84g7x", "to": "ii86eyw", "weight": 1}, {"from": "ii84g7x", "to": "ii85n8j", "weight": 1}, {"from": "ii84g7x", "to": "ii88ixi", "weight": 1}, {"from": "ii84g7x", "to": "iiaz91n", "weight": 1}, {"from": "ii84g7x", "to": "iiaz6dq", "weight": 1}, {"from": "ii84g7x", "to": "ii87p9m", "weight": 1}, {"from": "ii84g7x", "to": "ii8nou6", "weight": 1}, {"from": "ii84g7x", "to": "ii85ccq", "weight": 1}, {"from": "ii84g7x", "to": "ii8mq4q", "weight": 1}, {"from": "ii84g7x", "to": "iib0d8x", "weight": 1}, {"from": "ii84g7x", "to": "iib70is", "weight": 1}, {"from": "ii9fnbi", "to": "iiahwxf", "weight": 1}, {"from": "ii9fnbi", "to": "iic8d3g", "weight": 1}, {"from": "ii88qee", "to": "ii89s3i", "weight": 1}, {"from": "ii88qee", "to": "ii8bk5v", "weight": 1}, {"from": "ii88qee", "to": "ii8llnz", "weight": 1}, {"from": "ii88qee", "to": "ii9t2pu", "weight": 1}, {"from": "ii88qee", "to": "ii8fcel", "weight": 1}, {"from": "ii88qee", "to": "iib4vr2", "weight": 1}, {"from": "ii8q2qh", "to": "ii94amr", "weight": 1}, {"from": "ii8q2qh", "to": "iicyk5g", "weight": 1}, {"from": "ii8q2qh", "to": "iiw8mjm", "weight": 1}, {"from": "ii80ifb", "to": "ii8mqsi", "weight": 1}, {"from": "ii8zgna", "to": "iid21oy", "weight": 1}, {"from": "ii8200p", "to": "ii8fbrz", "weight": 1}, {"from": "ii8200p", "to": "ii88esu", "weight": 1}, {"from": "ii8200p", "to": "ii8lwly", "weight": 1}, {"from": "ii8200p", "to": "iigh0w2", "weight": 1}, {"from": "ii8200p", "to": "ii8gs8t", "weight": 1}, {"from": "ii8200p", "to": "iibuvtc", "weight": 1}, {"from": "ii8ytdu", "to": "ii97d5r", "weight": 1}, {"from": "ii8ytdu", "to": "ii9g74q", "weight": 1}, {"from": "ii8ytdu", "to": "iid3usc", "weight": 1}, {"from": "ii8ytdu", "to": "iilzf8i", "weight": 1}, {"from": "ii8ytdu", "to": "iiavbmx", "weight": 1}, {"from": "ii80hdc", "to": "ii86bbn", "weight": 1}, {"from": "ii80hdc", "to": "ii89nzq", "weight": 1}, {"from": "ii99rn7", "to": "ii9gr5g", "weight": 1}, {"from": "ii99rn7", "to": "ii9fro1", "weight": 1}, {"from": "iic3znw", "to": "iicil3b", "weight": 1}, {"from": "ii8pgz2", "to": "ii9ij2w", "weight": 1}, {"from": "ii8pgz2", "to": "ii8tt6o", "weight": 1}, {"from": "ii8j8co", "to": "ii9ha2n", "weight": 1}, {"from": "ii8j8co", "to": "ii99p8s", "weight": 1}, {"from": "ii8j8co", "to": "ii8mj85", "weight": 1}, {"from": "ii86eyw", "to": "ii8go25", "weight": 1}, {"from": "ii86eyw", "to": "ii90n3p", "weight": 1}, {"from": "ii86eyw", "to": "ii8fcwi", "weight": 1}, {"from": "ii85n8j", "to": "ii85v3u", "weight": 1}, {"from": "ii85n8j", "to": "ii8x13q", "weight": 1}, {"from": "ii85n8j", "to": "ii8n7d3", "weight": 1}, {"from": "ii88ixi", "to": "ii88ql5", "weight": 1}, {"from": "ii87p9m", "to": "ii8fx58", "weight": 1}, {"from": "ii8nou6", "to": "iic6riu", "weight": 1}, {"from": "ii85ccq", "to": "ii8hvbp", "weight": 1}, {"from": "ii8mq4q", "to": "ii93h7c", "weight": 1}, {"from": "iib70is", "to": "iic79nh", "weight": 1}, {"from": "iiahwxf", "to": "iigk92a", "weight": 1}, {"from": "ii89s3i", "to": "ii8hab4", "weight": 1}, {"from": "ii89s3i", "to": "ii8b8v6", "weight": 1}, {"from": "ii89s3i", "to": "ii8hqsc", "weight": 1}, {"from": "ii89s3i", "to": "iia0htl", "weight": 1}, {"from": "ii89s3i", "to": "ii8o5tb", "weight": 1}, {"from": "ii89s3i", "to": "iib125d", "weight": 1}, {"from": "ii89s3i", "to": "iiai1cy", "weight": 1}, {"from": "ii8bk5v", "to": "ii8o6h2", "weight": 1}, {"from": "ii8fcel", "to": "ii8ooo9", "weight": 1}, {"from": "ii94amr", "to": "iiajww4", "weight": 1}, {"from": "ii88esu", "to": "ii8a3bz", "weight": 1}, {"from": "ii88esu", "to": "ii8fe84", "weight": 1}, {"from": "ii8lwly", "to": "ii9w72j", "weight": 1}, {"from": "ii8lwly", "to": "ii8tcyq", "weight": 1}, {"from": "iibuvtc", "to": "iibzpp2", "weight": 1}, {"from": "ii86bbn", "to": "ii88l7r", "weight": 1}, {"from": "ii86bbn", "to": "ii88ygz", "weight": 1}, {"from": "ii86bbn", "to": "ii874mf", "weight": 1}, {"from": "ii86bbn", "to": "ii8f9lt", "weight": 1}, {"from": "ii89nzq", "to": "ii8h94j", "weight": 1}, {"from": "ii89nzq", "to": "ii8nehi", "weight": 1}, {"from": "ii9gr5g", "to": "ii9uycc", "weight": 1}, {"from": "ii8go25", "to": "ii8j00p", "weight": 1}, {"from": "ii8go25", "to": "ii8ub5e", "weight": 1}, {"from": "ii8fcwi", "to": "ii92zcw", "weight": 1}, {"from": "ii8fcwi", "to": "ii8fs1o", "weight": 1}, {"from": "ii85v3u", "to": "ii88v3r", "weight": 1}, {"from": "ii85v3u", "to": "ii9b3j1", "weight": 1}, {"from": "ii85v3u", "to": "ii8jb9x", "weight": 1}, {"from": "ii8x13q", "to": "ii9dk56", "weight": 1}, {"from": "ii8x13q", "to": "iia0gdg", "weight": 1}, {"from": "ii88ql5", "to": "ii9zbf4", "weight": 1}, {"from": "ii8fx58", "to": "ii8kwrk", "weight": 1}, {"from": "ii8hvbp", "to": "ii8pppf", "weight": 1}, {"from": "ii93h7c", "to": "iib1igv", "weight": 1}, {"from": "ii93h7c", "to": "iiahovr", "weight": 1}, {"from": "iigk92a", "to": "iiiqgoc", "weight": 1}, {"from": "ii8b8v6", "to": "ii8k86b", "weight": 1}, {"from": "ii8hqsc", "to": "iiafy4r", "weight": 1}, {"from": "iia0htl", "to": "iic5ah5", "weight": 1}, {"from": "ii8ooo9", "to": "ii8yatc", "weight": 1}, {"from": "ii8a3bz", "to": "ii8bcud", "weight": 1}, {"from": "ii8a3bz", "to": "ii8f3px", "weight": 1}, {"from": "ii9w72j", "to": "iia2o9x", "weight": 1}, {"from": "ii8f9lt", "to": "ii947m7", "weight": 1}, {"from": "ii8j00p", "to": "ii8w3b5", "weight": 1}, {"from": "ii8fs1o", "to": "ii8t5nq", "weight": 1}, {"from": "ii9b3j1", "to": "ii9ltbb", "weight": 1}, {"from": "ii8jb9x", "to": "ii8n5o9", "weight": 1}, {"from": "ii8jb9x", "to": "ii9zb5k", "weight": 1}, {"from": "ii9dk56", "to": "ii9e13t", "weight": 1}, {"from": "ii9dk56", "to": "iiah1ye", "weight": 1}, {"from": "ii9dk56", "to": "iipzrpn", "weight": 1}, {"from": "ii9zbf4", "to": "iiaf549", "weight": 1}, {"from": "ii8kwrk", "to": "ii8m5dg", "weight": 1}, {"from": "ii8kwrk", "to": "ii8qwrn", "weight": 1}, {"from": "ii8kwrk", "to": "ii91akz", "weight": 1}, {"from": "ii8kwrk", "to": "ii8o8um", "weight": 1}, {"from": "ii8kwrk", "to": "ii8s13v", "weight": 1}, {"from": "iib1igv", "to": "iibbtav", "weight": 1}, {"from": "iiahovr", "to": "iiahw7t", "weight": 1}, {"from": "ii8k86b", "to": "ii8z3r2", "weight": 1}, {"from": "ii8k86b", "to": "iibji32", "weight": 1}, {"from": "iiafy4r", "to": "iib56yz", "weight": 1}, {"from": "ii8yatc", "to": "ii8zh1q", "weight": 1}, {"from": "ii8bcud", "to": "ii8fjlk", "weight": 1}, {"from": "ii8bcud", "to": "iib064n", "weight": 1}, {"from": "ii8bcud", "to": "iiaepn5", "weight": 1}, {"from": "iia2o9x", "to": "iibbcri", "weight": 1}, {"from": "ii8w3b5", "to": "ii94pgg", "weight": 1}, {"from": "ii8w3b5", "to": "iil6vcx", "weight": 1}, {"from": "ii8t5nq", "to": "ii8u754", "weight": 1}, {"from": "ii8t5nq", "to": "ii9nywx", "weight": 1}, {"from": "ii8n5o9", "to": "ii8ousb", "weight": 1}, {"from": "ii8m5dg", "to": "iic630s", "weight": 1}, {"from": "ii8m5dg", "to": "ii8s58k", "weight": 1}, {"from": "ii8qwrn", "to": "iiaq645", "weight": 1}, {"from": "ii8qwrn", "to": "ii8rtyx", "weight": 1}, {"from": "ii91akz", "to": "iiccz3v", "weight": 1}, {"from": "ii91akz", "to": "ii996wy", "weight": 1}, {"from": "ii8o8um", "to": "ii8rjj4", "weight": 1}, {"from": "ii8s13v", "to": "ii8sbdo", "weight": 1}, {"from": "iiahw7t", "to": "iiaj6l8", "weight": 1}, {"from": "ii8z3r2", "to": "ii9za7q", "weight": 1}, {"from": "iibji32", "to": "iibo6cu", "weight": 1}, {"from": "iib56yz", "to": "iib8uuw", "weight": 1}, {"from": "ii8zh1q", "to": "ii90b2d", "weight": 1}, {"from": "iib064n", "to": "iibciyp", "weight": 1}, {"from": "iiaepn5", "to": "iiazrdn", "weight": 1}, {"from": "iiaepn5", "to": "iiaikhn", "weight": 1}, {"from": "iibbcri", "to": "iicde1t", "weight": 1}, {"from": "ii94pgg", "to": "ii973dz", "weight": 1}, {"from": "ii8u754", "to": "ii8wfxy", "weight": 1}, {"from": "ii8ousb", "to": "ii8zlrb", "weight": 1}, {"from": "ii8s58k", "to": "iicbbjk", "weight": 1}, {"from": "ii996wy", "to": "iicd0w1", "weight": 1}, {"from": "ii8rjj4", "to": "ii8z8ll", "weight": 1}, {"from": "ii8rjj4", "to": "iicdj8f", "weight": 1}, {"from": "iiaj6l8", "to": "iiakcu4", "weight": 1}, {"from": "iiaj6l8", "to": "iic742v", "weight": 1}, {"from": "ii9za7q", "to": "iiai6r8", "weight": 1}, {"from": "iibo6cu", "to": "iic6jb6", "weight": 1}, {"from": "iib8uuw", "to": "iicnfhd", "weight": 1}, {"from": "ii90b2d", "to": "ii93u1q", "weight": 1}, {"from": "iicde1t", "to": "iice095", "weight": 1}, {"from": "ii8z8ll", "to": "ii8zf6q", "weight": 1}, {"from": "ii8z8ll", "to": "iiahiyk", "weight": 1}, {"from": "iicdj8f", "to": "iicdkl5", "weight": 1}, {"from": "iiakcu4", "to": "iiakw3a", "weight": 1}, {"from": "iic6jb6", "to": "iicxwlb", "weight": 1}, {"from": "ii93u1q", "to": "ii9946z", "weight": 1}, {"from": "iice095", "to": "ij573ty", "weight": 1}, {"from": "ii8zf6q", "to": "ii8zlyf", "weight": 1}, {"from": "iiahiyk", "to": "iiavblo", "weight": 1}, {"from": "iiakw3a", "to": "iiala27", "weight": 1}, {"from": "iiakw3a", "to": "iiasnwt", "weight": 1}, {"from": "iicxwlb", "to": "iid3pi1", "weight": 1}, {"from": "ii9946z", "to": "iiauoyi", "weight": 1}, {"from": "ii8zlyf", "to": "ii92d2p", "weight": 1}, {"from": "iiavblo", "to": "iiavqo3", "weight": 1}, {"from": "iid3pi1", "to": "iid5cdu", "weight": 1}, {"from": "iiauoyi", "to": "iibto99", "weight": 1}, {"from": "ii92d2p", "to": "iiauvoz", "weight": 1}, {"from": "iiavqo3", "to": "iicebyl", "weight": 1}, {"from": "iiavqo3", "to": "iib39u3", "weight": 1}, {"from": "iibto99", "to": "iicfr2m", "weight": 1}, {"from": "iicebyl", "to": "iiclwvq", "weight": 1}, {"from": "iib39u3", "to": "iibdumr", "weight": 1}, {"from": "iicfr2m", "to": "iicrdp5", "weight": 1}, {"from": "iiclwvq", "to": "iicmahx", "weight": 1}, {"from": "iibdumr", "to": "iicel7n", "weight": 1}, {"from": "iicrdp5", "to": "iid5doy", "weight": 1}, {"from": "iicmahx", "to": "iifalnx", "weight": 1}, {"from": "iicel7n", "to": "iicluqw", "weight": 1}, {"from": "iid5doy", "to": "iidi8y2", "weight": 1}, {"from": "iifalnx", "to": "iifgaxe", "weight": 1}, {"from": "iicluqw", "to": "iicnu4j", "weight": 1}, {"from": "iidi8y2", "to": "iifbwjv", "weight": 1}, {"from": "iifgaxe", "to": "iig4l39", "weight": 1}, {"from": "iifbwjv", "to": "iii90w0", "weight": 1}, {"from": "iig4l39", "to": "iigblqj", "weight": 1}, {"from": "iig4l39", "to": "iihjthh", "weight": 1}, {"from": "iii90w0", "to": "iik021n", "weight": 1}, {"from": "iigblqj", "to": "iighimc", "weight": 1}, {"from": "iihjthh", "to": "iihkv8b", "weight": 1}, {"from": "iik021n", "to": "iiklbm2", "weight": 1}, {"from": "iighimc", "to": "iigi8xt", "weight": 1}, {"from": "iihkv8b", "to": "iihkwhv", "weight": 1}, {"from": "iiklbm2", "to": "iikyrgk", "weight": 1}, {"from": "iigi8xt", "to": "iihk1j7", "weight": 1}, {"from": "iikyrgk", "to": "iilvqff", "weight": 1}, {"from": "iilvqff", "to": "iim1a3m", "weight": 1}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": true,
+        "filter": [
+            "physics"
+        ]
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+        // if this network requires displaying the configure window,
+        // put it in its div
+        options.configure["container"] = document.getElementById("config");
+        
+
+        network = new vis.Network(container, data, options);
+	 
+        
+
+
+        
+        network.on("stabilizationProgress", function(params) {
+      		document.getElementById('loadingBar').removeAttribute("style");
+	        var maxWidth = 496;
+	        var minWidth = 20;
+	        var widthFactor = params.iterations/params.total;
+	        var width = Math.max(minWidth,maxWidth * widthFactor);
+
+	        document.getElementById('bar').style.width = width + 'px';
+	        document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+	    });
+	    network.once("stabilizationIterationsDone", function() {
+	        document.getElementById('text').innerHTML = '100%';
+	        document.getElementById('bar').style.width = '496px';
+	        document.getElementById('loadingBar').style.opacity = 0;
+	        // really clean the dom element
+	        setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+	    });
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
