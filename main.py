@@ -6,11 +6,12 @@ from utils import gen_reddit
 from __class_data_scrapper import DataScraper
 from __class_graph_analysis import GraphsAnalysis
 
+
+
 def parser():
     parser = argparse.ArgumentParser("IdeaFlux main function.")
 
     parser.add_argument("--h5_dir", type=str, default="data/20220810/", help="h5 dir")
-
     parser.add_argument("--res_dir", type=str, default="data/20220810/", help="results dir")
     
     parser.add_argument("--topics_df_fp", type=str, default="data/20220810/topics_df.h5", help="filepath to master h5 (dataframe when accessed)")
