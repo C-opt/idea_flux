@@ -1,0 +1,364 @@
+-------------- LOG FILE FOR GraphAnalysis --------------
+2023-02-12 21:19:38,692    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:19:38,693    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20220810/10sc53c.html
+2023-02-12 21:19:38,715    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20220810/10sc53c.txt
+2023-02-12 21:19:38,726    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:19:38,727    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20220810/10yath2.html
+2023-02-12 21:19:38,741    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20220810/10yath2.txt
+2023-02-12 21:19:38,752    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:19:38,754    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20220810/10zy6lm.html
+2023-02-12 21:19:38,778    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20220810/10zy6lm.txt
+2023-02-12 21:28:02,637    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:28:02,638    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20220810/10sc53c.html
+2023-02-12 21:28:02,659    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20220810/10sc53c.txt
+2023-02-12 21:28:02,670    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:28:02,670    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20220810/10yath2.html
+2023-02-12 21:28:02,685    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20220810/10yath2.txt
+2023-02-12 21:28:02,694    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:28:02,696    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20220810/10zy6lm.html
+2023-02-12 21:28:02,721    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20220810/10zy6lm.txt
+2023-02-12 21:30:42,185    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:30:42,186    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10sc53c.html
+2023-02-12 21:30:42,208    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10sc53c.txt
+2023-02-12 21:30:42,219    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:30:42,220    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10yath2.html
+2023-02-12 21:30:42,234    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10yath2.txt
+2023-02-12 21:30:42,245    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:30:42,246    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10zy6lm.html
+2023-02-12 21:30:42,272    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10zy6lm.txt
+2023-02-12 21:30:42,284    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:30:42,285    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10muw5k.html
+2023-02-12 21:30:42,296    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10muw5k.txt
+2023-02-12 21:30:42,308    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:30:42,309    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10xhgy8.html
+2023-02-12 21:30:42,322    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10xhgy8.txt
+2023-02-12 21:30:42,333    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:30:42,334    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10z91ax.html
+2023-02-12 21:30:42,357    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10z91ax.txt
+2023-02-12 21:30:42,368    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:30:42,369    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10wgrac.html
+2023-02-12 21:30:42,384    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10wgrac.txt
+2023-02-12 21:30:42,405    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:30:42,406    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10un9rm.html
+2023-02-12 21:30:42,420    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10un9rm.txt
+2023-02-12 21:30:42,431    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:30:42,432    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10wndj9.html
+2023-02-12 21:30:42,453    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10wndj9.txt
+2023-02-12 21:30:42,465    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:30:42,466    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10xalx0.html
+2023-02-12 21:30:42,511    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10xalx0.txt
+2023-02-12 21:37:27,309    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:37:27,310    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10sc53c.html
+2023-02-12 21:37:27,331    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10sc53c.txt
+2023-02-12 21:37:27,342    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:37:27,345    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10yath2.html
+2023-02-12 21:37:27,359    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10yath2.txt
+2023-02-12 21:37:27,371    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:37:27,372    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10zy6lm.html
+2023-02-12 21:37:27,398    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10zy6lm.txt
+2023-02-12 21:37:27,409    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:37:27,410    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10muw5k.html
+2023-02-12 21:37:27,421    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10muw5k.txt
+2023-02-12 21:37:27,433    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:37:27,434    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10xhgy8.html
+2023-02-12 21:37:27,446    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10xhgy8.txt
+2023-02-12 21:37:27,456    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:37:27,458    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10z91ax.html
+2023-02-12 21:37:27,481    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10z91ax.txt
+2023-02-12 21:37:27,492    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:37:27,492    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10wgrac.html
+2023-02-12 21:37:27,507    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10wgrac.txt
+2023-02-12 21:37:27,528    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:37:27,529    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10un9rm.html
+2023-02-12 21:37:27,543    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10un9rm.txt
+2023-02-12 21:37:27,554    INFO __class_graph_analysis.py: 153 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-12 21:37:27,556    INFO __class_graph_analysis.py: 159 -   GraphAnalysis.    render_graph() rendering graph to data/20230212/10xalx0.html
+2023-02-12 21:37:27,600    INFO __class_graph_analysis.py: 210 -   GraphAnalysis. summarize_comms() saving summary at data/20230212/10xalx0.txt
+2023-02-15 06:37:44,332    INFO __class_graph_analysis.py: 164 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 06:37:44,332    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110swn2.html
+2023-02-15 06:37:44,345    INFO __class_graph_analysis.py: 221 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110swn2.txt
+2023-02-15 06:37:44,368    INFO __class_graph_analysis.py: 164 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 06:37:44,369    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/1102t34.html
+2023-02-15 06:37:44,380    INFO __class_graph_analysis.py: 221 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/1102t34.txt
+2023-02-15 06:37:44,405    INFO __class_graph_analysis.py: 164 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 06:37:44,406    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zmz2d.html
+2023-02-15 06:37:44,416    INFO __class_graph_analysis.py: 221 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zmz2d.txt
+2023-02-15 06:37:44,440    INFO __class_graph_analysis.py: 164 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 06:37:44,441    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xjwac.html
+2023-02-15 06:37:44,451    INFO __class_graph_analysis.py: 221 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xjwac.txt
+2023-02-15 06:37:44,475    INFO __class_graph_analysis.py: 164 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 06:37:44,475    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10yfp35.html
+2023-02-15 06:37:44,486    INFO __class_graph_analysis.py: 221 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10yfp35.txt
+2023-02-15 06:37:44,508    INFO __class_graph_analysis.py: 164 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 06:37:44,509    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zzm18.html
+2023-02-15 06:37:44,519    INFO __class_graph_analysis.py: 221 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zzm18.txt
+2023-02-15 06:37:44,541    INFO __class_graph_analysis.py: 164 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 06:37:44,541    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xgvhj.html
+2023-02-15 06:37:44,551    INFO __class_graph_analysis.py: 221 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xgvhj.txt
+2023-02-15 06:37:44,574    INFO __class_graph_analysis.py: 164 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 06:37:44,575    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10ys3md.html
+2023-02-15 06:37:44,590    INFO __class_graph_analysis.py: 221 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10ys3md.txt
+2023-02-15 06:37:44,621    INFO __class_graph_analysis.py: 164 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 06:37:44,621    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xp54e.html
+2023-02-15 06:37:44,632    INFO __class_graph_analysis.py: 221 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xp54e.txt
+2023-02-15 06:37:44,655    INFO __class_graph_analysis.py: 164 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 06:37:44,656    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110s8ui.html
+2023-02-15 06:37:44,667    INFO __class_graph_analysis.py: 221 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110s8ui.txt
+2023-02-15 07:05:07,091    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:05:07,092    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230214/110swn2.html
+2023-02-15 07:05:07,104    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230214/110swn2.txt
+2023-02-15 07:05:07,131    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:05:07,132    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230214/10zmz2d.html
+2023-02-15 07:05:07,143    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230214/10zmz2d.txt
+2023-02-15 07:05:07,173    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:05:07,174    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230214/10xgvhj.html
+2023-02-15 07:05:07,189    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230214/10xgvhj.txt
+2023-02-15 07:05:07,214    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:05:07,215    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230214/10ys3md.html
+2023-02-15 07:05:07,229    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230214/10ys3md.txt
+2023-02-15 07:05:07,254    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:05:07,255    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230214/110s8ui.html
+2023-02-15 07:05:07,265    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230214/110s8ui.txt
+2023-02-15 07:07:33,812    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:07:33,813    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110swn2.html
+2023-02-15 07:07:33,824    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110swn2.txt
+2023-02-15 07:07:33,835    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:07:33,836    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/1102t34.html
+2023-02-15 07:07:33,846    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/1102t34.txt
+2023-02-15 07:07:33,856    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:07:33,856    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zmz2d.html
+2023-02-15 07:07:33,868    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zmz2d.txt
+2023-02-15 07:07:33,878    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:07:33,878    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xjwac.html
+2023-02-15 07:07:33,888    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xjwac.txt
+2023-02-15 07:07:33,897    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:07:33,898    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10yfp35.html
+2023-02-15 07:07:33,908    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10yfp35.txt
+2023-02-15 07:07:33,918    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:07:33,918    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zzm18.html
+2023-02-15 07:07:33,928    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zzm18.txt
+2023-02-15 07:07:33,937    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:07:33,938    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xgvhj.html
+2023-02-15 07:07:33,947    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xgvhj.txt
+2023-02-15 07:07:33,959    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:07:33,960    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10ys3md.html
+2023-02-15 07:07:33,973    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10ys3md.txt
+2023-02-15 07:07:33,983    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:07:33,984    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xp54e.html
+2023-02-15 07:07:33,993    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xp54e.txt
+2023-02-15 07:07:34,002    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:07:34,002    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110s8ui.html
+2023-02-15 07:07:34,012    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110s8ui.txt
+2023-02-15 07:09:13,894    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:09:13,895    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110swn2.html
+2023-02-15 07:09:13,907    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110swn2.txt
+2023-02-15 07:09:13,919    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:09:13,920    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/1102t34.html
+2023-02-15 07:09:13,931    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/1102t34.txt
+2023-02-15 07:09:13,941    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:09:13,942    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zmz2d.html
+2023-02-15 07:09:13,953    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zmz2d.txt
+2023-02-15 07:09:13,966    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:09:13,966    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xjwac.html
+2023-02-15 07:09:13,977    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xjwac.txt
+2023-02-15 07:09:13,987    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:09:13,988    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10yfp35.html
+2023-02-15 07:09:13,997    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10yfp35.txt
+2023-02-15 07:09:14,009    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:09:14,010    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zzm18.html
+2023-02-15 07:09:14,020    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zzm18.txt
+2023-02-15 07:09:14,030    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:09:14,030    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xgvhj.html
+2023-02-15 07:09:14,040    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xgvhj.txt
+2023-02-15 07:09:14,052    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:09:14,053    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10ys3md.html
+2023-02-15 07:09:14,067    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10ys3md.txt
+2023-02-15 07:09:14,079    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:09:14,080    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xp54e.html
+2023-02-15 07:09:14,090    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xp54e.txt
+2023-02-15 07:09:14,101    INFO __class_graph_analysis.py: 169 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:09:14,101    INFO __class_graph_analysis.py: 175 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110s8ui.html
+2023-02-15 07:09:14,111    INFO __class_graph_analysis.py: 226 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110s8ui.txt
+2023-02-15 07:12:51,581    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:12:51,582    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110swn2.html
+2023-02-15 07:12:51,595    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110swn2.txt
+2023-02-15 07:12:51,623    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:12:51,623    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/1102t34.html
+2023-02-15 07:12:51,634    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/1102t34.txt
+2023-02-15 07:12:51,661    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:12:51,661    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zmz2d.html
+2023-02-15 07:12:51,672    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zmz2d.txt
+2023-02-15 07:12:51,697    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:12:51,698    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xjwac.html
+2023-02-15 07:12:51,707    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xjwac.txt
+2023-02-15 07:12:51,731    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:12:51,732    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10yfp35.html
+2023-02-15 07:12:51,741    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10yfp35.txt
+2023-02-15 07:12:51,766    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:12:51,766    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zzm18.html
+2023-02-15 07:12:51,775    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zzm18.txt
+2023-02-15 07:12:51,799    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:12:51,800    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xgvhj.html
+2023-02-15 07:12:51,810    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xgvhj.txt
+2023-02-15 07:12:51,835    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:12:51,837    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10ys3md.html
+2023-02-15 07:12:51,849    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10ys3md.txt
+2023-02-15 07:12:51,876    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:12:51,877    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xp54e.html
+2023-02-15 07:12:51,886    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xp54e.txt
+2023-02-15 07:12:51,910    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:12:51,910    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110s8ui.html
+2023-02-15 07:12:51,920    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110s8ui.txt
+2023-02-15 07:14:49,018    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:14:49,019    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110swn2.html
+2023-02-15 07:14:49,042    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110swn2.txt
+2023-02-15 07:14:49,055    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:14:49,055    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/1102t34.html
+2023-02-15 07:14:49,065    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/1102t34.txt
+2023-02-15 07:14:49,076    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:14:49,077    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zmz2d.html
+2023-02-15 07:14:49,089    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zmz2d.txt
+2023-02-15 07:14:49,101    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:14:49,102    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xjwac.html
+2023-02-15 07:14:49,112    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xjwac.txt
+2023-02-15 07:14:49,124    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:14:49,124    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10yfp35.html
+2023-02-15 07:14:49,136    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10yfp35.txt
+2023-02-15 07:14:49,148    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:14:49,148    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zzm18.html
+2023-02-15 07:14:49,158    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zzm18.txt
+2023-02-15 07:14:49,171    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:14:49,172    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xgvhj.html
+2023-02-15 07:14:49,182    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xgvhj.txt
+2023-02-15 07:14:49,193    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:14:49,194    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10ys3md.html
+2023-02-15 07:14:49,209    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10ys3md.txt
+2023-02-15 07:14:49,221    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:14:49,222    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xp54e.html
+2023-02-15 07:14:49,232    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xp54e.txt
+2023-02-15 07:14:49,243    INFO __class_graph_analysis.py: 170 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:14:49,243    INFO __class_graph_analysis.py: 176 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110s8ui.html
+2023-02-15 07:14:49,254    INFO __class_graph_analysis.py: 227 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110s8ui.txt
+2023-02-15 07:22:49,318    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:22:49,319    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110swn2.html
+2023-02-15 07:22:49,331    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110swn2.txt
+2023-02-15 07:22:49,362    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:22:49,362    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/1102t34.html
+2023-02-15 07:22:49,374    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/1102t34.txt
+2023-02-15 07:22:49,398    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:22:49,398    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zmz2d.html
+2023-02-15 07:22:49,408    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zmz2d.txt
+2023-02-15 07:22:49,434    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:22:49,434    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xjwac.html
+2023-02-15 07:22:49,444    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xjwac.txt
+2023-02-15 07:22:49,468    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:22:49,468    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10yfp35.html
+2023-02-15 07:22:49,478    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10yfp35.txt
+2023-02-15 07:22:49,503    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:22:49,503    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zzm18.html
+2023-02-15 07:22:49,513    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zzm18.txt
+2023-02-15 07:22:49,537    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:22:49,538    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xgvhj.html
+2023-02-15 07:22:49,548    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xgvhj.txt
+2023-02-15 07:22:49,573    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:22:49,573    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10ys3md.html
+2023-02-15 07:22:49,587    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10ys3md.txt
+2023-02-15 07:22:49,612    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:22:49,612    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xp54e.html
+2023-02-15 07:22:49,622    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xp54e.txt
+2023-02-15 07:22:49,649    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:22:49,649    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110s8ui.html
+2023-02-15 07:22:49,659    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110s8ui.txt
+2023-02-15 07:25:11,917    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:25:11,918    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110swn2.html
+2023-02-15 07:25:11,930    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110swn2.txt
+2023-02-15 07:25:49,061    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:25:49,062    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110swn2.html
+2023-02-15 07:25:49,085    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110swn2.txt
+2023-02-15 07:25:49,110    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:25:49,110    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/1102t34.html
+2023-02-15 07:25:49,123    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/1102t34.txt
+2023-02-15 07:25:49,148    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:25:49,149    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zmz2d.html
+2023-02-15 07:25:49,159    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zmz2d.txt
+2023-02-15 07:25:49,187    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:25:49,188    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xjwac.html
+2023-02-15 07:25:49,198    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xjwac.txt
+2023-02-15 07:25:49,222    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:25:49,223    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10yfp35.html
+2023-02-15 07:25:49,233    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10yfp35.txt
+2023-02-15 07:25:49,261    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:25:49,261    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zzm18.html
+2023-02-15 07:25:49,271    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zzm18.txt
+2023-02-15 07:25:49,297    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:25:49,297    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xgvhj.html
+2023-02-15 07:25:49,307    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xgvhj.txt
+2023-02-15 07:25:49,333    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:25:49,333    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10ys3md.html
+2023-02-15 07:25:49,348    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10ys3md.txt
+2023-02-15 07:25:49,377    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:25:49,377    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xp54e.html
+2023-02-15 07:25:49,387    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xp54e.txt
+2023-02-15 07:25:49,413    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:25:49,414    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110s8ui.html
+2023-02-15 07:25:49,425    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110s8ui.txt
+2023-02-15 07:27:14,320    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:27:14,321    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110swn2.html
+2023-02-15 07:27:14,333    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110swn2.txt
+2023-02-15 07:27:14,361    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:27:14,362    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/1102t34.html
+2023-02-15 07:27:14,372    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/1102t34.txt
+2023-02-15 07:27:14,398    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:27:14,399    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zmz2d.html
+2023-02-15 07:27:14,409    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zmz2d.txt
+2023-02-15 07:27:14,434    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:27:14,434    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/11299r9.html
+2023-02-15 07:27:14,444    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/11299r9.txt
+2023-02-15 07:27:14,468    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:27:14,469    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xjwac.html
+2023-02-15 07:27:14,479    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xjwac.txt
+2023-02-15 07:27:14,503    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:27:14,503    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10yfp35.html
+2023-02-15 07:27:14,513    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10yfp35.txt
+2023-02-15 07:27:14,539    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:27:14,540    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xgvhj.html
+2023-02-15 07:27:14,551    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xgvhj.txt
+2023-02-15 07:27:14,578    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:27:14,579    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10ys3md.html
+2023-02-15 07:27:14,592    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10ys3md.txt
+2023-02-15 07:27:14,620    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:27:14,620    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xp54e.html
+2023-02-15 07:27:14,630    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xp54e.txt
+2023-02-15 07:27:14,655    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:27:14,655    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110s8ui.html
+2023-02-15 07:27:14,666    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110s8ui.txt
+2023-02-15 07:28:26,092    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:28:26,093    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110swn2.html
+2023-02-15 07:28:26,105    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110swn2.txt
+2023-02-15 07:28:26,144    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:28:26,144    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/1102t34.html
+2023-02-15 07:28:26,155    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/1102t34.txt
+2023-02-15 07:28:26,190    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:28:26,190    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10zmz2d.html
+2023-02-15 07:28:26,200    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10zmz2d.txt
+2023-02-15 07:28:26,238    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:28:26,239    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/11299r9.html
+2023-02-15 07:28:26,248    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/11299r9.txt
+2023-02-15 07:28:26,288    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:28:26,288    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xjwac.html
+2023-02-15 07:28:26,298    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xjwac.txt
+2023-02-15 07:28:26,337    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:28:26,337    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10yfp35.html
+2023-02-15 07:28:26,347    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10yfp35.txt
+2023-02-15 07:28:26,384    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:28:26,385    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xgvhj.html
+2023-02-15 07:28:26,395    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xgvhj.txt
+2023-02-15 07:28:26,431    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:28:26,432    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10ys3md.html
+2023-02-15 07:28:26,445    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10ys3md.txt
+2023-02-15 07:28:26,484    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:28:26,485    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/10xp54e.html
+2023-02-15 07:28:26,494    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/10xp54e.txt
+2023-02-15 07:28:26,531    INFO __class_graph_analysis.py: 171 -   GraphAnalysis.       gen_graph() generating graph
+2023-02-15 07:28:26,531    INFO __class_graph_analysis.py: 177 -   GraphAnalysis.    render_graph() rendering graph to data/20230215/110s8ui.html
+2023-02-15 07:28:26,542    INFO __class_graph_analysis.py: 228 -   GraphAnalysis. summarize_comms() saving summary at data/20230215/110s8ui.txt

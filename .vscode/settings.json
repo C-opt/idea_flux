@@ -1,0 +1,14 @@
+{
+    "python.analysis.extraPaths": [
+        "/home/richard/workspace/dev_dep/lib/python3.10/site-packages"
+    ],
+    "python.autoComplete.extraPaths": [
+        "/home/richard/workspace/dev_dep/lib/python3.10/site-packages"
+    ],
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.lintOnSave": true,
+    "python.formatting.autopep8Args": [
+        "--max-line-length=100"
+    ]
+}

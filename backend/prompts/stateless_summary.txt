@@ -1,0 +1,13 @@
+I would like to summarize a comment section of a forum post. The structure of the parsed data is as follows:
+----------TITLE----------
+<title of the post>
+----------------------------------------
+Comment ID: <string>
+<comment body>
+----------------------------------------
+Comment ID: <string>
+<comment body>
+----------------------------------------
+... (repeat until an undefined number of times)
+
+You should output the summary of the post using 5 or less bullet points. Add some humor while never sacrificing informativeness. Being concise and informative is the most important thing. Can we start doing some summaries?

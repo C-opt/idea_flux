@@ -1,57 +1,211 @@
-import os
-import pandas as pd
 import yaml
-import argparse
-from utils import gen_reddit
-from __class_data_scrapper import DataScraper
-from __class_graph_analysis import GraphsAnalysis
+import asyncio
+import time
+import threading
+from fastapi import FastAPI, Request, BackgroundTasks
+from fastapi.responses import FileResponse, HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+
+from backend.analyzer import SubmissionsAnalysis
+from backend.miner import DataScraper
+from backend.sql import SQL
+from backend.utils import gen_reddit
+
+# https://stackoverflow.com/questions/65916537/a-minimal-fastapi-example-loading-index-html
+
+# frontend_app = FastAPI(title="IdeaFlux UI")
+# frontend_app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
 
 
+host = "localhost"
+database = "ideaflux"
+user = "postgres"
+password = "postgres"
+sql_handle = SQL(
+    host=host,
+    database=database,
+    user=user,
+    password=password,
+)
 
-def parser():
-    parser = argparse.ArgumentParser("IdeaFlux main function.")
+login_yaml = "backend/configs/login.yaml"
+with open(login_yaml, "r") as file:
+    yaml_file = yaml.safe_load(file)
+login = yaml_file.get("login")
+reddit_handle = gen_reddit(login)
 
-    parser.add_argument("--h5_dir", type=str, default="data/20220810/", help="h5 dir")
-    parser.add_argument("--res_dir", type=str, default="data/20220810/", help="results dir")
-    
-    parser.add_argument("--topics_df_fp", type=str, default="data/20220810/topics_df.h5", help="filepath to master h5 (dataframe when accessed)")
 
-    parser.add_argument("--login_yaml_fp", type=str, default="login.yaml",
-                        help="login yaml path")
+app = FastAPI()
+app.mount("/static", StaticFiles(directory="frontend"), name="static")
 
-    parser.add_argument("--subreddits", nargs="+", default=["japanlife", "japan"], type=str, help="List of subrredits to be scrapped")
-    
-    parser.add_argument("--save_dir", type=str, default="data/20220810/",
-                        help="folder where h5 files are going to be saved")
+templates = Jinja2Templates(directory="frontend")
 
-    parser.add_argument("--top_num_posts", type=int, default=5,
-                        help="number of posts selected")
 
-    return parser.parse_args()
+# https://python.plainenglish.io/how-to-run-background-tasks-in-fastapi-python-73980fcf5672
+def periodic_db_update(
+    subreddit_names: list,
+    max_num_submissions: int,
+    max_num_comments: int,
+    wait_time: int,
+):
+    while True:
+        try:
+            for subreddit_name in subreddit_names:
+                data_scraper = DataScraper(
+                    reddit_handle=reddit_handle,
+                    subreddits_name_list=[subreddit_name],
+                    sql_handle=sql_handle,
+                )
+                data_scraper.subreddit_routine(max_num_submissions=max_num_submissions)
+                data_scraper.submission_routine(max_num_comments=max_num_comments)
 
-def main():
+                sub_analysis = SubmissionsAnalysis(sql_handle=sql_handle)
+                sub_analysis.routine()
+                time.sleep(wait_time)
+        except Exception as e:
+            print(e)
+            return False
 
-    args = parser()
 
-    login_yaml_fp = args.login_yaml_fp
-    save_dir = args.save_dir
-    top_num_posts = args.top_num_posts
-    subreddits_list = args.subreddits
-    h5_dir = args.h5_dir
-    res_dir = args.res_dir
-    topics_df_fp = args.topics_df_fp
+import multiprocessing
 
-    with open(login_yaml_fp, "r") as file: 
-        yaml_file = yaml.safe_load(file)
-    login = yaml_file.get("login")
-    
-    # # generate reddit handler
-    reddit = gen_reddit(login)
 
-    data_scraper = DataScraper(save_dir=save_dir, reddit_handle=reddit, subreddits_list=subreddits_list)
-    data_scraper.dl_df_routine(top_num=top_num_posts)
-    graphs_analysis = GraphsAnalysis(h5_dir=h5_dir, res_dir=res_dir, topics_df_fp=topics_df_fp)
-    graphs_analysis.batch_summarization()
+def thread_function(name):
+    while True:
+        print("Thread: starting", name)
+        time.sleep(2)
+        print("Thread: finishing", name)
 
-if __name__ == "__main__":
-    main()
+
+@app.on_event("startup")
+async def schedule_periodic_db_update():
+    subreddit_names = sql_handle.get_subreddits()
+    max_num_submissions = 5
+    max_num_comments = 200
+    wait_time = 10 * 60
+
+    # x = threading.Thread(
+    #     target=periodic_db_update,
+    #     args=(subreddit_names, max_num_submissions, max_num_comments, wait_time),
+    # )
+    # for index in range(3):
+    mining_process = multiprocessing.Process(
+        target=periodic_db_update,
+        args=(subreddit_names, max_num_submissions, max_num_comments, wait_time),
+        daemon=True,
+    )
+    # threads.append(x)
+    mining_process.start()
+    # x.join()
+
+    return True
+
+
+@app.get("/", response_class=HTMLResponse)
+async def read_item(
+    request: Request,
+):
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+        },
+    )
+
+
+@app.get("/subreddits")
+async def get_subreddits():
+    return sql_handle.get_subreddits()
+
+
+@app.get("/subreddits/top{top_nth}-th")
+async def get_topn_submissions(top_nth: int) -> list[dict]:
+    if top_nth <= 0:
+        return
+    interval = "1 month"
+    submissions_info = sql_handle.get_topn_submissions(top_nth, interval)
+    res = []
+
+    for s_info in submissions_info:
+        datum = {
+            "submission_id": s_info[0],
+            "comments_num": s_info[1],
+            "score": s_info[2],
+            "subreddit_id": s_info[3],
+            "subreddit_display_name": s_info[4],
+            "title": s_info[5],
+            "created": s_info[6],
+            "url": s_info[7],
+            "body": s_info[8],
+            "user_engagement": s_info[10],
+            "spine_body": s_info[11],
+            "ua_rank": s_info[12],
+        }
+        res.append(datum)
+
+    return res
+
+
+@app.get("/subreddits/{subreddit_name}")
+async def get_submissions(subreddit_name: str) -> list[dict]:
+    submissions_info = sql_handle.get_submissions(subreddit_name)
+    res = []
+
+    for s_info in submissions_info:
+        datum = {
+            "submission_id": s_info[0],
+            "comments_num": s_info[1],
+            "score": s_info[2],
+            "subreddit_id": s_info[3],
+            "subreddit_display_name": s_info[4],
+            "title": s_info[5],
+            "created": s_info[6],
+            "url": s_info[7],
+            "body": s_info[8],
+            "user_engagement": s_info[10],
+            "spine_body": s_info[11],
+        }
+        res.append(datum)
+    return res
+
+
+@app.post("/subreddits/{subreddit_name}")
+async def update_submissions(
+    subreddit_name: str,
+    max_num_submissions: int,
+    max_num_comments: int,
+    background_tasks: BackgroundTasks,
+):
+    data_scraper = DataScraper(
+        reddit_handle=reddit_handle,
+        subreddits_name_list=[subreddit_name],
+        sql_handle=sql_handle,
+    )
+    background_tasks.add_task(
+        data_scraper.subreddit_routine, max_num_submissions=max_num_submissions
+    )
+    background_tasks.add_task(
+        data_scraper.submission_routine, max_num_comments=max_num_comments
+    )
+
+    sub_analysis = SubmissionsAnalysis(sql_handle=sql_handle)
+    background_tasks.add_task(sub_analysis.routine)
+
+    return True
+
+
+@app.get("/submissions/{submission_id}")
+async def get_comments(submission_id: str) -> list[dict]:
+    comments_info = sql_handle.get_comments(submission_id)
+
+    res = []
+    for c_info in comments_info:
+        datum = {
+            "comment_id": c_info[0],
+            "parent_id": c_info[1],
+            "submission_id": c_info[2],
+            "body": c_info[3],
+        }
+        res.append(datum)
+    return res
