@@ -5,12 +5,6 @@ from datetime import datetime
 import praw
 import asyncpraw
 
-porn_subreddits = [
-    "gonewild",
-    "AsiansGoneWild",
-    "realasians",
-    "xsmallgirls",
-]
 tech_subrredits = [
     "MachineLearning",
     "dataisbeautiful",

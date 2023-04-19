@@ -832,3 +832,13 @@ LINE 12:             WHERE created > now() - interval '1 week';
 2023-04-19 20:05:15,190    INFO               sql.py:  60 -             SQL.  execute_values() the dataframe is inserted
 2023-04-19 20:05:15,549    INFO               sql.py:  60 -             SQL.  execute_values() the dataframe is inserted
 2023-04-19 20:05:15,693    INFO               sql.py:  60 -             SQL.  execute_values() the dataframe is inserted
+2023-04-19 20:15:16,439    INFO               sql.py:  60 -             SQL.  execute_values() the dataframe is inserted
+2023-04-19 20:15:24,287    INFO               sql.py:  60 -             SQL.  execute_values() the dataframe is inserted
+2023-04-19 20:15:24,683    INFO               sql.py:  60 -             SQL.  execute_values() the dataframe is inserted
+2023-04-19 20:15:24,968    INFO               sql.py:  60 -             SQL.  execute_values() the dataframe is inserted
+2023-04-19 20:15:26,296    INFO               sql.py:  60 -             SQL.  execute_values() the dataframe is inserted
+2023-04-19 20:15:26,565    INFO               sql.py:  60 -             SQL.  execute_values() the dataframe is inserted
+2023-04-19 20:15:26,826    INFO               sql.py:  60 -             SQL.  execute_values() the dataframe is inserted
+2023-04-19 20:15:27,103    INFO               sql.py:  60 -             SQL.  execute_values() the dataframe is inserted
+2023-04-19 20:15:27,742    INFO               sql.py:  60 -             SQL.  execute_values() the dataframe is inserted
+2023-04-19 20:15:27,854    INFO               sql.py:  60 -             SQL.  execute_values() the dataframe is inserted
