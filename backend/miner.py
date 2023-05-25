@@ -26,18 +26,31 @@ from backend.utils import create_directory, gen_reddit, setup_logging
 
 
 class IdeaFluxSubreddit:
+    """_summary_"""
+
     def __init__(self, reddit_handle: Reddit, subreddit_name: str):
         self.logger = None
         setup_logging(self)
         self.subreddit_handle = reddit_handle.subreddit(subreddit_name)
-        print(type(self.subreddit_handle))
+        self.logger.debug(type(self.subreddit_handle))
+
         self.subreddit_name = self.subreddit_handle.name
         self.subreddit_display_name = self.subreddit_handle.display_name
         self.subreddit_submissions = list()
 
     def load_submissions(
-        self, mode="hot", limit=10, ignore_subs=[]
+        self, mode="hot", limit=10, ignore_subs=list()
     ) -> list[Submission]:
+        """load submissions
+
+        Args:
+            mode (str, optional): _description_. Defaults to "hot".
+            limit (int, optional): _description_. Defaults to 10.
+            ignore_subs (list, optional): _description_. Defaults to [].
+
+        Returns:
+            list[Submission]: _description_
+        """
         submissions = list()
         if mode == "hot":
             for submission in self.subreddit_handle.hot(limit=limit):
@@ -58,7 +71,8 @@ class IdeaFluxSubreddit:
 
     def submission_dict_init(
         self,
-    ):
+    ) -> dict:
+        """Initiate submission dictionary"""
         submission_dict = dict()
 
         submission_dict.update({"submission_id": list()})
@@ -78,13 +92,17 @@ class IdeaFluxSubreddit:
 
     def submissions2df(
         self,
-    ):
+    ) -> pd.DataFrame:
+        """transform submissions into dataframes"""
         submission_dict = self.submission_dict_init()
         for submission in self.subreddit_submissions:
+            # self.logger.info(vars(submission))
             submission_dict.get("title").append(submission.title)
             submission_dict.get("score").append(submission.score)
             submission_dict.get("submission_id").append(submission.id)
-            submission_dict.get("url").append(submission.url)
+            submission_dict.get("url").append(
+                "https://reddit.com" + submission.permalink
+            )
             submission_dict.get("comments_num").append(submission.num_comments)
             submission_dict.get("created").append(submission.created)
             submission_dict.get("body").append(submission.selftext)
@@ -93,14 +111,13 @@ class IdeaFluxSubreddit:
                 self.subreddit_display_name
             )
 
-            # self.subreddit_name
-            # submission_dict.get("user_engagement").append(-1)
-
         sub_df = pd.DataFrame(submission_dict)
         return sub_df
 
 
 class IdeaFluxSubmission:
+    """Class for formatting the submission"""
+
     def __init__(
         self,
         submission_id: str,
@@ -115,7 +132,12 @@ class IdeaFluxSubmission:
 
     def comment_dict_init(
         self,
-    ):
+    ) -> dict:
+        """_summary_
+
+        Returns:
+            dict: _description_
+        """
         comm_dict = dict()
         comm_dict.update({"comment_id": list()})
         comm_dict.update({"parent_id": list()})
@@ -128,9 +150,24 @@ class IdeaFluxSubmission:
 
     def comments2df(
         self,
-    ):
+    ) -> pd.DataFrame:
+        """_summary_
+
+        Returns:
+            pd.DataFrame: _description_
+        """
         comm_dict = self.comment_dict_init()
         TEXT_CLEANING_RE = "@\S+|https?:\S+|http?:\S|[^A-Za-z0-9]+"
+        EMOJI_PATTERN = re.compile(
+            "["
+            "\U0001F600-\U0001F64F"  # emoticons
+            "\U0001F300-\U0001F5FF"  # symbols & pictographs
+            "\U0001F680-\U0001F6FF"  # transport & map symbols
+            "\U0001F1E0-\U0001F1FF"  # flags (iOS)
+            "]+",
+            flags=re.UNICODE,
+        )
+
         for comment in self.submission_comments:
             # self.logger.info(20*"#")
             # self.logger.info("Parent ID: ", comment.parent())
@@ -140,7 +177,10 @@ class IdeaFluxSubmission:
             comm_dict.get("parent_id").append(comment.parent().id)
             comm_dict.get("comment_id").append(comment.id)
             comm_dict.get("submission_id").append(self.submission_id)
-            text = re.sub(TEXT_CLEANING_RE, " ", str(comment.body).lower()).strip()
+
+            # text = re.sub(TEXT_CLEANING_RE, " ", str(comment.body).lower()).strip()
+            text = EMOJI_PATTERN.sub(" ", str(comment.body))
+            text = text.strip()
             comm_dict.get("body").append(text)
             # comm_dict.get("type").append("Undirected")
             # comm_dict.get("weight").append(1)
@@ -148,10 +188,15 @@ class IdeaFluxSubmission:
         comm_df = pd.DataFrame(comm_dict)
         return comm_df
 
-    def load_comments(self, max_comm=200):
-        if self.submission_handle.stickied:
-            return None
+    def load_comments(self, max_comm=200) -> list:
+        """load comments of submission handle
 
+        Args:
+            max_comm (int, optional): max number of comments to be loaded. Defaults to 200.
+
+        Returns:
+            list: list of comments
+        """
         self.logger.info("comments.replace_more()  ...")
         t0 = time.time()
         while True:
@@ -160,7 +205,7 @@ class IdeaFluxSubmission:
                 break
             except Exception as e:
                 self.logger.info(
-                    "handing comments.replace_more(limit=max_comm): {e}".format(e=e)
+                    "handling comments.replace_more(limit=max_comm): {e}".format(e=e)
                 )
                 time.sleep(1.0)
             self.logger.info(
@@ -181,11 +226,10 @@ class IdeaFluxSubmission:
 
         t1 = time.time()
         self.logger.info(
-            "comments.list() in {comms_list_time:4.2f} seconds".format(
-                comms_list_time=t1 - t0
+            "{num_comms} comments in {comms_list_time:4.2f} seconds".format(
+                num_comms=len(comms_list), comms_list_time=t1 - t0
             )
         )
-
         for c in comms_list:
             self.submission_comments.append(c)
         return comms_list
@@ -196,20 +240,28 @@ class IdeaFluxSubmission:
 
 
 class DataScraper:
+    """Data scraper class. It mines information from reddit."""
+
     def __init__(self, **kwargs):
         self.logger = None
         setup_logging(self)
-        self.subreddits_name_list = kwargs.get("subreddits_name_list")
-        self.reddit_handle = kwargs.get("reddit_handle")
+        self.subreddits_name_list: list = kwargs.get("subreddits_name_list")
+        self.reddit_handle: Reddit = kwargs.get("reddit_handle")
 
-        self.sql_handle = kwargs.get("sql_handle")
+        self.sql_handle: SQL = kwargs.get("sql_handle")
         assert type(self.sql_handle) is SQL
+        assert type(self.reddit_handle) is Reddit
         # host = kwargs.get("host")
         # database = kwargs.get("database")
         # user = kwargs.get("user")
         # password = kwargs.get("password")
 
     def subreddit_routine(self, max_num_submissions=10):
+        """_summary_
+
+        Args:
+            max_num_submissions (int, optional): _description_. Defaults to 10.
+        """
         already_processed_submission_ids = self.sql_handle.get_column_from_table(
             "submissions", "submission_id"
         )
@@ -229,31 +281,50 @@ class DataScraper:
             submissions_df = submissions_df.sort_values(
                 by="comments_num", ascending=False
             )
-            self.logger.info(submissions_df)
-            self.logger.info("sorting dataframes by number of comms")
+            self.logger.debug(submissions_df)
+            self.logger.info("insert dataframes into DB")
             self.sql_handle.execute_values(submissions_df, "submissions")
 
     def submission_routine(self, max_num_comments=100):
-        # take id
+        """Submission routine method.
+            1)
+
+        Args:
+            max_num_comments (int, optional): _description_. Defaults to 100.
+        """
+        # get submission id that has been created in less than 2 days, and has more than 0 comments
         submission_ids = self.sql_handle.get_column_from_table(
-            "submissions", "submission_id", " WHERE comments_num > 0;"
+            "submissions",
+            "submission_id",
+            " WHERE comments_num > 0 AND created > now() - interval '2 day';",
         )
+        # get submission ids that have already been loaded into the DB
         already_processed_submission_ids = self.sql_handle.get_column_from_table(
             "reddit_comments",
             "submission_id",
         )
+
+        # filter out submission ids that already have been loaded
         tbproc_sub_ids = list(
             set(submission_ids) - set(already_processed_submission_ids)
         )
 
+        # start loading the comments
         for submission_id in tbproc_sub_ids:
             self.logger.info(submission_id)
             submission_handle = IdeaFluxSubmission(
                 submission_id=submission_id, reddit_handle=self.reddit_handle
             )
-            submission_handle.load_comments(max_comm=max_num_comments)
-            comments_df = submission_handle.comments2df()
-            self.sql_handle.execute_values(comments_df, "reddit_comments")
+            # if submission is stickied or NSFW, then skip it
+            if (
+                submission_handle.submission_handle.stickied
+                # or submission_handle.submission_handle.over_18
+            ):
+                self.logger.info(f"Skip {submission_id}")
+            else:
+                submission_handle.load_comments(max_comm=max_num_comments)
+                comments_df = submission_handle.comments2df()
+                self.sql_handle.execute_values(comments_df, "reddit_comments")
 
     def get_date(self, created):
         return dt.datetime.fromtimestamp(created)

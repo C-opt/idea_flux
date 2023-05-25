@@ -13,7 +13,6 @@ from backend.utils import create_directory, setup_logging
 
 class SubmissionCommentAnalysis:
     def __init__(self, submission_id: str, sql_handle: SQL):
-
         self.logger = None
         setup_logging(self)
 
@@ -46,7 +45,6 @@ class SubmissionCommentAnalysis:
         return raw_df
 
     def graph_df2graph(self):
-
         self.graph = nx.from_pandas_edgelist(
             self.raw_df,
             source="parent_id",
@@ -128,10 +126,15 @@ class SubmissionCommentAnalysis:
     def get_submission_comment_spine(
         self,
     ):
+        submission_title = self.sql_handle.get_column_from_table(
+            "submissions",
+            "title",
+            " WHERE submission_id = '{id}';".format(id=self.submission_id),
+        )
 
         submission_body = self.sql_handle.get_column_from_table(
             "submissions",
-            "title",
+            "body",
             " WHERE submission_id = '{id}';".format(id=self.submission_id),
         )
 
@@ -152,7 +155,9 @@ class SubmissionCommentAnalysis:
         )
 
         res = "\n" + "-" * 10 + "TITLE" + "-" * 10
+        res += "\n" + submission_title[0]
         res += "\n" + submission_body[0]
+
         for body, id in zip(comm_bodies, ids):
             res += "\n" + "-" * 40
             res += "\nComment ID: " + str(id)
@@ -166,13 +171,11 @@ class SubmissionsAnalysis:
         self,
         **kwargs,
     ):
-
         self.logger = None
         setup_logging(self)
         self.sql_handle = kwargs.get("sql_handle")
 
     def submissions_user_engagement_init(self):
-
         submissions_user_engagement_dict = dict()
         submissions_user_engagement_dict.update({"submission_id": list()})
         submissions_user_engagement_dict.update({"user_engagement": list()})
@@ -181,7 +184,6 @@ class SubmissionsAnalysis:
         return submissions_user_engagement_dict
 
     def routine(self):
-
         submission_ids = self.sql_handle.get_column_from_table(
             "submissions", "submission_id", " WHERE comments_num > 1;"
         )

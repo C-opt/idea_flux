@@ -3,7 +3,6 @@ import os
 from datetime import datetime
 
 import praw
-import asyncpraw
 
 tech_subrredits = [
     "MachineLearning",
@@ -23,8 +22,13 @@ japan_subreddits = [
 ]
 
 
-def setup_logging(self, log_level=logging.DEBUG):
-    FORMAT = "%(asctime)s %(levelname)7s %(filename)20s:%(lineno)4s - %(name)15s.%(funcName)16s() %(message)s"
+def setup_logging(self, log_level=logging.INFO):
+    """setup logger
+
+    Args:
+        log_level (_type_, optional): _description_. Defaults to logging.INFO.
+    """
+    FORMAT = "%(asctime)s %(levelname)7s %(filename)20s:%(lineno)4s - %(name)22s.%(funcName)20s() %(message)s"
 
     log_dir = "logs/"
     log_file = log_dir + "{name}.log".format(name=type(self).__name__)
@@ -59,7 +63,7 @@ def setup_logging(self, log_level=logging.DEBUG):
     return
 
 
-def create_directory(directory):
+def create_directory(directory: str):
     """
     :param dir: directory name to be created
     :return: True or False
@@ -71,7 +75,7 @@ def create_directory(directory):
         return False
 
 
-def timestamp():
+def timestamp() -> str:
     curr_ts = datetime.now()
     out_string = "{year:04d}{month:02d}{day:02d}{hour:02d}{minute:02d}{second:02d}{micro:06d}".format(
         year=curr_ts.year,
@@ -85,7 +89,7 @@ def timestamp():
     return out_string
 
 
-def gen_reddit(login):
+def gen_reddit(login: dict) -> praw.Reddit:
     reddit_handle = praw.Reddit(
         client_id=login.get("client_id"),
         client_secret=login.get("client_secret"),

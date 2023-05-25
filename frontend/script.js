@@ -1,8 +1,8 @@
 
 // set the dimensions and margins of the graph
-const margin = { top: 80, right: 30, bottom: 30, left: 120 },
+const margin = { top: 80, right: 30, bottom: 30, left: 200 },
     width = 500 - margin.left - margin.right,
-    height = 900 - margin.top - margin.bottom;
+    height = 1200 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#my_dataviz")
@@ -17,10 +17,6 @@ d3.json("/subreddits/top5-th")
         const myIds = Array.from(new Set(data.map(d => d.subreddit_display_name)))
         const myUEs = Array.from(new Set(data.map(d => d.user_engagement)))
         const myTops = ["top 1", "top 2", "top 3", "top 4", "top 5"]
-
-        // console.log(myUEs)
-        // console.log(myIds)
-        // console.log(myTops)
 
         const x = d3.scaleBand()
             .range([0, width])
@@ -37,7 +33,7 @@ d3.json("/subreddits/top5-th")
         const y = d3.scaleBand()
             .range([0, height])
             .domain(myIds)
-            .padding(0.05);
+            .padding(0.25);
         svg.append("g")
             .style("font-size", 40)
             .call(d3.axisLeft(y).tickSize(0))

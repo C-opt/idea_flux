@@ -7,6 +7,8 @@ from backend.utils import setup_logging
 
 
 class SQL:
+    """PostgreSQL wrapper"""
+
     def __init__(self, **kwargs):
         self.logger = None
         setup_logging(self, logging.INFO)
@@ -144,7 +146,7 @@ class SQL:
 
         return
 
-    def get_column_from_table(self, table, column_name, add_query=""):
+    def get_column_from_table(self, table: str, column_name: str, add_query=""):
         query = f"SELECT {column_name} from {table}"
         query += add_query
 
