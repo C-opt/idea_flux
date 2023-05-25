@@ -5,13 +5,12 @@ from datetime import datetime, timedelta
 import redis
 import yaml
 from praw import Reddit
-from fastapi import BackgroundTasks, FastAPI, Request, Depends
+from fastapi import BackgroundTasks, FastAPI, Request
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from fastapi_limiter import FastAPILimiter
-from fastapi_limiter.depends import RateLimiter
 
 
 from app_common import SystemVariables
@@ -212,11 +211,7 @@ async def schedule_periodic_db_update():
     return True
 
 
-@app.get(
-    "/",
-    response_class=HTMLResponse,
-    dependencies=[Depends(RateLimiter(times=2, seconds=5))],
-)
+@app.get("/", response_class=HTMLResponse)
 async def read_item(
     request: Request,
 ):
@@ -229,11 +224,7 @@ async def read_item(
     )
 
 
-@app.get(
-    "/subreddits",
-    response_class=HTMLResponse,
-    dependencies=[Depends(RateLimiter(times=2, seconds=5))],
-)
+@app.get("/subreddits")
 async def get_subreddits():
     """Get lists of currently read subreddits in the database
 
@@ -244,11 +235,7 @@ async def get_subreddits():
     return sql_handle.get_subreddits()
 
 
-@app.get(
-    "/subreddits/top{top_nth}-th",
-    response_class=HTMLResponse,
-    dependencies=[Depends(RateLimiter(times=2, seconds=5))],
-)
+@app.get("/subreddits/top{top_nth}-th")
 async def get_topn_submissions(top_nth: int) -> list[dict]:
     """Get the most n-th most engaged posts within a time interval that where loaded into the DB
 
@@ -288,11 +275,7 @@ async def get_topn_submissions(top_nth: int) -> list[dict]:
     return res
 
 
-@app.get(
-    "/subreddits/{subreddit_name}",
-    response_class=HTMLResponse,
-    dependencies=[Depends(RateLimiter(times=2, seconds=5))],
-)
+@app.get("/subreddits/{subreddit_name}")
 async def get_submissions(subreddit_name: str) -> list[dict]:
     """_summary_
 
@@ -324,11 +307,7 @@ async def get_submissions(subreddit_name: str) -> list[dict]:
     return res
 
 
-@app.post(
-    "/subreddits/{subreddit_name}",
-    response_class=HTMLResponse,
-    dependencies=[Depends(RateLimiter(times=2, seconds=5))],
-)
+@app.post("/subreddits/{subreddit_name}")
 async def update_submissions(
     subreddit_name: str,
 ):
@@ -348,11 +327,7 @@ async def update_submissions(
     return True
 
 
-@app.get(
-    "/submissions/{submission_id}",
-    response_class=HTMLResponse,
-    dependencies=[Depends(RateLimiter(times=2, seconds=5))],
-)
+@app.get("/submissions/{submission_id}")
 async def get_comments(submission_id: str) -> list[dict]:
     """get all comments of a submission
 
