@@ -8,6 +8,8 @@ import logging
 
 
 class RateLimiter:
+    """Rate limiter class"""
+
     def __init__(self, redis_handle: Redis):
         self.logger = None
         setup_logging(self, logging.INFO)
@@ -68,7 +70,7 @@ class RateLimiter:
         """
         api_limiter_queue: RedisQueue = self.get_limiter_queue(limiter_name)
         qlen = api_limiter_queue.length()
-        self.logger.info(qlen)
+        self.logger.debug(qlen)
         if qlen > 0:
             api_limiter_queue.dequeue()
             return True
