@@ -149,11 +149,11 @@ WHERE submission_id = '{submission_id}';
 - [x] write commonly used SQL queries
 - [x] implement rate-limiter to APIs
 - [x] improve javascript responsiveness (PC/tablet/phone)
+- [x] implement memory cache for /subreddits/top{top_nth}-th using Redis
 - [ ] implement redirect page (in case of too many requests)
 - [ ] make tooltip more evident (frontend)
 - [ ] add unit tests to FastAPI
-- [ ] implement memory cache for /subreddits/top{top_nth}-th using Redis
-- [ ] add 
+- [ ] deploy API to AWS
  
 
 

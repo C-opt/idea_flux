@@ -151,7 +151,7 @@ class IdeaFluxSubmission:
     def comments2df(
         self,
     ) -> pd.DataFrame:
-        """_summary_
+        """Transforms comments to pandas.DataFrame
 
         Returns:
             pd.DataFrame: _description_
@@ -257,10 +257,10 @@ class DataScraper:
         # password = kwargs.get("password")
 
     def subreddit_routine(self, max_num_submissions=10):
-        """_summary_
+        """Subreddit routine method. It loads submissions from a list of subreddits.
 
         Args:
-            max_num_submissions (int, optional): _description_. Defaults to 10.
+            max_num_submissions (int, optional): maximum number of submissions per subreddit. Defaults to 10.
         """
         already_processed_submission_ids = self.sql_handle.get_column_from_table(
             "submissions", "submission_id"
@@ -286,11 +286,10 @@ class DataScraper:
             self.sql_handle.execute_values(submissions_df, "submissions")
 
     def submission_routine(self, max_num_comments=100):
-        """Submission routine method.
-            1)
+        """Submission routine method. It loads comments from submissions that haven't mined yet.
 
         Args:
-            max_num_comments (int, optional): _description_. Defaults to 100.
+            max_num_comments (int, optional): maximum number of comments to be loaded. Defaults to 100.
         """
         # get submission id that has been created in less than 2 days, and has more than 0 comments
         submission_ids = self.sql_handle.get_column_from_table(

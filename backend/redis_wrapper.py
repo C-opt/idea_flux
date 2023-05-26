@@ -13,7 +13,7 @@ class RedisHashTable:
         self.table_name = table_name
 
     def set(self, key, value):
-        self.logger.info("set: " + key + ", " + value)
+        # self.logger.info("set: " + key + ", " + value)
         self.redis_handle.hset(self.table_name, key, value)
 
     def get(self, key):
@@ -43,17 +43,17 @@ class RedisQueue:
         self.queue_name = queue_name
 
     def enqueue(self, value):
-        self.logger.info("enqueue: " + self.queue_name + ", " + value)
+        # self.logger.debug("enqueue: " + self.queue_name + ", " + value)
         self.redis_handle.rpush(self.queue_name, value)
 
     def dequeue(self):
         value = self.redis_handle.lpop(self.queue_name)
-        self.logger.info("dequeue: " + self.queue_name)
+        # self.logger.debug("dequeue: " + self.queue_name)
         return value
 
     def length(self) -> int:
         qlen = self.redis_handle.llen(self.queue_name)
-        self.logger.info("queue length: " + self.queue_name + ", " + str(qlen))
+        self.logger.debug("queue length: " + self.queue_name + ", " + str(qlen))
         return qlen
 
     def dump_n(self, n: int):
