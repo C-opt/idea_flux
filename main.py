@@ -1,23 +1,23 @@
+import json
 import multiprocessing
 import time
 from datetime import datetime, timedelta
 
 import redis
 import yaml
-from praw import Reddit
 from fastapi import BackgroundTasks, FastAPI, Request
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-
+from praw import Reddit
 
 from app_common import SystemVariables
-from rate_limiter import RateLimiter
 from backend.analyzer import SubmissionsAnalysis
 from backend.miner import DataScraper
 from backend.redis_wrapper import RedisHashTable, RedisQueue
 from backend.sql import SQL
 from backend.utils import gen_reddit, timestamp
+from rate_limiter import RateLimiter
 
 sys_vars = SystemVariables()
 
@@ -59,7 +59,7 @@ def sys_init():
     rate_limiter.add_limiter("get_/subreddits/top-nth", 5, lim_max_token=1200)
     rate_limiter.add_limiter("get_/subreddits/subreddit_name", 5, lim_max_token=1200)
     rate_limiter.add_limiter("post_/subreddits/subreddit_name", 5, lim_max_token=1200)
-    rate_limiter.add_limiter("get_/submissions/submission_id", 5, lim_max_token=1200)
+    rate_limiter.add_limiter("get_/submissions/submission_id", 10, lim_max_token=120)
 
     # bind it to system variables
     sys_vars["sql_handle"] = sql_handle
@@ -258,9 +258,6 @@ async def get_subreddits():
     return sql_handle.get_subreddits()
 
 
-import json
-
-
 @app.get("/subreddits/top{top_nth}-th")
 async def get_topn_submissions(top_nth: int) -> list[dict]:
     """Get the most n-th most engaged posts within a time interval that where loaded into the DB. It uses RedisHashTable for caching the results and updating it every 15 minutes.
@@ -271,15 +268,18 @@ async def get_topn_submissions(top_nth: int) -> list[dict]:
     Returns:
         list[dict]: the list of posts
     """
+    # rate limiter logic
     rate_limiter: RateLimiter = sys_vars["rate_limiter"]
     if not rate_limiter.have_token("get_/subreddits/top-nth"):
         return False
 
+    # retrieve cached results
     result_subreddits_top_nth_table: RedisHashTable = sys_vars[
         "result_subreddits/top-nth"
     ]
     result_subreddits_top_nth: dict = result_subreddits_top_nth_table.get(top_nth)
 
+    # if cached results exist:
     if result_subreddits_top_nth is not None:
         curr_ts: datetime = datetime.strptime(timestamp(), "%Y%m%d%H%M%S%f")
         result_subreddits_top_nth: bytes = result_subreddits_top_nth.decode()

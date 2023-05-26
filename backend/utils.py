@@ -76,6 +76,10 @@ def create_directory(directory: str):
 
 
 def timestamp() -> str:
+    """get current timestamp formatted in string datetime
+    Returns:
+        str: string datetime
+    """
     curr_ts = datetime.now()
     out_string = "{year:04d}{month:02d}{day:02d}{hour:02d}{minute:02d}{second:02d}{micro:06d}".format(
         year=curr_ts.year,
@@ -90,6 +94,14 @@ def timestamp() -> str:
 
 
 def gen_reddit(login: dict) -> praw.Reddit:
+    """generate reddit handle
+
+    Args:
+        login (dict): login details for generating the handle
+
+    Returns:
+        praw.Reddit: reddit handle
+    """
     reddit_handle = praw.Reddit(
         client_id=login.get("client_id"),
         client_secret=login.get("client_secret"),
