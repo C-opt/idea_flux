@@ -1,12 +1,16 @@
 import json
+import logging
 import multiprocessing
 import time
 from datetime import datetime, timedelta
 
+import jinja2
 import redis
 import yaml
-from fastapi import BackgroundTasks, FastAPI, Request
-from fastapi.responses import FileResponse, HTMLResponse
+from fastapi import BackgroundTasks, FastAPI, HTTPException, Request, status
+from fastapi.exceptions import HTTPException as FastAPIHTTPException
+from fastapi.exceptions import RequestValidationError
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from praw import Reddit
@@ -127,6 +131,7 @@ def subreddit_scheduler(wait_time: int):
                 update_timestamp_queue.enqueue(subreddit_name)
                 time.sleep(wait_time)
         except Exception as ex:
+            logging.error(ex)
             raise (ex)
 
 
@@ -193,6 +198,7 @@ def periodic_db_update(
             else:
                 time.sleep(wait_time)
         except Exception as ex:
+            logging.error(ex)
             raise (ex)
 
 
@@ -233,14 +239,17 @@ async def read_item(
     """serve home page"""
     rate_limiter: RateLimiter = sys_vars["rate_limiter"]
     if not rate_limiter.have_token("get_/"):
-        return False
-
-    return templates.TemplateResponse(
-        "index.html",
-        {
-            "request": request,
-        },
-    )
+        return HTMLResponse(status_code=429)
+    try:
+        return templates.TemplateResponse(
+            "index.html",
+            {
+                "request": request,
+            },
+        )
+    except jinja2.exceptions.TemplateNotFound as exp:
+        logging.error(exp)
+        return HTMLResponse(status_code=404)
 
 
 @app.get("/subreddits")
@@ -252,10 +261,14 @@ async def get_subreddits():
     """
     rate_limiter: RateLimiter = sys_vars["rate_limiter"]
     if not rate_limiter.have_token("get_/subreddits/"):
-        return False
+        return HTMLResponse(status_code=429)
 
-    sql_handle: SQL = sys_vars["sql_handle"]
-    return sql_handle.get_subreddits()
+    try:
+        sql_handle: SQL = sys_vars["sql_handle"]
+        return sql_handle.get_subreddits()
+    except jinja2.exceptions.TemplateNotFound as exp:
+        logging.error(exp)
+        return HTMLResponse(status_code=404)
 
 
 @app.get("/subreddits/top{top_nth}-th")
@@ -271,45 +284,57 @@ async def get_topn_submissions(top_nth: int) -> list[dict]:
     # rate limiter logic
     rate_limiter: RateLimiter = sys_vars["rate_limiter"]
     if not rate_limiter.have_token("get_/subreddits/top-nth"):
-        return False
+        return HTMLResponse(status_code=429)
 
-    # retrieve cached results
-    result_subreddits_top_nth_table: RedisHashTable = sys_vars[
-        "result_subreddits/top-nth"
-    ]
-    result_subreddits_top_nth: dict = result_subreddits_top_nth_table.get(top_nth)
+    try:
+        # retrieve cached results
+        result_subreddits_top_nth_table: RedisHashTable = sys_vars[
+            "result_subreddits/top-nth"
+        ]
+        result_subreddits_top_nth: dict = result_subreddits_top_nth_table.get(top_nth)
+    except jinja2.exceptions.TemplateNotFound as exp:
+        logging.error(exp)
+        return HTMLResponse(status_code=404)
 
     # if cached results exist:
     if result_subreddits_top_nth is not None:
-        curr_ts: datetime = datetime.strptime(timestamp(), "%Y%m%d%H%M%S%f")
-        result_subreddits_top_nth: bytes = result_subreddits_top_nth.decode()
-        result_subreddits_top_nth: dict = json.loads(result_subreddits_top_nth)
+        try:
+            curr_ts: datetime = datetime.strptime(timestamp(), "%Y%m%d%H%M%S%f")
+            result_subreddits_top_nth: bytes = result_subreddits_top_nth.decode()
+            result_subreddits_top_nth: dict = json.loads(result_subreddits_top_nth)
 
-        last_ts = result_subreddits_top_nth.get("timestamp")
-        last_ts = datetime.strptime(last_ts, "%Y%m%d%H%M%S%f")
+            last_ts = result_subreddits_top_nth.get("timestamp")
+            last_ts = datetime.strptime(last_ts, "%Y%m%d%H%M%S%f")
 
-        if curr_ts - last_ts > timedelta(seconds=15 * 60 * 60):
-            res = compute_topn_submissions(top_nth)
-            curr_ts = timestamp()  # str
-            _tmp_str = json.dumps({"result": res, "timestamp": curr_ts})
-            result_subreddits_top_nth_table.set(top_nth, _tmp_str)
-            return res
-        else:
-            res = result_subreddits_top_nth.get("result")
-            return res
+            if curr_ts - last_ts > timedelta(seconds=15 * 60):
+                res = compute_topn_submissions(top_nth)
+                curr_ts = timestamp()  # str
+                _tmp_str = json.dumps({"result": res, "timestamp": curr_ts})
+                result_subreddits_top_nth_table.set(top_nth, _tmp_str)
+                return res
+            else:
+                res = result_subreddits_top_nth.get("result")
+                return res
+        except jinja2.exceptions.TemplateNotFound as exp:
+            logging.error(exp)
+            return HTMLResponse(status_code=404)
 
     else:
-        res = compute_topn_submissions(top_nth)
-        curr_ts = timestamp()
+        try:
+            res = compute_topn_submissions(top_nth)
+            curr_ts = timestamp()
 
-        _tmp_str = json.dumps({"result": res, "timestamp": curr_ts})
+            _tmp_str = json.dumps({"result": res, "timestamp": curr_ts})
 
-        # print(result_subreddits_top_nth)
-        # print(type(_tmp_dict))
+            # print(result_subreddits_top_nth)
+            # print(type(_tmp_dict))
 
-        # print()
-        result_subreddits_top_nth_table.set(top_nth, _tmp_str)
-        return res
+            # print()
+            result_subreddits_top_nth_table.set(top_nth, _tmp_str)
+            return res
+        except jinja2.exceptions.TemplateNotFound as exp:
+            logging.error(exp)
+            return HTMLResponse(status_code=404)
 
 
 def compute_topn_submissions(top_nth: int, interval: str = "2 day"):
@@ -338,6 +363,7 @@ def compute_topn_submissions(top_nth: int, interval: str = "2 day"):
             "ua_rank": s_info[12],  # ua_rank translates into user activity rank
         }
         res.append(datum)
+    print("compute top-nth submissions: done")
     return res
 
 
@@ -353,28 +379,32 @@ async def get_submissions(subreddit_name: str) -> list[dict]:
     """
     rate_limiter: RateLimiter = sys_vars["rate_limiter"]
     if not rate_limiter.have_token("get_/subreddits/subreddit_name"):
-        return False
+        return HTMLResponse(status_code=429)
 
-    sql_handle: SQL = sys_vars["sql_handle"]
-    submissions_info = sql_handle.get_submissions(subreddit_name)
-    res = []
+    try:
+        sql_handle: SQL = sys_vars["sql_handle"]
+        submissions_info = sql_handle.get_submissions(subreddit_name)
+        res = []
 
-    for s_info in submissions_info:
-        datum = {
-            "submission_id": s_info[0],
-            "comments_num": s_info[1],
-            "score": s_info[2],
-            "subreddit_id": s_info[3],
-            "subreddit_display_name": s_info[4],
-            "title": s_info[5],
-            "created": s_info[6],
-            "url": s_info[7],
-            "body": s_info[8],
-            "user_engagement": s_info[10],
-            "spine_body": s_info[11],
-        }
-        res.append(datum)
-    return res
+        for s_info in submissions_info:
+            datum = {
+                "submission_id": s_info[0],
+                "comments_num": s_info[1],
+                "score": s_info[2],
+                "subreddit_id": s_info[3],
+                "subreddit_display_name": s_info[4],
+                "title": s_info[5],
+                "created": s_info[6],
+                "url": s_info[7],
+                "body": s_info[8],
+                "user_engagement": s_info[10],
+                "spine_body": s_info[11],
+            }
+            res.append(datum)
+        return res
+    except jinja2.exceptions.TemplateNotFound as exp:
+        logging.error(exp)
+        return HTMLResponse(status_code=404)
 
 
 @app.post("/subreddits/{subreddit_name}")
@@ -391,14 +421,15 @@ async def update_submissions(
     """
     rate_limiter: RateLimiter = sys_vars["rate_limiter"]
     if not rate_limiter.have_token("post_/subreddits/subreddit_name"):
-        return False
+        return HTMLResponse(status_code=429)
 
     update_timestamp_queue: RedisQueue = sys_vars["subs_update_schedule_queue"]
     try:
         update_timestamp_queue.enqueue(subreddit_name)
-    except Exception as ex:
-        raise (ex)
-    return True
+        return HTMLResponse(status_code=200)
+    except jinja2.exceptions.TemplateNotFound as exp:
+        logging.error(exp)
+        return HTMLResponse(status_code=404)
 
 
 @app.get("/submissions/{submission_id}")
@@ -413,18 +444,61 @@ async def get_comments(submission_id: str) -> list[dict]:
     """
     rate_limiter: RateLimiter = sys_vars["rate_limiter"]
     if not rate_limiter.have_token("get_/submissions/submission_id"):
-        return False
+        return HTMLResponse(status_code=429)
 
-    sql_handle: SQL = sys_vars["sql_handle"]
-    comments_info = sql_handle.get_comments(submission_id)
+    try:
+        sql_handle: SQL = sys_vars["sql_handle"]
+        comments_info = sql_handle.get_comments(submission_id)
 
-    res = []
-    for c_info in comments_info:
-        datum = {
-            "comment_id": c_info[0],
-            "parent_id": c_info[1],
-            "submission_id": c_info[2],
-            "body": c_info[3],
-        }
-        res.append(datum)
-    return res
+        res = []
+        for c_info in comments_info:
+            datum = {
+                "comment_id": c_info[0],
+                "parent_id": c_info[1],
+                "submission_id": c_info[2],
+                "body": c_info[3],
+            }
+            res.append(datum)
+        return res
+    except jinja2.exceptions.TemplateNotFound as exp:
+        logging.error(exp)
+        return HTMLResponse(status_code=404)
+
+
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request, exc):
+    logging.error(f"422 Unprocessable entity: {exc}")
+    return JSONResponse(
+        status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+        content={"detail": exc.errors()},
+    )
+
+
+@app.exception_handler(FastAPIHTTPException)
+async def fastapi_http_exception_handler(request, exc):
+    logging.info(f"{exc.status_code} {exc.detail}")
+    return JSONResponse(status_code=exc.status_code, content={"detail": exc.detail})
+
+
+# error handler for HTTPException
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request, exc):
+    # output error log
+    logging.info(f"{exc.status_code} {exc.detail}")
+    # error message as a JSON response
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={"detail": exc.detail},
+    )
+
+
+# error handler for exception
+@app.exception_handler(Exception)
+async def generic_exception_handler(request, exc):
+    # output error log
+    logging.info(f"500 Internal Server Error: {exc}")
+    # error message as a JSON response
+    return JSONResponse(
+        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+        content={"detail": "Internal Server Error"},
+    )
